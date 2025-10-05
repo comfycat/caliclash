@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2h5xa3ia17jh"]
+[gd_scene load_steps=3 format=3 uid="uid://c2h5xa3ia17jh"]
 
+[ext_resource type="Script" uid="uid://dep3oi0d8aqq3" path="res://scenes/tutorial_scene.gd" id="1_jelwi"]
 [ext_resource type="Texture2D" uid="uid://bjijlyq3gaewr" path="res://assets/backgrounds/candy-corn.jpg" id="1_tr4y6"]
 
 [node name="tutorial_scene" type="Node2D"]
+script = ExtResource("1_jelwi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
+position = Vector2(1036.9999, 611.99994)
+rotation = 0.51836276
 texture = ExtResource("1_tr4y6")

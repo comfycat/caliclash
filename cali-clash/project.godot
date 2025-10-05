@@ -21,14 +21,19 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"chocolate": "res://dialogues/characters/chocolate.dch"
+}
+directories/dtl_directory={
+"tutorial": "res://dialogues/timelines/tutorial.dtl"
+}
 layout/style_directory={
 "VisualNovelDialogueStyle": "res://visual_novel_dialogue_style.tres"
 }
 layout/style_list=["res://visual_novel_dialogue_style.tres"]
 layout/default_style="res://VisualNovelDialogueStyle.tres"
 glossary/default_case_sensitive=true
+variables={}
 
 [editor_plugins]
 
