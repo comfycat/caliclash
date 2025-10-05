@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2h5xa3ia17jh"]
+
+[ext_resource type="Texture2D" uid="uid://bjijlyq3gaewr" path="res://assets/backgrounds/candy-corn.jpg" id="1_tr4y6"]
+
+[node name="tutorial_scene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tr4y6")
