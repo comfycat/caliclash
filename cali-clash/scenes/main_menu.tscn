@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://btt2fekwnu034"]
+
+[ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bjijlyq3gaewr" path="res://assets/backgrounds/candy-corn.jpg" id="1_l6cm7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
+texture = ExtResource("1_l6cm7")
+modulate_color = Color(0.583047, 0.583047, 0.5830469, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="GDScript" id="GDScript_bqqt6"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func on_start_button_pressed() -> void:
+	print(\"Start game pressed\")
+	# get_tree().change_scene_to_file()
+
+func on_options_button_pressed() -> void:
+	print(\"Options pressed\")
+
+func on_credits_button_pressed() -> void:
+	print(\"Credits pressed\")
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -166.0
+offset_right = 399.0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Start Game"
+script = SubResource("GDScript_bqqt6")
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Credits
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -263.0
+offset_top = 42.0
+offset_right = 257.0
+offset_bottom = 319.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "CaliClash 
+Game Jam "
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="MarginContainer/VBoxContainer/StartButton" method="on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="MarginContainer/VBoxContainer/StartButton" method="on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="MarginContainer/VBoxContainer/StartButton" method="on_credits_button_pressed"]
