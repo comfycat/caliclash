@@ -8,3 +8,4 @@ chocolate: it doesn't hurt my feelings at all.
 - that's not true
 	chocolate: \:(
 	[signal arg="chocolate_sad"]
+[signal arg="tutorial_battle"]

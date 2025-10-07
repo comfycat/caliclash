@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=10 format=3 uid="uid://dvwj6yeqi4ta0"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_udjdo"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_1xeu2"]
+[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_rb81t"]
+[ext_resource type="PackedScene" path="res://dialogues/styles/CenteredChoices/custom_centered_choices.tscn" id="3_rb81t"]
+[ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="4_uamem"]
+
+[sub_resource type="Resource" id="Resource_rb81t"]
+script = ExtResource("1_udjdo")
+overrides = {
+"follow_viewport": "true",
+"global_font_size": "100.0"
+}
+
+[sub_resource type="Resource" id="Resource_uamem"]
+script = ExtResource("1_udjdo")
+scene = ExtResource("2_rb81t")
+
+[sub_resource type="Resource" id="Resource_dsj17"]
+script = ExtResource("1_udjdo")
+scene = ExtResource("3_rb81t")
+
+[sub_resource type="Resource" id="Resource_b2hom"]
+script = ExtResource("1_udjdo")
+scene = ExtResource("4_uamem")
+
+[resource]
+script = ExtResource("2_1xeu2")
+name = "battle_style"
+layer_list = Array[String](["10", "12", "11"])
+layer_info = {
+"": SubResource("Resource_rb81t"),
+"10": SubResource("Resource_uamem"),
+"11": SubResource("Resource_dsj17"),
+"12": SubResource("Resource_b2hom")
+}
+metadata/_latest_layer = "12"
