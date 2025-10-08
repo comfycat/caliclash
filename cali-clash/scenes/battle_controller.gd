@@ -66,7 +66,7 @@ func _on_choice_selected(choice_id: String) -> void:
 		_dialogic_set_var("reaction_end", end_text)
 		var candy_gain = int(persuasion_bar.value / 10)
 		candy_count += candy_gain
-		candy_label.text = "Candies: %d" % candy_count
+		candy_label.text = "%d" % candy_count
 		print("Converted persuasion into ", candy_count, " candies.")
 	else:
 		round_counter += 1
