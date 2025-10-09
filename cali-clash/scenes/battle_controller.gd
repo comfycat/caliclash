@@ -7,7 +7,6 @@ extends Node
 @onready var candy_label: Label = $"../UI/CandyLabel"
 
 var persuasion_score := 0
-var candy_count := 0
 var round_counter := 1
 var friend_boosts = {  # Dictionary is updated as Friends & their attributes are defined
 	"Knowledge": 0.10,
@@ -64,9 +63,9 @@ func _on_choice_selected(choice_id: String) -> void:
 			end_text = "You didn’t convince them this time."
 		_dialogic_set_var("reaction_end", end_text)
 		var candy_gain = int(persuasion_bar.value / 10)
-		candy_count += candy_gain
-		candy_label.text = "%d" % candy_count
-		print("Converted persuasion into ", candy_count, " candies.")
+		GameManager.candy += candy_gain
+		candy_label.text = "%d" % GameManager.candy
+		print("Converted persuasion into ", GameManager.candy, " candies.")
 	else:
 		round_counter += 1
 		round_label.text = "%d/3" % round_counter
