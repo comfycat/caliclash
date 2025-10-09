@@ -34,7 +34,6 @@ func _ready():
 	else:
 		push_error("Dialogic signal_event not found.")
 
-	Dialogic.start("battle_test")
 
 func _on_dialogic_signal(event_name: String):
 	if event_name == "choice_made":
