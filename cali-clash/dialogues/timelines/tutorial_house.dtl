@@ -1,0 +1,97 @@
+[style name="VisualNovelDialogueStyle"]
+[i]You walk up to the quaint but run down house and slowly make your way to the door[/i]
+*Ding Dong*
+[i]The door slowly opens and you see a small grey snout peeking out[/i]
+
+MC: “Trick or treat?...”
+
+[i]The door flies open and you see a very strange sight[/i]
+[i]What looks like a wolf dressed in…[/i]
+[i]A pink nightgown?[/i]
+
+join graham (default) center
+
+graham: “Hello and good evening!”
+graham: “Welcome to my very humble abode!”
+
+join graham (happy) center
+
+[i]You look up and down the house[/i]
+[i]It doesn’t look very humble to you[/i]
+[i]You look back at graham Wolf[/i]
+
+MC: “I… like your costume?...”
+
+join graham (default) center
+
+graham: “Costume?”
+graham: “Oh you mean this silly thing”
+
+[i]He points to the nightgown[/i]
+
+join graham (happy) center
+
+graham: “No no this is just my nightly dress now, I’m getting a little old you see”
+
+MC: “Um.. okay?...”
+MC: “Do you have any candy?”
+
+[i]The graham Wolf wags his finger at you in protest[/i]
+
+join graham (default) center
+
+graham: “No no no little one that’s not how you do that”
+graham: “Let me explain”
+
+
+graham: “On this street you have to convince each household to give you candy”
+graham: “You see the top right of your screen?”
+graham: “That shows how convinced we are that you deserve candy”
+graham: “The more this bar fills up, the more candy we will give you”
+graham: “Isn’t that nice!”
+
+MC: (That is pretty nice)
+
+graham: “Now you’re probably wondering how to fill up that bar now huh”
+graham: “Don’t get ahead of yourself little one”
+graham: “To convince us on (Figure out street name) you’ll have to choose what you think will please us most!”
+graham: “Every one of us is swayed by something different, so be sure to do your research before you jump in”
+graham: “There are 4 different means of persuasion; Intimidation, Friendliness, Knowledge, and Comedy”
+
+[i]You hear a meow come from inside the house[/i]
+
+graham: “Oh I forgot about this little guy”
+graham: “Here, you take care of him for now”
+
+[i]He hands you a small tuxedo cat, you feel a sense of peace wash over you[/i]
+
+graham: “He seems to like you, he never purrs that way with me”
+graham: “Now back to the subject”
+graham: “I want you to try and convince me to give you some candy”
+
+#ROUND START
+graham: “Don’t worry about choosing the wrong answer, you’ve already convinced me you deserve some”
+
+[signal arg="battle_ui"]
+
+- What a large head you have!
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+- Just put my candy in the bag…
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+- What great fur you have!
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+- What sharp teeth you have!
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+
+[b]Persuasion +100%[/b]
+
+graham: “Well done!”
+graham: “It seems like my little kitty has given you some help I did not expect”
+graham: “You can take him with you while you’re trick or treating, he might come in handy”
+graham: “Hurry off now before it gets too late”
+
+[signal arg="return_menu"]

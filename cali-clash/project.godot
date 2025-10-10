@@ -23,11 +23,14 @@ GameManager="*res://game_manager.gd"
 [dialogic]
 
 directories/dch_directory={
-"chocolate": "res://dialogues/characters/chocolate.dch"
+"chocolate": "res://dialogues/characters/chocolate.dch",
+"graham": "res://dialogues/characters/graham.dch"
 }
 directories/dtl_directory={
 "battle_test": "res://dialogues/timelines/battle_test.dtl",
-"tutorial": "res://dialogues/timelines/tutorial.dtl"
+"comedy_house": "res://dialogues/timelines/comedy_house.dtl",
+"tutorial": "res://dialogues/timelines/tutorial.dtl",
+"tutorial_house": "res://dialogues/timelines/tutorial_house.dtl"
 }
 layout/style_directory={
 "VisualNovelDialogueStyle": "res://visual_novel_dialogue_style.tres",
@@ -42,7 +45,8 @@ variables={
 "reaction_2": "",
 "reaction_3": "",
 "reaction_4": "",
-"reaction_end": ""
+"reaction_end": "",
+"round_num": 0
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://byvjr2xhrb8cg"]
+
+[ext_resource type="Script" uid="uid://djo1bowhvdqpv" path="res://scenes/play.gd" id="1_8r3iy"]
+
+[node name="Play" type="Node2D"]
+script = ExtResource("1_8r3iy")
+
+[node name="CandyLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
