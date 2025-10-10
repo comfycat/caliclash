@@ -3,6 +3,7 @@ join chocolate center
 
 chocolate: Oh? Such a cute little kiddo.
 chocolate: What are you here for, boy?
+[signal arg="battle_ui"]
 
 # ROUND 1
 - Try a bargain

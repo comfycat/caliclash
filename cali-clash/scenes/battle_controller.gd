@@ -38,6 +38,9 @@ func _on_dialogic_signal(event_name: String):
 	if event_name == "choice_made":
 		var choice_id = Dialogic.VAR.get_variable("choice_id")
 		_on_choice_selected(choice_id)
+	if event_name == "battle_ui":
+		get_tree().change_scene_to_file("res://scenes/battle.tscn")
+
 
 func rank_to_value(rank: int) -> int:
 	match rank:
