@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu4otwe2qa8db"
-path="res://.godot/imported/sparkles-pink.webp-8e1be3221e2548d01d89c2c36c995856.ctex"
+uid="uid://b7v7yuua3pvhl"
+path="res://.godot/imported/sparkles-purple.webp-9d6b956a27fd50c684996ec276438683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/sparkles-pink.webp"
-dest_files=["res://.godot/imported/sparkles-pink.webp-8e1be3221e2548d01d89c2c36c995856.ctex"]
+source_file="res://assets/ui/battle_scene/sparkles-purple.webp"
+dest_files=["res://.godot/imported/sparkles-purple.webp-9d6b956a27fd50c684996ec276438683.ctex"]
 
 [params]
 

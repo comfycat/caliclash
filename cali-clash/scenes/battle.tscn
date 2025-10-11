@@ -1,10 +1,10 @@
 [gd_scene load_steps=31 format=3 uid="uid://cxaa7ypletuvo"]
 
-[ext_resource type="Texture2D" uid="uid://cun4vk1i0dfal" path="res://assets/ui/sparkles-blue.webp" id="1_lpir7"]
-[ext_resource type="Texture2D" uid="uid://d0equrhan155e" path="res://assets/ui/sparkles-yellow.webp" id="2_6vh42"]
+[ext_resource type="Texture2D" uid="uid://cun4vk1i0dfal" path="res://assets/ui/battle_scene/sparkles-blue.webp" id="1_lpir7"]
+[ext_resource type="Texture2D" uid="uid://d0equrhan155e" path="res://assets/ui/battle_scene/sparkles-yellow.webp" id="2_6vh42"]
 [ext_resource type="Script" uid="uid://b4aer4pptxs1i" path="res://scenes/battle_controller.gd" id="2_th188"]
-[ext_resource type="Texture2D" uid="uid://bu4otwe2qa8db" path="res://assets/ui/sparkles-pink.webp" id="3_4k1nj"]
-[ext_resource type="Texture2D" uid="uid://b7v7yuua3pvhl" path="res://assets/ui/sparkles-purple.webp" id="4_f4pi3"]
+[ext_resource type="Texture2D" uid="uid://bu4otwe2qa8db" path="res://assets/ui/battle_scene/sparkles-pink.webp" id="3_4k1nj"]
+[ext_resource type="Texture2D" uid="uid://b7v7yuua3pvhl" path="res://assets/ui/battle_scene/sparkles-purple.webp" id="4_f4pi3"]
 
 [sub_resource type="GDScript" id="GDScript_p1qf1"]
 

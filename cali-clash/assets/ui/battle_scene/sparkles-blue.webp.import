@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckh0hs5h640vl"
-path="res://.godot/imported/sparkles-spritesheet-yellow.png-a9b952df54e5bb5a812aa9235e88fe78.ctex"
+uid="uid://cun4vk1i0dfal"
+path="res://.godot/imported/sparkles-blue.webp-96a3cb43ca60084001057f71139d8cbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/sparkles-spritesheet-yellow.png"
-dest_files=["res://.godot/imported/sparkles-spritesheet-yellow.png-a9b952df54e5bb5a812aa9235e88fe78.ctex"]
+source_file="res://assets/ui/battle_scene/sparkles-blue.webp"
+dest_files=["res://.godot/imported/sparkles-blue.webp-96a3cb43ca60084001057f71139d8cbe.ctex"]
 
 [params]
 

@@ -1,11 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://btt2fekwnu034"]
+[gd_scene load_steps=11 format=3 uid="uid://btt2fekwnu034"]
 
 [ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bjijlyq3gaewr" path="res://assets/backgrounds/candy-corn.jpg" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bej2n2kbomu2r" path="res://assets/ui/main_menu/pumpkin-canvas.webp" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://cogvwhd2sv2pt" path="res://assets/ui/main_menu/play_shape.png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://0u0smvaeledh" path="res://assets/ui/main_menu/options_shape.png" id="5_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://duk8ttsgleu7p" path="res://assets/ui/main_menu/credits_shape.png" id="6_jk1qb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
 texture = ExtResource("1_l6cm7")
 modulate_color = Color(0.583047, 0.583047, 0.5830469, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dd4i"]
+texture = ExtResource("3_rtw2f")
+
+[sub_resource type="GDScript" id="GDScript_bqqt6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 bg_color = Color(1, 1, 1, 1)
@@ -13,10 +22,6 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-
-[sub_resource type="GDScript" id="GDScript_bqqt6"]
-script/source = "extends Button
-"
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -37,70 +42,84 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -166.0
-offset_right = 399.0
-grow_vertical = 0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="CanvasLayer" type="CanvasLayer" parent="MarginContainer"]
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5dd4i")
+
+[node name="StartButton" type="TextureButton" parent="MarginContainer/CanvasLayer"]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
-text = "Start Game"
+offset_left = 197.0
+offset_top = 532.0
+offset_right = 503.8261
+offset_bottom = 717.2174
+scale = Vector2(1.2, 1.2)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("4_oa1go")
 script = SubResource("GDScript_bqqt6")
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="OptionsButton" type="TextureButton" parent="MarginContainer/CanvasLayer"]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
-text = "Options"
+offset_left = 93.0
+offset_top = 786.00006
+offset_right = 554.6666
+offset_bottom = 965.16675
+scale = Vector2(1.25, 1.25)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("5_tbmy8")
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="CreditsButton" type="TextureButton" parent="MarginContainer/CanvasLayer"]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
-text = "Credits
-"
+offset_left = 631.99994
+offset_top = 749.0
+offset_right = 892.99994
+offset_bottom = 958.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("6_jk1qb")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -263.0
-offset_top = 42.0
-offset_right = 257.0
-offset_bottom = 319.0
+offset_left = 334.0
+offset_top = 83.0
+offset_right = 854.0
+offset_bottom = 360.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 100
 text = "CaliClash 
 Game Jam "
 
 [node name="Control" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 1528.0
 offset_top = 691.0
 offset_right = 1895.0
 offset_bottom = 825.0
+mouse_filter = 2
 
 [node name="TutorialButton" type="Button" parent="Control"]
 unique_name_in_owner = true
@@ -179,12 +198,12 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 text = "Start Final"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="MarginContainer/VBoxContainer/StartButton" method="on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="MarginContainer/VBoxContainer/StartButton" method="on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="MarginContainer/VBoxContainer/StartButton" method="on_credits_button_pressed"]
-[connection signal="pressed" from="Control/TutorialButton" to="." method="_on_comedy_button_pressed"]
+[connection signal="pressed" from="MarginContainer/CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/CanvasLayer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/CanvasLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Control/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Control/ComedyButton" to="." method="_on_comedy_button_pressed"]
-[connection signal="pressed" from="Control/KnowledgeButton" to="." method="_on_comedy_button_pressed"]
-[connection signal="pressed" from="Control/FriendlinessButton" to="." method="_on_comedy_button_pressed"]
-[connection signal="pressed" from="Control/IntimidationButton" to="." method="_on_comedy_button_pressed"]
+[connection signal="pressed" from="Control/KnowledgeButton" to="." method="_on_knowledge_button_pressed"]
+[connection signal="pressed" from="Control/FriendlinessButton" to="." method="_on_friendliness_button_pressed"]
+[connection signal="pressed" from="Control/IntimidationButton" to="." method="_on_intimidation_button_pressed"]
 [connection signal="pressed" from="Control/FinalButton" to="." method="_on_final_button_pressed"]
