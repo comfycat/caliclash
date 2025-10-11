@@ -55,6 +55,7 @@ theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MarginContainer"]
+visible = false
 
 [node name="Panel" type="Panel" parent="MarginContainer/CanvasLayer"]
 anchors_preset = 15
@@ -113,7 +114,6 @@ text = "CaliClash
 Game Jam "
 
 [node name="Control" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = 1528.0
 offset_top = 691.0

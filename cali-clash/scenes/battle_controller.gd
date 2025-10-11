@@ -167,20 +167,23 @@ func _finalize_battle_and_exit() -> void:
 	var hid := String(GameManager.current_battle_data.get("house_id",""))
 	if hid == "final_house":
 		_go_to_ending()
-	else:
-		get_tree().change_scene_to_file("res://scenes/map.tscn") # placeholder until map exists
 
 func _calculate_gain(choice_id: String, round_i: int) -> int:
-	var rank := int(dialogue_rankings.get(round_i, {}).get(choice_id, 1))
+	var house_id := String(GameManager.current_battle_data.get("house_id", "default"))
+	var rankings = GameManager.get_dialogue_ranking(house_id, round_i)
+	var rank := int(rankings.get(choice_id, 1))
+
 	var base := _rank_to_value(rank)
 	var tag := _choice_to_tag(choice_id)
 	var boost := 0.0
-	var house_id := String(GameManager.current_battle_data.get("house_id", ""))
+
 	if house_id == "tutorial_house":
 		return 100
+
 	var no_boosts := bool(GameManager.current_battle_data.get("no_boosts", false))
 	if not no_boosts:
 		boost = GameManager.get_total_boost(tag)
+
 	return int(round(base * (1.0 + boost)))
 
 

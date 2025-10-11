@@ -75,6 +75,30 @@ var HOUSES := {
 	}
 }
 
+### -- Dialogue Ranking ----
+var dialogue_rankings_by_house := {
+	"tutorial_house": {
+		1: {"A": 4, "B": 3, "C": 2, "D": 1}
+	},
+	"comedy_house": {
+		1: {"A": 2, "B": 4, "C": 1, "D": 3},
+		2: {"A": 4, "B": 1, "C": 2, "D": 3},
+		3: {"A": 3, "B": 2, "C": 1, "D": 4}
+	},
+	"final_house": {
+		1: {"A": 2, "B": 1, "C": 4, "D": 3},
+		4: {"A": 3, "B": 4, "C": 1, "D": 2}
+	},
+	"default": {
+		1: {"A": 4, "B": 2, "C": 3, "D": 1},
+		2: {"A": 1, "B": 4, "C": 3, "D": 2},
+		3: {"A": 2, "B": 3, "C": 4, "D": 1},
+	}
+}
+
+func get_dialogue_ranking(house_id: String, round_i: int) -> Dictionary:
+	var house_rankings = dialogue_rankings_by_house.get(house_id, dialogue_rankings_by_house["default"])
+	return house_rankings.get(round_i, {})
 
 func start_battle(house_id: String) -> void:
 	var cfg: Dictionary = HOUSES.get(house_id, {})
