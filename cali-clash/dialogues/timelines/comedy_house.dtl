@@ -1,6 +1,7 @@
 [style name="VisualNovelDialogueStyle"]
 join chocolate left
 join graham right
+audio "res://assets/sfx/blipSelect.wav"
 
 chocolate: Knock knock
 graham: who is there?

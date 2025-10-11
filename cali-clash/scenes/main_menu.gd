@@ -10,6 +10,9 @@ extends Control
 @onready var start_intimidation_btn: Button  = %IntimidationButton
 @onready var start_final_btn: Button		 = %FinalButton
 
+@onready var options: Panel = $Options
+@onready var main_buttons: CanvasLayer = $MarginContainer/MainButtons
+
 func _ready() -> void:
 	# Quick visibility & input sanity checks
 	print("MainMenu ready. hasTree=", get_tree() != null)
@@ -27,6 +30,9 @@ func _ready() -> void:
 	_wire_btn(start_friendliness_btn, _on_friendliness_button_pressed, "FriendlinessButton")
 	_wire_btn(start_intimidation_btn, _on_intimidation_button_pressed, "IntimidationButton")
 	_wire_btn(start_final_btn, _on_final_button_pressed, "FinalButton")
+	
+	main_buttons.visible = true
+	options.visible = false
 
 
 	# Quick visibility & input sanity checks
@@ -71,6 +77,11 @@ func _on_final_button_pressed() -> void:
 func _on_start_button_pressed() -> void:
 	print("start pressed")
 func _on_options_button_pressed() -> void:
+	main_buttons.visible = false
+	options.visible = true
 	print("options pressed")
 func _on_credits_button_pressed() -> void:
 	print("credits pressed")
+
+func _on_back_button_pressed() -> void:
+	_ready()
