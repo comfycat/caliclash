@@ -25,14 +25,16 @@ curve_z = SubResource("Curve_xlwpo")
 [node name="Neighborhood" type="Node2D"]
 script = ExtResource("1_nrakx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Panel" type="Panel" parent="."]
 offset_left = -6.1035156e-05
 offset_right = 39.99994
 offset_bottom = 40.0
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.2, 0.2)
+
 [node name="Neighborhood" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
 texture = ExtResource("1_ejhqo")
 
 [node name="PlayerHouse" type="Area2D" parent="Neighborhood"]
@@ -142,6 +144,78 @@ offset_bottom = 30.0
 scale = Vector2(0.5, 0.50000006)
 texture = SubResource("CurveXYZTexture_fyy05")
 expand_mode = 1
+
+[node name="PlayerHouseLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -4180.0
+offset_top = -550.0
+offset_right = -2623.0
+offset_bottom = -208.0
+theme_override_font_sizes/normal_font_size = 250
+text = "player house"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="WitchHouseLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -788.0
+offset_top = -550.0
+offset_right = 769.0
+offset_bottom = -208.0
+theme_override_font_sizes/normal_font_size = 250
+text = "witch house"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MummyHouseLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 2203.0
+offset_top = -528.0
+offset_right = 4014.0
+offset_bottom = -186.0
+theme_override_font_sizes/normal_font_size = 250
+text = "mummy house"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ScarecrowHouseLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -4569.0
+offset_top = 206.0
+offset_right = -2537.0
+offset_bottom = 548.0
+theme_override_font_sizes/normal_font_size = 250
+text = "scarecrow house"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="VampireHouseLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -977.0
+offset_top = 195.0
+offset_right = 819.0
+offset_bottom = 537.0
+theme_override_font_sizes/normal_font_size = 250
+text = "vampire house"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MonsterHouseLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 1814.0
+offset_top = 184.0
+offset_right = 4493.0
+offset_bottom = 526.0
+theme_override_font_sizes/normal_font_size = 250
+text = "monster house (scary)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
 [connection signal="input_event" from="Neighborhood/PlayerHouse" to="." method="_on_player_house_input_event"]

@@ -8,6 +8,12 @@ var selected_house
 @onready var scarecrow_texture = $Neighborhood/ScarecrowHouse/TextureRect
 @onready var vampire_texture = $Neighborhood/VampireHouse/TextureRect
 @onready var monster_texture = $Neighborhood/MonsterHouse/TextureRect
+@onready var player_label = $PlayerHouseLabel
+@onready var witch_label = $WitchHouseLabel
+@onready var mummy_label = $MummyHouseLabel
+@onready var scarecrow_label = $ScarecrowHouseLabel
+@onready var vampire_label = $VampireHouseLabel
+@onready var monster_label = $MonsterHouseLabel
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 		if event is InputEventMouseButton:
@@ -19,12 +25,14 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 func _on_player_house_mouse_entered() -> void:
 	selected_house = "player_house"
 	player_texture.visible = true
+	player_label.visible = true
 	print(selected_house)	
 	pass # Replace with function body.
 
 func _on_player_house_mouse_exited() -> void:
 	selected_house = "no_house"
 	player_texture.visible = false
+	player_label.visible = false
 	print(selected_house)
 	pass # Replace with function body.
 	
@@ -37,12 +45,14 @@ func _on_player_house_input_event(viewport: Node, event: InputEvent, shape_idx: 
 func _on_witch_house_mouse_entered() -> void:
 	selected_house = "witch_house"
 	witch_texture.visible = true
+	witch_label.visible = true
 	print(selected_house)
 	pass # Replace with function body.
 
 func _on_witch_house_mouse_exited() -> void:
 	selected_house = "no_house"
 	witch_texture.visible = false
+	witch_label.visible = false
 	print(selected_house)
 	pass # Replace with function body.
 
@@ -55,12 +65,14 @@ func _on_witch_house_input_event(viewport: Node, event: InputEvent, shape_idx: i
 func _on_mummy_house_mouse_entered() -> void:
 	selected_house = "mummy_house"
 	mummy_texture.visible = true
+	mummy_label.visible = true
 	print(selected_house)
 	pass # Replace with function body.
 
 func _on_mummy_house_mouse_exited() -> void:
 	selected_house = "no_house"
 	mummy_texture.visible = false
+	mummy_label.visible = false
 	print(selected_house)
 	pass # Replace with function body.
 
@@ -73,12 +85,14 @@ func _on_mummy_house_input_event(viewport: Node, event: InputEvent, shape_idx: i
 func _on_scarecrow_house_mouse_entered() -> void:
 	selected_house = "scarecrow_house"
 	scarecrow_texture.visible = true
+	scarecrow_label.visible = true
 	print(selected_house)
 	pass # Replace with function body.
 
 func _on_scarecrow_house_mouse_exited() -> void:
 	selected_house = "no_house"
 	scarecrow_texture.visible = false
+	scarecrow_label.visible = false
 	print(selected_house)
 	pass # Replace with function body.
 
@@ -91,12 +105,14 @@ func _on_scarecrow_house_input_event(viewport: Node, event: InputEvent, shape_id
 func _on_vampire_house_mouse_entered() -> void:
 	selected_house = "vampire_house"
 	vampire_texture.visible = true
+	vampire_label.visible = true
 	print(selected_house)
 	pass # Replace with function body.
 
 func _on_vampire_house_mouse_exited() -> void:
 	selected_house = "no_house"
 	vampire_texture.visible = false
+	vampire_label.visible = false
 	print(selected_house)
 	pass # Replace with function body.
 
@@ -109,12 +125,14 @@ func _on_vampire_house_input_event(viewport: Node, event: InputEvent, shape_idx:
 func _on_monster_house_mouse_entered() -> void:
 	selected_house = "monster_house"
 	monster_texture.visible = true
+	monster_label.visible = true
 	print(selected_house)
 	pass # Replace with function body.
 
 func _on_monster_house_mouse_exited() -> void:
 	selected_house = "no_house"
 	monster_texture.visible = false
+	monster_label.visible = false
 	print(selected_house)
 	pass # Replace with function body.
 
