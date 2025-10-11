@@ -1,0 +1,164 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdyueu4fw3ffu"]
+
+[ext_resource type="Texture2D" uid="uid://cxce8fiyb6j83" path="res://assets/backgrounds/placeholderneighbothood.png" id="1_ejhqo"]
+[ext_resource type="Script" uid="uid://dub6ax8632yl7" path="res://scenes/neighborhood.gd" id="1_nrakx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejhqo"]
+
+[sub_resource type="Curve" id="Curve_nrakx"]
+_data = [Vector2(0.09659091, 0.13483155), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_tqujx"]
+_data = [Vector2(0.085227266, 0.15730345), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_xlwpo"]
+_data = [Vector2(0.13068183, 0.15730345), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_fyy05"]
+curve_x = SubResource("Curve_nrakx")
+curve_y = SubResource("Curve_tqujx")
+curve_z = SubResource("Curve_xlwpo")
+
+[node name="Neighborhood" type="Node2D"]
+script = ExtResource("1_nrakx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -6.1035156e-05
+offset_right = 39.99994
+offset_bottom = 40.0
+
+[node name="Neighborhood" type="Sprite2D" parent="."]
+texture = ExtResource("1_ejhqo")
+
+[node name="PlayerHouse" type="Area2D" parent="Neighborhood"]
+position = Vector2(-685.99994, -334.99997)
+scale = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood/PlayerHouse"]
+shape = SubResource("RectangleShape2D_ejhqo")
+
+[node name="TextureRect" type="TextureRect" parent="Neighborhood/PlayerHouse"]
+visible = false
+modulate = Color(1, 1, 1, 0.12941177)
+offset_left = -10.000004
+offset_top = -10.0
+offset_right = 29.999996
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.50000006)
+texture = SubResource("CurveXYZTexture_fyy05")
+expand_mode = 1
+
+[node name="WitchHouse" type="Area2D" parent="Neighborhood"]
+position = Vector2(-4.000061, -331.00003)
+scale = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood/WitchHouse"]
+shape = SubResource("RectangleShape2D_ejhqo")
+
+[node name="TextureRect" type="TextureRect" parent="Neighborhood/WitchHouse"]
+visible = false
+modulate = Color(1, 1, 1, 0.12941177)
+offset_left = -10.000004
+offset_top = -10.0
+offset_right = 29.999996
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.50000006)
+texture = SubResource("CurveXYZTexture_fyy05")
+expand_mode = 1
+
+[node name="MummyHouse" type="Area2D" parent="Neighborhood"]
+position = Vector2(622.00006, -340)
+scale = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood/MummyHouse"]
+shape = SubResource("RectangleShape2D_ejhqo")
+
+[node name="TextureRect" type="TextureRect" parent="Neighborhood/MummyHouse"]
+visible = false
+modulate = Color(1, 1, 1, 0.12941177)
+offset_left = -10.000004
+offset_top = -10.0
+offset_right = 29.999996
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.50000006)
+texture = SubResource("CurveXYZTexture_fyy05")
+expand_mode = 1
+
+[node name="ScarecrowHouse" type="Area2D" parent="Neighborhood"]
+position = Vector2(-712.00006, 334.00003)
+scale = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood/ScarecrowHouse"]
+shape = SubResource("RectangleShape2D_ejhqo")
+
+[node name="TextureRect" type="TextureRect" parent="Neighborhood/ScarecrowHouse"]
+visible = false
+modulate = Color(1, 1, 1, 0.12941177)
+offset_left = -10.000004
+offset_top = -10.0
+offset_right = 29.999996
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.50000006)
+texture = SubResource("CurveXYZTexture_fyy05")
+expand_mode = 1
+
+[node name="VampireHouse" type="Area2D" parent="Neighborhood"]
+position = Vector2(-13.000008, 337.9999)
+scale = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood/VampireHouse"]
+shape = SubResource("RectangleShape2D_ejhqo")
+
+[node name="TextureRect" type="TextureRect" parent="Neighborhood/VampireHouse"]
+visible = false
+modulate = Color(1, 1, 1, 0.12941177)
+offset_left = -10.000004
+offset_top = -10.0
+offset_right = 29.999996
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.50000006)
+texture = SubResource("CurveXYZTexture_fyy05")
+expand_mode = 1
+
+[node name="MonsterHouse" type="Area2D" parent="Neighborhood"]
+position = Vector2(630, 334.00003)
+scale = Vector2(20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood/MonsterHouse"]
+shape = SubResource("RectangleShape2D_ejhqo")
+
+[node name="TextureRect" type="TextureRect" parent="Neighborhood/MonsterHouse"]
+visible = false
+modulate = Color(1, 1, 1, 0.12941177)
+offset_left = -10.000004
+offset_top = -10.0
+offset_right = 29.999996
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.50000006)
+texture = SubResource("CurveXYZTexture_fyy05")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="input_event" from="Neighborhood/PlayerHouse" to="." method="_on_player_house_input_event"]
+[connection signal="mouse_entered" from="Neighborhood/PlayerHouse" to="." method="_on_player_house_mouse_entered"]
+[connection signal="mouse_exited" from="Neighborhood/PlayerHouse" to="." method="_on_player_house_mouse_exited"]
+[connection signal="input_event" from="Neighborhood/WitchHouse" to="." method="_on_witch_house_input_event"]
+[connection signal="mouse_entered" from="Neighborhood/WitchHouse" to="." method="_on_witch_house_mouse_entered"]
+[connection signal="mouse_exited" from="Neighborhood/WitchHouse" to="." method="_on_witch_house_mouse_exited"]
+[connection signal="input_event" from="Neighborhood/MummyHouse" to="." method="_on_mummy_house_input_event"]
+[connection signal="mouse_entered" from="Neighborhood/MummyHouse" to="." method="_on_mummy_house_mouse_entered"]
+[connection signal="mouse_exited" from="Neighborhood/MummyHouse" to="." method="_on_mummy_house_mouse_exited"]
+[connection signal="input_event" from="Neighborhood/ScarecrowHouse" to="." method="_on_scarecrow_house_input_event"]
+[connection signal="mouse_entered" from="Neighborhood/ScarecrowHouse" to="." method="_on_scarecrow_house_mouse_entered"]
+[connection signal="mouse_exited" from="Neighborhood/ScarecrowHouse" to="." method="_on_scarecrow_house_mouse_exited"]
+[connection signal="input_event" from="Neighborhood/VampireHouse" to="." method="_on_vampire_house_input_event"]
+[connection signal="mouse_entered" from="Neighborhood/VampireHouse" to="." method="_on_vampire_house_mouse_entered"]
+[connection signal="mouse_exited" from="Neighborhood/VampireHouse" to="." method="_on_vampire_house_mouse_exited"]
+[connection signal="input_event" from="Neighborhood/MonsterHouse" to="." method="_on_monster_house_input_event"]
+[connection signal="mouse_entered" from="Neighborhood/MonsterHouse" to="." method="_on_monster_house_mouse_entered"]
+[connection signal="mouse_exited" from="Neighborhood/MonsterHouse" to="." method="_on_monster_house_mouse_exited"]
