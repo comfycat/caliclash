@@ -11,6 +11,7 @@ extends Control
 @onready var start_final_btn: Button		 = %FinalButton
 
 @onready var options: Panel = $Options
+@onready var credits: Panel = $Credits
 @onready var main_buttons: CanvasLayer = $MarginContainer/MainButtons
 
 func _ready() -> void:
@@ -33,6 +34,8 @@ func _ready() -> void:
 	
 	main_buttons.visible = true
 	options.visible = false
+	credits.visible = false
+
 
 
 	# Quick visibility & input sanity checks
@@ -81,7 +84,7 @@ func _on_options_button_pressed() -> void:
 	options.visible = true
 	print("options pressed")
 func _on_credits_button_pressed() -> void:
-	print("credits pressed")
-
+	main_buttons.visible = false
+	credits.visible = true
 func _on_back_button_pressed() -> void:
 	_ready()

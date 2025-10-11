@@ -35,15 +35,19 @@ overrides = {
 script = ExtResource("2_kv415")
 scene = ExtResource("6_oqpqd")
 overrides = {
+"bold_font": "\"res://assets/fonts/Cardo-Bold.ttf\"",
 "box_margin_bottom": "100.0",
 "box_size": "Vector2(1920, 125)",
+"italics_font": "\"res://assets/fonts/Cardo-Italic.ttf\"",
 "name_label_custom_color": "Color(1, 0.52734375, 0, 1)",
 "name_label_custom_font_size": "23.0",
+"name_label_font": "\"res://assets/fonts/Elementary_Gothic_Bookhand.ttf\"",
 "name_label_use_character_color": "false",
 "name_label_use_global_color": "false",
 "name_label_use_global_font_size": "false",
+"normal_font": "\"res://assets/fonts/Cardo-Regular.ttf\"",
 "text_alignment": "1",
-"text_size": "26.0",
+"text_size": "36.0",
 "text_use_global_size": "false"
 }
 
@@ -57,7 +61,8 @@ scene = ExtResource("8_oqpqd")
 overrides = {
 "boxes_min_size": "Vector2(480, 100)",
 "boxes_v_separation": "0.0",
-"font_size_custom": "26.0",
+"font_custom": "\"res://assets/fonts/Cardo-Regular.ttf\"",
+"font_size_custom": "40.0",
 "font_size_use_global": "false",
 "font_use_global": "false",
 "text_color_hovered": "Color(1, 0.5254902, 0, 1)",
@@ -87,4 +92,4 @@ layer_info = {
 "16": SubResource("Resource_y2rot"),
 "17": SubResource("Resource_ooj3b")
 }
-metadata/_latest_layer = "13"
+metadata/_latest_layer = "15"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://btt2fekwnu034"]
+[gd_scene load_steps=22 format=3 uid="uid://btt2fekwnu034"]
 
 [ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bjijlyq3gaewr" path="res://assets/backgrounds/candy-corn.jpg" id="1_l6cm7"]
@@ -6,9 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://cogvwhd2sv2pt" path="res://assets/ui/main_menu/play_shape.png" id="4_oa1go"]
 [ext_resource type="Texture2D" uid="uid://0u0smvaeledh" path="res://assets/ui/main_menu/options_shape.png" id="5_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://duk8ttsgleu7p" path="res://assets/ui/main_menu/credits_shape.png" id="6_jk1qb"]
+[ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="7_1ajci"]
+[ext_resource type="Texture2D" uid="uid://cx5m4f0vh74gv" path="res://assets/ui/play/text_button.png" id="7_5dd4i"]
 [ext_resource type="AudioStream" uid="uid://bwpu2obevxfy2" path="res://assets/sfx/Game Jam Main Menu.wav" id="7_oa1go"]
 [ext_resource type="Script" uid="uid://c57qllls871j" path="res://scenes/audio_control.gd" id="7_tbmy8"]
 [ext_resource type="Script" uid="uid://8xk5n0kml2t0" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
+[ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
+[ext_resource type="Texture2D" uid="uid://cn1w7dr46jh2s" path="res://assets/ui/play/gothic_frame.png" id="11_lgwnu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
 texture = ExtResource("1_l6cm7")
@@ -32,6 +36,12 @@ thickness = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
 bg_color = Color(0.92879677, 0.25804695, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgwnu"]
+texture = ExtResource("7_5dd4i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flqon"]
+texture = ExtResource("11_lgwnu")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -64,7 +74,6 @@ theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
 [node name="MainButtons" type="CanvasLayer" parent="MarginContainer"]
-visible = false
 
 [node name="Panel" type="Panel" parent="MarginContainer/MainButtons"]
 anchors_preset = 15
@@ -72,6 +81,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5dd4i")
 
 [node name="StartButton" type="TextureButton" parent="MarginContainer/MainButtons"]
@@ -113,17 +123,17 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 334.0
-offset_top = 83.0
-offset_right = 854.0
-offset_bottom = 360.0
+offset_left = 200.0
+offset_top = 61.0
+offset_right = 899.0
+offset_bottom = 514.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 100
 text = "CaliClash 
 Game Jam "
 
 [node name="Control" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = 1528.0
 offset_top = 691.0
@@ -215,10 +225,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -449.75
-offset_top = -268.25
-offset_right = 449.75
-offset_bottom = 268.25
+offset_left = -405.0
+offset_top = -337.5
+offset_right = 405.0
+offset_bottom = 337.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -229,26 +247,28 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -95.5
 offset_right = 95.5
-offset_bottom = 141.0
+offset_bottom = 167.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 36
 text = "Options
 "
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="Options"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -285.0
-offset_top = 138.0
-offset_right = 255.0
-offset_bottom = 238.0
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -100.0
+offset_right = 270.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 36
 text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
@@ -258,10 +278,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -277.0
-offset_top = -171.0
-offset_right = 263.0
-offset_bottom = 107.0
+offset_left = -270.0
+offset_top = -186.0
+offset_right = 270.0
+offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
@@ -269,13 +289,16 @@ alignment = 1
 
 [node name="FullScreenControl" type="CheckButton" parent="Options/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 35
 text = "Fullscreen"
 script = ExtResource("8_jk1qb")
 
 [node name="Master" type="Label" parent="Options/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 36
 text = "Master"
 
 [node name="AudioControlMaster" type="HSlider" parent="Options/VBoxContainer"]
@@ -291,7 +314,8 @@ audio_bus_name = "Master"
 
 [node name="Music" type="Label" parent="Options/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 36
 text = "Music"
 
 [node name="AudioControlMusic" type="HSlider" parent="Options/VBoxContainer"]
@@ -307,7 +331,8 @@ audio_bus_name = "Music"
 
 [node name="SFX" type="Label" parent="Options/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 36
 text = "SFX"
 
 [node name="AudioControlSFX" type="HSlider" parent="Options/VBoxContainer"]
@@ -321,10 +346,99 @@ value = 1.0
 script = ExtResource("7_tbmy8")
 audio_bus_name = "SFX"
 
+[node name="Credits" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -405.0
+offset_top = -337.5
+offset_right = 405.0
+offset_bottom = 337.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.5
+offset_right = 95.5
+offset_bottom = 141.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="names" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -412.0
+offset_top = -228.0
+offset_right = 412.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Made with <3 by
+Violet, Maji, Ketch, Shark, Gev, and Aurora
+
+Violet — Sound Design & Writing
+Maji — Art & Writing
+Ketch — Writing
+Shark — Art & UI
+Gev — Programming
+Aurora — Programming
+"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="Credits"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -100.0
+offset_right = 270.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_lgwnu")
+text = "Back"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_oa1go")
 autoplay = true
 bus = &"Music"
+
+[node name="Gothic Frame" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_flqon")
 
 [connection signal="pressed" from="MarginContainer/MainButtons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainButtons/OptionsButton" to="." method="_on_options_button_pressed"]
@@ -340,3 +454,4 @@ bus = &"Music"
 [connection signal="value_changed" from="Options/VBoxContainer/AudioControlMaster" to="Options/VBoxContainer/AudioControlMaster" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/VBoxContainer/AudioControlMusic" to="Options/VBoxContainer/AudioControlMusic" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/VBoxContainer/AudioControlSFX" to="Options/VBoxContainer/AudioControlSFX" method="_on_value_changed"]
+[connection signal="pressed" from="Credits/BackButton" to="." method="_on_back_button_pressed"]
