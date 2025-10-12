@@ -1,11 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://cxaa7ypletuvo"]
+[gd_scene load_steps=31 format=3 uid="uid://cxaa7ypletuvo"]
 
 [ext_resource type="Texture2D" uid="uid://cun4vk1i0dfal" path="res://assets/ui/battle_scene/sparkles-blue.webp" id="1_lpir7"]
 [ext_resource type="Texture2D" uid="uid://d0equrhan155e" path="res://assets/ui/battle_scene/sparkles-yellow.webp" id="2_6vh42"]
 [ext_resource type="Script" uid="uid://b4aer4pptxs1i" path="res://scenes/battle_controller.gd" id="2_th188"]
 [ext_resource type="Texture2D" uid="uid://bu4otwe2qa8db" path="res://assets/ui/battle_scene/sparkles-pink.webp" id="3_4k1nj"]
 [ext_resource type="Texture2D" uid="uid://b7v7yuua3pvhl" path="res://assets/ui/battle_scene/sparkles-purple.webp" id="4_f4pi3"]
-[ext_resource type="AudioStream" uid="uid://cuasb5yjsao3h" path="res://assets/music/Tutorial Perfect Loop.wav" id="6_6vh42"]
 
 [sub_resource type="GDScript" id="GDScript_p1qf1"]
 
@@ -271,9 +270,3 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_6vh42")
-volume_db = -6.202
-autoplay = true
-bus = &"Music"

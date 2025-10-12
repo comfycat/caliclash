@@ -1,10 +1,12 @@
 [style name="VisualNovelDialogueStyle"]
+audio music "res://assets/music/VN music.wav"
 join chocolate center
 
 chocolate: Oh? Such a cute little kiddo.
 chocolate: What are you here for, boy?
 
 [signal arg="battle_ui"]
+audio music "res://assets/music/Tutorial Perfect Loop.wav"
 # ROUND 1
 - Try a bargain
 	set {choice_id} = "A"
