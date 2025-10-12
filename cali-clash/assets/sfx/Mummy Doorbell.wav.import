@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rugf76wmruwn"
+path="res://.godot/imported/Mummy Doorbell.wav-2b9a48105a0aa9324f72aa4b3388fce8.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Mummy Doorbell.wav"
+dest_files=["res://.godot/imported/Mummy Doorbell.wav-2b9a48105a0aa9324f72aa4b3388fce8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

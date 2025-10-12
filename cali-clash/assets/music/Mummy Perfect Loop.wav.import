@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwufkp674dndv"
+path="res://.godot/imported/Mummy Perfect Loop.wav-63c9f5b7850e7a0598e0053db6eb9c76.sample"
+
+[deps]
+
+source_file="res://assets/music/Mummy Perfect Loop.wav"
+dest_files=["res://.godot/imported/Mummy Perfect Loop.wav-63c9f5b7850e7a0598e0053db6eb9c76.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

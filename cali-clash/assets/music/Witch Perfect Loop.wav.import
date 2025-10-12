@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cse8y72jfq7wy"
+path="res://.godot/imported/Witch Perfect Loop.wav-110bcbb900e5306468603e82354d1b2d.sample"
+
+[deps]
+
+source_file="res://assets/music/Witch Perfect Loop.wav"
+dest_files=["res://.godot/imported/Witch Perfect Loop.wav-110bcbb900e5306468603e82354d1b2d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

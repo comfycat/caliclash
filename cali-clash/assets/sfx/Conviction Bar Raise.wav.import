@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://l1nncxwjb22s"
+path="res://.godot/imported/Conviction Bar Raise.wav-09f03af473560dc0e262b621b94dfe39.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Conviction Bar Raise.wav"
+dest_files=["res://.godot/imported/Conviction Bar Raise.wav-09f03af473560dc0e262b621b94dfe39.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
