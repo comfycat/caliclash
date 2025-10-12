@@ -8,11 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://duk8ttsgleu7p" path="res://assets/ui/main_menu/credits_shape.png" id="6_jk1qb"]
 [ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="7_1ajci"]
 [ext_resource type="Texture2D" uid="uid://cx5m4f0vh74gv" path="res://assets/ui/play/text_button.png" id="7_5dd4i"]
-[ext_resource type="AudioStream" uid="uid://bwpu2obevxfy2" path="res://assets/sfx/Game Jam Main Menu.wav" id="7_oa1go"]
 [ext_resource type="Script" uid="uid://c57qllls871j" path="res://scenes/audio_control.gd" id="7_tbmy8"]
 [ext_resource type="Script" uid="uid://8xk5n0kml2t0" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
 [ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
 [ext_resource type="Texture2D" uid="uid://cn1w7dr46jh2s" path="res://assets/ui/play/gothic_frame.png" id="11_lgwnu"]
+[ext_resource type="AudioStream" uid="uid://xsucexjfcjbd" path="res://assets/music/Main Menu Theme.wav" id="12_rcqid"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
 texture = ExtResource("1_l6cm7")
@@ -424,10 +424,9 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_lgwnu")
 text = "Back"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_oa1go")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_rcqid")
 autoplay = true
-bus = &"Music"
 
 [node name="Gothic Frame" type="Panel" parent="."]
 visible = false
