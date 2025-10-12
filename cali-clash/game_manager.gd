@@ -54,7 +54,7 @@ var HOUSES := {
 		"friend_reward": "tuxedo_cat",
 		"no_boosts": false
 	},
-	# mummy/knowledge → sphinx_cat
+	# mummy/knowledge, sphinx_cat
 	"knowledge_house": {
 		"timeline": "knowledge_house",
 		"rounds": 3,
@@ -63,7 +63,7 @@ var HOUSES := {
 		"friend_reward": "sphinx_cat",
 		"no_boosts": false
 	},
-	# witches/intimidation → black_cat
+	# witches/intimidation, black_cat
 	"intimidation_house": {
 		"timeline": "intimidation_house",
 		"rounds": 3,
@@ -72,7 +72,7 @@ var HOUSES := {
 		"friend_reward": "black_cat",
 		"no_boosts": false
 	},
-	# scarecrow/friendliness → black_crow
+	# scarecrow/friendliness , black_crow
 	"friendliness_house": {
 		"timeline": "friendliness_house",
 		"rounds": 3,
@@ -81,7 +81,7 @@ var HOUSES := {
 		"friend_reward": "black_crow",
 		"no_boosts": false
 	},
-	# vampire/comedy → tabby_cat
+	# vampire/comedy , tabby_cat
 	"comedy_house": {
 		"timeline": "comedy_house",
 		"rounds": 3,
@@ -92,14 +92,13 @@ var HOUSES := {
 	},
 	"final_house": {
 		"timeline": "final_house",
-		"rounds": 5,
+		"rounds": 4,
 		"threshold": 0,
 		"candy_per_100": 25,
 		"friend_reward": "",
 		"no_boosts": true
 	}
 }
-
 
 ### -- Dialogue Ranking ----
 var dialogue_rankings_by_house := {

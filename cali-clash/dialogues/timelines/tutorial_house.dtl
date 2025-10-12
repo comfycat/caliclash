@@ -95,4 +95,4 @@ graham: “It seems like my little kitty has given you some help I did not expec
 graham: “You can take him with you while you’re trick or treating, he might come in handy”
 graham: “Hurry off now before it gets too late”
 
-[signal arg="return_menu"]
+[signal arg="return_map"]

@@ -59,4 +59,4 @@ chocolate: Last chance to impress or persuade me.
 chocolate: {reaction_3}
 chocolate: {reaction_end}
 
-[signal arg="return_menu"]
+[signal arg="return_map"]

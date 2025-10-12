@@ -39,10 +39,9 @@ directories/dtl_directory={
 "tutorial_house": "res://dialogues/timelines/tutorial_house.dtl"
 }
 layout/style_directory={
-"VisualNovelDialogueStyle": "res://visual_novel_dialogue_style.tres",
-"battle_style": "res://dialogues/styles/battle_style.tres"
+"VisualNovelDialogueStyle": "res://visual_novel_dialogue_style.tres"
 }
-layout/style_list=["res://visual_novel_dialogue_style.tres", "res://dialogues/styles/battle_style.tres"]
+layout/style_list=["res://visual_novel_dialogue_style.tres"]
 layout/default_style="res://VisualNovelDialogueStyle.tres"
 glossary/default_case_sensitive=true
 variables={

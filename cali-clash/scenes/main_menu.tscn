@@ -1,26 +1,29 @@
-[gd_scene load_steps=22 format=3 uid="uid://btt2fekwnu034"]
+[gd_scene load_steps=23 format=3 uid="uid://btt2fekwnu034"]
 
 [ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bcq6vd7dbf7jj" path="res://assets/backgrounds/menu_background.png" id="2_flqon"]
-[ext_resource type="Texture2D" uid="uid://bej2n2kbomu2r" path="res://assets/ui/main_menu/pumpkin-canvas.webp" id="3_rtw2f"]
-[ext_resource type="Texture2D" uid="uid://cogvwhd2sv2pt" path="res://assets/ui/main_menu/play_shape.png" id="4_oa1go"]
-[ext_resource type="Texture2D" uid="uid://0u0smvaeledh" path="res://assets/ui/main_menu/options_shape.png" id="5_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://duk8ttsgleu7p" path="res://assets/ui/main_menu/credits_shape.png" id="6_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://buqx1hwi4lrcv" path="res://assets/backgrounds/ui(pumpkins).png" id="3_flqon"]
+[ext_resource type="Texture2D" uid="uid://dji4ex8e2uta6" path="res://assets/backgrounds/glowy_effect.png" id="3_rcqid"]
+[ext_resource type="Texture2D" uid="uid://bmbwlsl0tajvl" path="res://assets/ui/main_menu/play_button (2).png" id="4_rcqid"]
+[ext_resource type="Texture2D" uid="uid://dlsip7b8iookv" path="res://assets/ui/main_menu/options_button (2).png" id="5_1ajci"]
+[ext_resource type="Texture2D" uid="uid://buawf4gpsadgn" path="res://assets/ui/main_menu/credits button.png" id="6_7b55j"]
 [ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="7_1ajci"]
 [ext_resource type="Script" path="res://scenes/audio_control.gd" id="7_tbmy8"]
 [ext_resource type="Script" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
 [ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
 [ext_resource type="Texture2D" uid="uid://b1e3mwhyw184a" path="res://assets/ui/main_menu/moldy_tombstone_ui (2).webp" id="11_flqon"]
-[ext_resource type="Texture2D" uid="uid://cn1w7dr46jh2s" path="res://assets/ui/play/gothic_frame.png" id="11_lgwnu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
 texture = ExtResource("2_flqon")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pajh"]
+texture = ExtResource("3_rcqid")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgwnu"]
-texture = ExtResource("3_rtw2f")
+texture = ExtResource("3_flqon")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dd4i"]
-texture = ExtResource("3_rtw2f")
+texture = ExtResource("3_flqon")
 modulate_color = Color(0.27672422, 0.23329225, 0.28442872, 1)
 
 [sub_resource type="GDScript" id="GDScript_bqqt6"]
@@ -32,18 +35,18 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7b55j"]
+texture = ExtResource("11_flqon")
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_oa1go"]
 color = Color(1, 1, 1, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
-bg_color = Color(0.92879677, 0.25804695, 0, 1)
+bg_color = Color(1, 0.5254902, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcqid"]
 texture = ExtResource("11_flqon")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flqon"]
-texture = ExtResource("11_lgwnu")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -63,21 +66,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1ajci")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="GlowyEffect" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5pajh")
 
-[node name="MainButtons" type="CanvasLayer" parent="MarginContainer"]
+[node name="MainButtons" type="CanvasLayer" parent="GlowyEffect"]
 
-[node name="PumpkinPanel" type="Panel" parent="MarginContainer/MainButtons"]
+[node name="PumpkinPanel" type="Panel" parent="GlowyEffect/MainButtons"]
 unique_name_in_owner = true
 z_index = -10
 anchors_preset = 15
@@ -88,7 +89,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lgwnu")
 
-[node name="PumpkinPanel2" type="Panel" parent="MarginContainer/MainButtons"]
+[node name="PumpkinPanel2" type="Panel" parent="GlowyEffect/MainButtons"]
 unique_name_in_owner = true
 z_index = 10
 anchors_preset = 15
@@ -99,42 +100,42 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5dd4i")
 
-[node name="StartButton" type="TextureButton" parent="MarginContainer/MainButtons"]
+[node name="StartButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
 unique_name_in_owner = true
 z_index = 10
-offset_left = 197.0
-offset_top = 532.0
-offset_right = 503.8261
-offset_bottom = 717.2174
-scale = Vector2(1.2, 1.2)
+offset_left = 324.0
+offset_top = 478.0
+offset_right = 927.0
+offset_bottom = 802.0
+scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_normal = ExtResource("4_oa1go")
+texture_normal = ExtResource("4_rcqid")
 script = SubResource("GDScript_bqqt6")
 
-[node name="OptionsButton" type="TextureButton" parent="MarginContainer/MainButtons"]
+[node name="OptionsButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
 unique_name_in_owner = true
 z_index = 10
-offset_left = 93.0
-offset_top = 786.00006
-offset_right = 554.6666
-offset_bottom = 965.16675
-scale = Vector2(1.25, 1.25)
+offset_left = 235.0
+offset_top = 771.0
+offset_right = 1031.2499
+offset_bottom = 1060.0
+scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_normal = ExtResource("5_tbmy8")
+texture_normal = ExtResource("5_1ajci")
 
-[node name="CreditsButton" type="TextureButton" parent="MarginContainer/MainButtons"]
+[node name="CreditsButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
 unique_name_in_owner = true
 z_index = 10
-offset_left = 631.99994
-offset_top = 749.0
-offset_right = 892.99994
-offset_bottom = 958.0
-scale = Vector2(1.1, 1.1)
+offset_left = 859.0
+offset_top = 725.0
+offset_right = 1191.0
+offset_bottom = 1082.0
+scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_normal = ExtResource("6_jk1qb")
+texture_normal = ExtResource("6_7b55j")
 
 [node name="Shadow" type="Label" parent="."]
 layout_mode = 1
@@ -311,6 +312,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_7b55j")
 text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
@@ -471,20 +473,9 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxTexture_rcqid")
 text = "Back"
 
-[node name="Gothic Frame" type="Panel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_flqon")
-
-[connection signal="pressed" from="MarginContainer/MainButtons/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/MainButtons/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/MainButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="GlowyEffect/MainButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="GlowyEffect/MainButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="GlowyEffect/MainButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Control/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Control/ComedyButton" to="." method="_on_comedy_button_pressed"]
 [connection signal="pressed" from="Control/KnowledgeButton" to="." method="_on_knowledge_button_pressed"]
