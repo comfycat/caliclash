@@ -426,6 +426,7 @@ text = "Back"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_rcqid")
+volume_db = -8.11
 autoplay = true
 
 [node name="Gothic Frame" type="Panel" parent="."]
