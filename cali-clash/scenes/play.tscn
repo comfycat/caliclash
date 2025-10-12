@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://byvjr2xhrb8cg"]
+[gd_scene load_steps=10 format=3 uid="uid://byvjr2xhrb8cg"]
 
 [ext_resource type="Script" uid="uid://djo1bowhvdqpv" path="res://scenes/play.gd" id="1_8r3iy"]
 [ext_resource type="Texture2D" uid="uid://cn1w7dr46jh2s" path="res://assets/ui/play/gothic_frame.png" id="2_bofkp"]
 [ext_resource type="Texture2D" uid="uid://bptv72m1s24g8" path="res://assets/ui/play/livecam/livecam-faceholder.webp" id="3_1o7w5"]
+[ext_resource type="Script" uid="uid://yurx2kflr8uh" path="res://scenes/live_cam.gd" id="3_nak7m"]
 [ext_resource type="Texture2D" uid="uid://bby5q5c7cy8kc" path="res://assets/ui/play/livecam/cat-layer.webp" id="4_nak7m"]
 [ext_resource type="Texture2D" uid="uid://di7al7fpq6srj" path="res://assets/ui/play/livecam/crow-layer-2.webp" id="5_efqae"]
 [ext_resource type="Texture2D" uid="uid://2jyyjkl543ys" path="res://assets/ui/play/livecam/cat-layer-3.webp" id="6_e1qq8"]
@@ -48,29 +49,52 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_bq38n")
 
-[node name="LiveCam" type="Node2D" parent="Control/Container"]
+[node name="LiveCam" type="Control" parent="Control/Container"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_nak7m")
 
-[node name="Sonic" type="Sprite2D" parent="Control/Container/LiveCam"]
-position = Vector2(282, 248)
+[node name="Sonic" type="TextureRect" parent="Control/Container/LiveCam"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 248.0
+offset_right = 282.0
+offset_bottom = 248.0
 scale = Vector2(0.30378282, 0.27364236)
 texture = ExtResource("3_1o7w5")
 
-[node name="TabbyCat" type="Sprite2D" parent="Control/Container/LiveCam"]
-position = Vector2(282, 248)
+[node name="TabbyCat" type="TextureRect" parent="Control/Container/LiveCam"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 248.0
+offset_right = 282.0
+offset_bottom = 248.0
 scale = Vector2(0.30378282, 0.27364236)
 texture = ExtResource("4_nak7m")
 
-[node name="BlackCrow" type="Sprite2D" parent="Control/Container/LiveCam"]
-position = Vector2(282, 248)
+[node name="BlackCrow" type="TextureRect" parent="Control/Container/LiveCam"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 248.0
+offset_right = 282.0
+offset_bottom = 248.0
 scale = Vector2(0.30378282, 0.27364236)
 texture = ExtResource("5_efqae")
 
-[node name="BlackCat" type="Sprite2D" parent="Control/Container/LiveCam"]
-position = Vector2(282, 248)
+[node name="BlackCat" type="TextureRect" parent="Control/Container/LiveCam"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 248.0
+offset_right = 282.0
+offset_bottom = 248.0
 scale = Vector2(0.30378282, 0.27364236)
 texture = ExtResource("6_e1qq8")
 
-[node name="SphinxCat" type="Sprite2D" parent="Control/Container/LiveCam"]
-position = Vector2(282, 248)
+[node name="SphinxCat" type="TextureRect" parent="Control/Container/LiveCam"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 248.0
+offset_right = 282.0
+offset_bottom = 248.0
 scale = Vector2(0.30378282, 0.27364236)
 texture = ExtResource("7_i0842")

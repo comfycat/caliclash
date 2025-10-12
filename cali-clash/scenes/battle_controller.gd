@@ -89,9 +89,10 @@ func _apply_house_overrides() -> void:
 
 	# 2)Comedy house: simulate mummy in party just for this battle
 	if house_id == "comedy_house":
-		if "mummy" not in GameManager.recruited_friends:
-			GameManager.recruited_friends.append("mummy")
+		if "sphinx_cat" not in GameManager.recruited_friends:
+			GameManager.recruit_friend("sphinx_cat")
 			_simulated_friend_added = true
+
 
 func _init_ui() -> void:
 	persuasion = 0
@@ -142,7 +143,7 @@ func _apply_choice(choice_id: String) -> void:
 	if round_num >= rounds:
 		var end_text := ""
 		if persuasion >= threshold and friend_reward != "":
-			end_text = "You convinced "+ friend_reward+ " to join your party."
+			end_text = "You convinced a friend to join your party."
 		else:
 			end_text = "You didn’t convince them this time."
 		Dialogic.VAR.set("reaction_end", end_text)
@@ -159,10 +160,13 @@ func _finalize_battle_and_exit() -> void:
 
 	# Clean up simulated mummy after injection
 	if _simulated_friend_added:
-		var idx := GameManager.recruited_friends.find("mummy")
+		var idx := GameManager.recruited_friends.find("sphinx_cat")
 		if idx != -1:
 			GameManager.recruited_friends.remove_at(idx)
+			if GameManager.has_signal("party_changed"):
+				GameManager.emit_signal("party_changed")
 		_simulated_friend_added = false
+
 
 	var hid := String(GameManager.current_battle_data.get("house_id",""))
 	if hid == "final_house":
@@ -201,7 +205,7 @@ func _choice_to_tag(choice_id: String) -> String:
 		"B": return "Comedy"
 		"C": return "Friendliness"
 		"D": return "Intimidation"
-		_:   return "Knowledge"
+		_:   return ""
 
 # ============================== ENDINGS ==============================
 func _go_to_ending() -> void:

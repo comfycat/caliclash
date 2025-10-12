@@ -1,24 +1,27 @@
-[gd_scene load_steps=21 format=3 uid="uid://btt2fekwnu034"]
+[gd_scene load_steps=22 format=3 uid="uid://btt2fekwnu034"]
 
 [ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://bjijlyq3gaewr" path="res://assets/backgrounds/candy-corn.jpg" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bcq6vd7dbf7jj" path="res://assets/backgrounds/menu_background.png" id="2_flqon"]
 [ext_resource type="Texture2D" uid="uid://bej2n2kbomu2r" path="res://assets/ui/main_menu/pumpkin-canvas.webp" id="3_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://cogvwhd2sv2pt" path="res://assets/ui/main_menu/play_shape.png" id="4_oa1go"]
 [ext_resource type="Texture2D" uid="uid://0u0smvaeledh" path="res://assets/ui/main_menu/options_shape.png" id="5_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://duk8ttsgleu7p" path="res://assets/ui/main_menu/credits_shape.png" id="6_jk1qb"]
 [ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="7_1ajci"]
-[ext_resource type="Texture2D" uid="uid://cx5m4f0vh74gv" path="res://assets/ui/play/text_button.png" id="7_5dd4i"]
 [ext_resource type="Script" path="res://scenes/audio_control.gd" id="7_tbmy8"]
 [ext_resource type="Script" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
 [ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
+[ext_resource type="Texture2D" uid="uid://b1e3mwhyw184a" path="res://assets/ui/main_menu/moldy_tombstone_ui (2).webp" id="11_flqon"]
 [ext_resource type="Texture2D" uid="uid://cn1w7dr46jh2s" path="res://assets/ui/play/gothic_frame.png" id="11_lgwnu"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
-texture = ExtResource("1_l6cm7")
-modulate_color = Color(0.583047, 0.583047, 0.5830469, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
+texture = ExtResource("2_flqon")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgwnu"]
+texture = ExtResource("3_rtw2f")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dd4i"]
 texture = ExtResource("3_rtw2f")
+modulate_color = Color(0.27672422, 0.23329225, 0.28442872, 1)
 
 [sub_resource type="GDScript" id="GDScript_bqqt6"]
 
@@ -36,8 +39,8 @@ thickness = 6
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
 bg_color = Color(0.92879677, 0.25804695, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgwnu"]
-texture = ExtResource("7_5dd4i")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcqid"]
+texture = ExtResource("11_flqon")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flqon"]
 texture = ExtResource("11_lgwnu")
@@ -58,7 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+theme_override_styles/panel = SubResource("StyleBoxTexture_1ajci")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -74,7 +77,20 @@ theme_override_constants/margin_bottom = 0
 
 [node name="MainButtons" type="CanvasLayer" parent="MarginContainer"]
 
-[node name="Panel" type="Panel" parent="MarginContainer/MainButtons"]
+[node name="PumpkinPanel" type="Panel" parent="MarginContainer/MainButtons"]
+unique_name_in_owner = true
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lgwnu")
+
+[node name="PumpkinPanel2" type="Panel" parent="MarginContainer/MainButtons"]
+unique_name_in_owner = true
+z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -85,6 +101,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_5dd4i")
 
 [node name="StartButton" type="TextureButton" parent="MarginContainer/MainButtons"]
 unique_name_in_owner = true
+z_index = 10
 offset_left = 197.0
 offset_top = 532.0
 offset_right = 503.8261
@@ -97,6 +114,7 @@ script = SubResource("GDScript_bqqt6")
 
 [node name="OptionsButton" type="TextureButton" parent="MarginContainer/MainButtons"]
 unique_name_in_owner = true
+z_index = 10
 offset_left = 93.0
 offset_top = 786.00006
 offset_right = 554.6666
@@ -108,6 +126,7 @@ texture_normal = ExtResource("5_tbmy8")
 
 [node name="CreditsButton" type="TextureButton" parent="MarginContainer/MainButtons"]
 unique_name_in_owner = true
+z_index = 10
 offset_left = 631.99994
 offset_top = 749.0
 offset_right = 892.99994
@@ -117,20 +136,44 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource("6_jk1qb")
 
-[node name="Label" type="Label" parent="."]
+[node name="Shadow" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 200.0
-offset_top = 61.0
-offset_right = 899.0
-offset_bottom = 514.0
-grow_horizontal = 2
+offset_left = 103.0
+offset_top = 154.0
+offset_right = 1103.0
+offset_bottom = 429.0
+theme_override_colors/font_color = Color(0.4392157, 0.30980393, 0.043137256, 1)
+theme_override_constants/line_spacing = -32
 theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 100
-text = "CaliClash 
-Game Jam "
+text = "Caliclash Game"
+horizontal_alignment = 1
+
+[node name="Shadow2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 157.0
+offset_right = 1102.0
+offset_bottom = 432.0
+theme_override_colors/font_color = Color(0.627451, 0.44705883, 0.078431375, 1)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 100
+text = "Caliclash Game"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 160.0
+offset_right = 1098.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0.87717575, 0.6366402, 0.07846785, 1)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 100
+text = "Caliclash Game"
+horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
@@ -218,18 +261,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 text = "Start Final"
 
 [node name="Options" type="Panel" parent="."]
+visible = false
+z_index = 999
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -405.0
-offset_top = -337.5
-offset_right = 405.0
-offset_bottom = 337.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -810.0
+offset_top = -675.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Panel" type="Panel" parent="Options"]
 layout_mode = 1
@@ -347,18 +390,17 @@ audio_bus_name = "SFX"
 
 [node name="Credits" type="Panel" parent="."]
 visible = false
+z_index = 999
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -405.0
-offset_top = -337.5
-offset_right = 405.0
-offset_bottom = 337.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -810.0
+offset_top = -675.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Panel" type="Panel" parent="Credits"]
 layout_mode = 1
@@ -390,17 +432,19 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -412.0
-offset_top = -228.0
+offset_top = -237.5
 offset_right = 412.0
-offset_bottom = 297.0
+offset_bottom = 256.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("8_rcqid")
 theme_override_font_sizes/font_size = 32
 text = "Made with <3 by
-Violet, Maji, Ketch, Shark, Gev, and Aurora
+Violet, Maji, Ketch, Shark, Gev, and Aurora 
+for California Clash 2025.
 
-Violet — Sound Design & Writing
+Violet — Music/SFX & Writing
 Maji — Art & Writing
 Ketch — Writing
 Shark — Art & UI
@@ -410,6 +454,7 @@ Aurora — Programming
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="Credits"]
+z_index = 999
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -423,7 +468,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxTexture_lgwnu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rcqid")
 text = "Back"
 
 [node name="Gothic Frame" type="Panel" parent="."]

@@ -1,10 +1,18 @@
-[gd_scene load_steps=31 format=3 uid="uid://cxaa7ypletuvo"]
+[gd_scene load_steps=39 format=3 uid="uid://cxaa7ypletuvo"]
 
 [ext_resource type="Texture2D" uid="uid://cun4vk1i0dfal" path="res://assets/ui/battle_scene/sparkles-blue.webp" id="1_lpir7"]
 [ext_resource type="Texture2D" uid="uid://d0equrhan155e" path="res://assets/ui/battle_scene/sparkles-yellow.webp" id="2_6vh42"]
 [ext_resource type="Script" uid="uid://b4aer4pptxs1i" path="res://scenes/battle_controller.gd" id="2_th188"]
 [ext_resource type="Texture2D" uid="uid://bu4otwe2qa8db" path="res://assets/ui/battle_scene/sparkles-pink.webp" id="3_4k1nj"]
 [ext_resource type="Texture2D" uid="uid://b7v7yuua3pvhl" path="res://assets/ui/battle_scene/sparkles-purple.webp" id="4_f4pi3"]
+[ext_resource type="Script" uid="uid://yurx2kflr8uh" path="res://scenes/live_cam.gd" id="5_66ngm"]
+[ext_resource type="Texture2D" uid="uid://bptv72m1s24g8" path="res://assets/ui/play/livecam/livecam-faceholder.webp" id="6_03edq"]
+[ext_resource type="Texture2D" uid="uid://bby5q5c7cy8kc" path="res://assets/ui/play/livecam/cat-layer.webp" id="7_22uqi"]
+[ext_resource type="Texture2D" uid="uid://di7al7fpq6srj" path="res://assets/ui/play/livecam/crow-layer-2.webp" id="8_6ni85"]
+[ext_resource type="Texture2D" uid="uid://2jyyjkl543ys" path="res://assets/ui/play/livecam/cat-layer-3.webp" id="9_vceff"]
+[ext_resource type="Texture2D" uid="uid://ctf3nl7pvr6rt" path="res://assets/ui/play/livecam/cat-layer-4.webp" id="10_ekamt"]
+[ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="11_03edq"]
+[ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="12_22uqi"]
 
 [sub_resource type="GDScript" id="GDScript_p1qf1"]
 
@@ -260,6 +268,95 @@ position = Vector2(1475, 995)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_at2n2")
 frame_progress = 0.24824001
+
+[node name="LiveCam" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("5_66ngm")
+
+[node name="Sonic" type="TextureRect" parent="UI/LiveCam"]
+layout_mode = 1
+offset_left = 87.0
+offset_top = 79.0
+offset_right = 1235.0
+offset_bottom = 1227.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_03edq")
+
+[node name="TabbyCat" type="TextureRect" parent="UI/LiveCam"]
+layout_mode = 1
+offset_left = 86.0
+offset_top = 80.0
+offset_right = 1234.0
+offset_bottom = 1228.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("7_22uqi")
+
+[node name="BlackCrow" type="TextureRect" parent="UI/LiveCam"]
+layout_mode = 1
+offset_left = 86.0
+offset_top = 80.0
+offset_right = 1234.0
+offset_bottom = 1228.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_6ni85")
+
+[node name="BlackCat" type="TextureRect" parent="UI/LiveCam"]
+layout_mode = 1
+offset_left = 86.0
+offset_top = 80.0
+offset_right = 1234.0
+offset_bottom = 1228.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_vceff")
+
+[node name="SphinxCat" type="TextureRect" parent="UI/LiveCam"]
+layout_mode = 1
+offset_left = 86.0
+offset_top = 80.0
+offset_right = 1234.0
+offset_bottom = 1228.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("10_ekamt")
+
+[node name="InfoPanel" type="Panel" parent="UI/LiveCam"]
+layout_mode = 0
+offset_left = 85.00001
+offset_top = 484.0
+offset_right = 1244.9999
+offset_bottom = 961.1428
+scale = Vector2(0.35, 0.35)
+
+[node name="Label" type="Label" parent="UI/LiveCam/InfoPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.00006
+offset_top = -19.928589
+offset_right = 37.99994
+offset_bottom = 117.07141
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 10
+theme_override_fonts/font = ExtResource("11_03edq")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/LiveCam/InfoPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_22uqi")
+theme_override_font_sizes/font_size = 36
+text = "CURRENT BOOSTS"
 
 [node name="BattleController" type="Node" parent="."]
 script = ExtResource("2_th188")

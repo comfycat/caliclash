@@ -16,10 +16,31 @@ const OKAY_THRESHOLD := 40
 
 # Friend library: boosts by tag
 var FRIEND_LIBRARY := {
-	"witch":	{"id":"witch",	"boosts":{"Knowledge":0.10,"Comedy":0.00,"Friendliness":0.00,"Intimidation":0.05}},
-	"mummy":	{"id":"mummy",	"boosts":{"Knowledge":0.05,"Comedy":0.00,"Friendliness":0.10,"Intimidation":0.00}},
-	"scarecrow":{"id":"scarecrow","boosts":{"Knowledge":0.00,"Comedy":0.10,"Friendliness":0.05,"Intimidation":0.00}},
-	"vampire":  {"id":"vampire",  "boosts":{"Knowledge":0.00,"Comedy":0.05,"Friendliness":0.00,"Intimidation":0.10}}
+	# tutorial
+	"tuxedo_cat": {
+		"id": "tuxedo_cat",
+		"boosts": {"Knowledge":0.00,"Comedy":0.00,"Friendliness":0.00,"Intimidation":0.00}
+	},
+	# intimidation/witches
+	"black_cat": {
+		"id":"black_cat",
+		"boosts":{"Knowledge":0.05,"Comedy":0.00,"Friendliness":0.00,"Intimidation":0.10}
+	},
+	# knowledge/mummy
+	"sphinx_cat": {
+		"id":"sphinx_cat",
+		"boosts":{"Knowledge":0.10,"Comedy":0.00,"Friendliness":0.05,"Intimidation":0.00}
+	},
+	# friendliness/scarecrow
+	"black_crow": {
+		"id":"black_crow",
+		"boosts":{"Knowledge":0.00,"Comedy":0.05,"Friendliness":0.10,"Intimidation":0.00}
+	},
+	# comedy/vampire
+	"tabby_cat": {
+		"id":"tabby_cat",
+		"boosts":{"Knowledge":0.00,"Comedy":0.10,"Friendliness":0.00,"Intimidation":0.05}
+	}
 }
 
 # --- HOUSE REGISTRY ---
@@ -30,39 +51,43 @@ var HOUSES := {
 		"rounds": 1,
 		"threshold": 100,
 		"candy_per_100": 10,
-		"friend_reward": "Tuxedo Cat",
+		"friend_reward": "tuxedo_cat",
 		"no_boosts": false
 	},
-	"comedy_house": {
-		"timeline": "comedy_house",
-		"rounds": 3,
-		"threshold": 65,
-		"candy_per_100": 12,
-		"friend_reward": "Black Crow",
-		"no_boosts": false
-	},
+	# mummy/knowledge → sphinx_cat
 	"knowledge_house": {
 		"timeline": "knowledge_house",
 		"rounds": 3,
 		"threshold": 75,
 		"candy_per_100": 15,
-		"friend_reward": "Black Cat",
+		"friend_reward": "sphinx_cat",
 		"no_boosts": false
 	},
-	"friendliness_house": {
-		"timeline": "friendliness_house",
-		"rounds": 3,
-		"threshold": 80,
-		"candy_per_100": 17,
-		"friend_reward": "Sphinx Cat",
-		"no_boosts": false
-	},
+	# witches/intimidation → black_cat
 	"intimidation_house": {
 		"timeline": "intimidation_house",
 		"rounds": 3,
 		"threshold": 80,
 		"candy_per_100": 17,
-		"friend_reward": "Tabby Cat",
+		"friend_reward": "black_cat",
+		"no_boosts": false
+	},
+	# scarecrow/friendliness → black_crow
+	"friendliness_house": {
+		"timeline": "friendliness_house",
+		"rounds": 3,
+		"threshold": 65,
+		"candy_per_100": 12,
+		"friend_reward": "black_crow",
+		"no_boosts": false
+	},
+	# vampire/comedy → tabby_cat
+	"comedy_house": {
+		"timeline": "comedy_house",
+		"rounds": 3,
+		"threshold": 80,
+		"candy_per_100": 17,
+		"friend_reward": "tabby_cat",
 		"no_boosts": false
 	},
 	"final_house": {
@@ -74,6 +99,7 @@ var HOUSES := {
 		"no_boosts": true
 	}
 }
+
 
 ### -- Dialogue Ranking ----
 var dialogue_rankings_by_house := {
@@ -149,8 +175,16 @@ func register_house_cleared(house_id: String) -> void:
 			unlocked_final_house = true
 
 func recruit_friend(friend_id: String) -> void:
-	if friend_id != "" and friend_id not in recruited_friends:
-		recruited_friends.append(friend_id)
+	if friend_id == "" or friend_id not in FRIEND_LIBRARY:
+		push_warning("Unknown friend id: %s" % friend_id)
+		return
+
+	if friend_id in recruited_friends:
+		print("%s already recruited." % friend_id)
+		return
+
+	print("Recruited: %s" % friend_id)
+	recruited_friends.append(friend_id)
 
 func get_total_boost(stat: String) -> float:
 	var total := 0.0

@@ -30,7 +30,11 @@ directories/dch_directory={
 directories/dtl_directory={
 "battle_test": "res://dialogues/timelines/battle_test.dtl",
 "comedy_house": "res://dialogues/timelines/comedy_house.dtl",
+"final_house": "res://dialogues/timelines/final_house.dtl",
+"friendliness_house": "res://dialogues/timelines/friendliness_house.dtl",
+"intimidation_house": "res://dialogues/timelines/intimidation_house.dtl",
 "introduction": "res://dialogues/timelines/introduction.dtl",
+"knowledge_house": "res://dialogues/timelines/knowledge_house.dtl",
 "tutorial": "res://dialogues/timelines/tutorial.dtl",
 "tutorial_house": "res://dialogues/timelines/tutorial_house.dtl"
 }
