@@ -1,0 +1,11 @@
+join chocolate left
+chocolate: hello, i am the patron saint of chocolates
+chocolate: people tell me that i'm more of a placeholder than anything, but that's alright by me
+chocolate: it doesn't hurt my feelings at all.
+- that's true
+	chocolate: thank you i'm glad someone believes me
+	[signal arg="chocolate_happy"]
+- that's not true
+	chocolate: \:(
+	[signal arg="chocolate_sad"]
+[signal arg="tutorial_battle"]
