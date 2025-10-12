@@ -276,3 +276,4 @@ offset_bottom = 40.0
 stream = ExtResource("6_6vh42")
 volume_db = -6.202
 autoplay = true
+bus = &"Music"

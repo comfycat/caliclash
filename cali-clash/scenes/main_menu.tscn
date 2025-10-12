@@ -428,6 +428,7 @@ text = "Back"
 stream = ExtResource("12_rcqid")
 volume_db = -8.11
 autoplay = true
+bus = &"Music"
 
 [node name="Gothic Frame" type="Panel" parent="."]
 visible = false
