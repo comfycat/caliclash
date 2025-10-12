@@ -1,6 +1,5 @@
 [gd_scene load_steps=10 format=3 uid="uid://byvjr2xhrb8cg"]
 
-[ext_resource type="Script" uid="uid://djo1bowhvdqpv" path="res://scenes/play.gd" id="1_8r3iy"]
 [ext_resource type="Texture2D" uid="uid://cn1w7dr46jh2s" path="res://assets/ui/play/gothic_frame.png" id="2_bofkp"]
 [ext_resource type="Texture2D" uid="uid://bptv72m1s24g8" path="res://assets/ui/play/livecam/livecam-faceholder.webp" id="3_1o7w5"]
 [ext_resource type="Script" uid="uid://yurx2kflr8uh" path="res://scenes/live_cam.gd" id="3_nak7m"]
@@ -9,11 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://2jyyjkl543ys" path="res://assets/ui/play/livecam/cat-layer-3.webp" id="6_e1qq8"]
 [ext_resource type="Texture2D" uid="uid://ctf3nl7pvr6rt" path="res://assets/ui/play/livecam/cat-layer-4.webp" id="7_i0842"]
 
+[sub_resource type="GDScript" id="GDScript_1o7w5"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+"
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bq38n"]
 texture = ExtResource("2_bofkp")
 
 [node name="Play" type="Node2D"]
-script = ExtResource("1_8r3iy")
+script = SubResource("GDScript_1o7w5")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

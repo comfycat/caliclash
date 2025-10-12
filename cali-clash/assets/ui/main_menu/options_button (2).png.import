@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bej2n2kbomu2r"
-path="res://.godot/imported/pumpkin-canvas.webp-20e5e302832f1a62732127ced17a8cef.ctex"
+uid="uid://dlsip7b8iookv"
+path="res://.godot/imported/options_button (2).png-51c5b2b3af72321c297438989c8d3d93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/main_menu/pumpkin-canvas.webp"
-dest_files=["res://.godot/imported/pumpkin-canvas.webp-20e5e302832f1a62732127ced17a8cef.ctex"]
+source_file="res://assets/ui/main_menu/options_button (2).png"
+dest_files=["res://.godot/imported/options_button (2).png-51c5b2b3af72321c297438989c8d3d93.ctex"]
 
 [params]
 
