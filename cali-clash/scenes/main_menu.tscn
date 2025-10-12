@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://btt2fekwnu034"]
+[gd_scene load_steps=21 format=3 uid="uid://btt2fekwnu034"]
 
 [ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bjijlyq3gaewr" path="res://assets/backgrounds/candy-corn.jpg" id="1_l6cm7"]
@@ -8,9 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://duk8ttsgleu7p" path="res://assets/ui/main_menu/credits_shape.png" id="6_jk1qb"]
 [ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="7_1ajci"]
 [ext_resource type="Texture2D" uid="uid://cx5m4f0vh74gv" path="res://assets/ui/play/text_button.png" id="7_5dd4i"]
-[ext_resource type="AudioStream" uid="uid://bwpu2obevxfy2" path="res://assets/sfx/Game Jam Main Menu.wav" id="7_oa1go"]
-[ext_resource type="Script" uid="uid://c57qllls871j" path="res://scenes/audio_control.gd" id="7_tbmy8"]
-[ext_resource type="Script" uid="uid://8xk5n0kml2t0" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
+[ext_resource type="Script" path="res://scenes/audio_control.gd" id="7_tbmy8"]
+[ext_resource type="Script" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
 [ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
 [ext_resource type="Texture2D" uid="uid://cn1w7dr46jh2s" path="res://assets/ui/play/gothic_frame.png" id="11_lgwnu"]
 
@@ -378,7 +377,8 @@ offset_left = -95.5
 offset_right = 95.5
 offset_bottom = 141.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 36
 text = "Credits"
 horizontal_alignment = 1
 
@@ -395,6 +395,7 @@ offset_right = 412.0
 offset_bottom = 297.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_rcqid")
 theme_override_font_sizes/font_size = 32
 text = "Made with <3 by
 Violet, Maji, Ketch, Shark, Gev, and Aurora
@@ -403,7 +404,7 @@ Violet — Sound Design & Writing
 Maji — Art & Writing
 Ketch — Writing
 Shark — Art & UI
-Gev — Programming
+Gev — Art & Programming
 Aurora — Programming
 "
 horizontal_alignment = 1
@@ -420,14 +421,10 @@ offset_top = -100.0
 offset_right = 270.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxTexture_lgwnu")
 text = "Back"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_oa1go")
-autoplay = true
-bus = &"Music"
 
 [node name="Gothic Frame" type="Panel" parent="."]
 visible = false

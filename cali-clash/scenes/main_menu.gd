@@ -78,7 +78,7 @@ func _on_final_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/battle.tscn")
 	
 func _on_start_button_pressed() -> void:
-	print("start pressed")
+	Dialogic.start("introduction")
 func _on_options_button_pressed() -> void:
 	main_buttons.visible = false
 	options.visible = true

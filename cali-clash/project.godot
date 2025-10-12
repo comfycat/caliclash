@@ -30,6 +30,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "battle_test": "res://dialogues/timelines/battle_test.dtl",
 "comedy_house": "res://dialogues/timelines/comedy_house.dtl",
+"introduction": "res://dialogues/timelines/introduction.dtl",
 "tutorial": "res://dialogues/timelines/tutorial.dtl",
 "tutorial_house": "res://dialogues/timelines/tutorial_house.dtl"
 }
