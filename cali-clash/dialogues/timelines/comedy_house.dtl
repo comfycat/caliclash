@@ -1,6 +1,7 @@
 [style name="VisualNovelDialogueStyle"]
 [background fade="0.0"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 audio music "res://assets/music/VN music.wav"
 [i]You walk up to the gothic looking house, the faint sound of heavy metal gets louder as you approach the door[/i]
 [i]You notice the same musical riff being played, stopped, grunts of frustration, and the riff being repeated once again but changed slightly[/i]
@@ -140,6 +141,11 @@ VAMPIRE: “AND A FAREWELL GIFT!”
 VAMPIRE: “DO NOT THANK ME FOR MY GENEROSITY! Thank me for when my future album graces your ears…”
 
 [signal arg="return_map"]
+=======
+
+
+[signal arg="next_house"]
+>>>>>>> Stashed changes
 =======
 
 
