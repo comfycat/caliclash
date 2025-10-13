@@ -9,10 +9,12 @@ extends Control
 @onready var start_friendliness_btn: Button  = %FriendlinessButton
 @onready var start_intimidation_btn: Button  = %IntimidationButton
 @onready var start_final_btn: Button		 = %FinalButton
-
+@onready var pumpkin_panel: Panel			= %PumpkinPanel
+@onready var pumpkin_panel2:Panel			= %PumpkinPanel2
 @onready var options: Panel = $Options
 @onready var credits: Panel = $Credits
-@onready var main_buttons: CanvasLayer = $MarginContainer/MainButtons
+var dialog_instance: Node = null
+
 
 func _ready() -> void:
 	# Quick visibility & input sanity checks
@@ -32,7 +34,17 @@ func _ready() -> void:
 	_wire_btn(start_intimidation_btn, _on_intimidation_button_pressed, "IntimidationButton")
 	_wire_btn(start_final_btn, _on_final_button_pressed, "FinalButton")
 	
-	main_buttons.visible = true
+	pumpkin_panel.visible =true
+	pumpkin_panel2.visible =false
+	
+	start_btn.disabled = false
+	options_btn.disabled = false
+	credits_btn.disabled = false
+	
+	start_btn.visible = true
+	options_btn.visible = true
+	credits_btn.visible = true
+	
 	options.visible = false
 	credits.visible = false
 
@@ -78,13 +90,34 @@ func _on_final_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/battle.tscn")
 	
 func _on_start_button_pressed() -> void:
-	print("start pressed")
+	if dialog_instance:
+		dialog_instance.queue_free()
+		dialog_instance = null
+	dialog_instance = Dialogic.start("introduction")
+	add_child(dialog_instance)
+
 func _on_options_button_pressed() -> void:
-	main_buttons.visible = false
+	pumpkin_panel2.visible = true
+	pumpkin_panel.visible=false
+	start_btn.visible = false
+	options_btn.visible = false
+	credits_btn.visible = false
+	
+	start_btn.disabled = true
+	options_btn.disabled = true
+	credits_btn.disabled = true
 	options.visible = true
 	print("options pressed")
 func _on_credits_button_pressed() -> void:
-	main_buttons.visible = false
+	pumpkin_panel2.visible = true
+	pumpkin_panel.visible = false
+	start_btn.visible = false
+	options_btn.visible = false
+	credits_btn.visible = false
+	
+	start_btn.disabled = true
+	options_btn.disabled = true
+	credits_btn.disabled = true
 	credits.visible = true
 func _on_back_button_pressed() -> void:
 	_ready()

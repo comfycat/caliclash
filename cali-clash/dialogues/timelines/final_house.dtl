@@ -1,0 +1,60 @@
+MONSTER_HOUSE: This is final house
+
+join chocolate left
+audio "res://assets/sfx/blipSelect.wav"
+
+chocolate: Knock knock
+graham: who is there?
+[signal arg="battle_ui"]
+
+# ROUND 1
+- Try a bargain
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+- Make a pun
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+- Offer a friendly compliment
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+- Stay quiet
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+chocolate: {reaction_1}
+# ROUND 2
+chocolate: Test your chances...
+
+[signal arg="battle_ui"]
+- Try a bargain
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+- Make a pun
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+- Offer a friendly compliment
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+- Stay quiet
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+
+# ROUND 3
+chocolate: {reaction_2}
+chocolate: Last chance to impress or persuade me.
+[signal arg="battle_ui"]
+- Try a bargain
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+- Make a pun
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+- Offer a friendly compliment
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+- Stay quiet
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+chocolate: {reaction_3}
+chocolate: {reaction_end}
+
+[signal arg="ending"]

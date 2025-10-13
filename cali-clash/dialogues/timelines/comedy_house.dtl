@@ -1,60 +1,136 @@
-[style name="VisualNovelDialogueStyle"]
-join chocolate left
-join graham right
-audio "res://assets/sfx/blipSelect.wav"
+[background fade="0.0"]
+[i]You walk up to the gothic looking house, the faint sound of heavy metal gets louder as you approach the door[/i]
+[i]You notice the same musical riff being played, stopped, grunts of frustration, and the riff being repeated once again but changed slightly[/i]
+[i]There is bat shaped doorbell hanging on the wall[/i]
+[i]You press it[/i]
+[i]With the sound of Bach's Toccata in D Minor, the music stops abruptly. The door opens and bats fly out, almost hitting your face[/i]
 
-chocolate: Knock knock
-graham: who is there?
+MC: “...Trick or trea-”
+
+VAMPIRE: “Who DARES interrupt me in the middle of rehearsal”
+VAMPIRE: “I already told you journalists, you cannot rush an album’s PERFECTION”
+VAMPIRE: “I do NOT do autographs nor pictures, leave from whence thou came or your blood shall be for forfeit”
+
+[i]He finally stops his rant and looks down[/i]
+
+VAMPIRE: “A child… you must be lost, or perhaps… you’re a fan?“
+VAMPIRE: “…No matter, leave me be… my siren calls and she beckons an answer… but I’m not satisfied with it… I must work”
+
+
+[i]As he motions to close the door, in a low voice you can’t help but comment[/i]
+
+MC: “It needs work alright”
+
+[i]He stops, immediately pivoting back to look down at you piercingly but amused[/i]
+
+VAMPIRE: “…And what do you know of music, child? I was already cold in the flesh by the time I graced the audiences of Bach, Mozart, Beethoven, Tchaikovsky, and more composers than you’ll ever come to know”
+VAMPIRE: “I watched the world burn and bandage itself back together as music was forged and guided with the times.”
+VAMPIRE: “And you haven’t even seen my final form”
+
+[i]He takes a deep breath, one he doesn’t need to take, but he lives for the drama[/i]
+
 [signal arg="battle_ui"]
 
-# ROUND 1
-- Try a bargain
+# #Battle Start
+# #Round 1
+VAMPIRE: “So what say you, Temporary Child of the night? Purple felted skinner of Opossums and devourer of candy?”
+
+- Uh… well I know Beethoven didn’t use electric guitars. #4
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
-- Make a pun
+VAMPIRE: “And only a FOOL would think he wouldn’t hesitate to use one if given the chance.”
+
+- Idk, It’s pretty bad if even a NORMIE can hear a problem… #1
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
-- Offer a friendly compliment
+	join  center
+VAMPIRE: “HAH, the NERVE you have, child. You certainly know how to use it”
+join  center
+
+- Well, I like your music. #3
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-- Stay quiet
-	set {choice_id} = "D"
-	[signal arg="choice_made"]
-chocolate: {reaction_1}
-# ROUND 2
-chocolate: Test your chances...
+VAMPIRE: “Yes, everyone does. It’s good to see that the youth still have taste but you don't have the ear to critique, child”
 
-[signal arg="battle_ui"]
-- Try a bargain
+- I think it’s time to retire, old man. Your ears are probably beyond expired. Just give me the candy and call it a night. #2
+	set {choice_id} = "D”
+	[signal arg="choice_made"]
+VAMPIRE: “HAH, the youth nowadays are very demanding it seems. I would be mad if it weren’t so amusing”
+{reaction_1}
+
+# #Round 2
+VAMPIRE: “Consider yourself lucky, for I shall grant you a privilege no other has ever received… THE PRIVILEGE OF GIVING ADVICE FOR MY SONG!”
+
+- Sampling an amen break could do well for your track. #3
+set {choice_id} = "A"
+[signal arg="choice_made"]
+VAMPIRE: “Do you REALIZE how many songs use an amen break? Do you see me as that COMMON? No… this album will be revolutionary…”
+
+- Start sampling poop from a butt, old man. #2
+set {choice_id} = "B"
+[signal arg="choice_made"]
+VAMPIRE: “You’ve also noticed the rise of strange sounding music too?! Perhaps I could be the one to truly pave the way…”
+
+- You don’t have more musically inclined friends to ask? #4
+set {choice_id} = "C"
+[signal arg="choice_made"]
+VAMPIRE: “AND LISTEN TO THEIR SAME OLD DRIVEL? I find you close-minded, child.”
+
+- I’m sure you could sample your screaming after I kick your shins in. #1
+set {choice_id} = "D"
+[signal arg="choice_made"]
+join  center
+VAMPIRE: “HAH! Experimental I see! Perhaps I’ve underestimated your musical talent, child”
+join  center
+{reaction_2}
+
+# #Round 3
+VAMPIRE: “AH! NO! I’ve revealed too much about what I’ve been doing… You’d reveal my secrets to the press… no… this cannot happen… I CANNOT LET YOU LEAVE THIS HOUSE ALIVE!”
+
+[i]Bats fly overhead as he says this, it feels incredibly scripted[/i]
+
+- What is the press even going to glean from this conversation? #3
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
-- Make a pun
+	V: “HAVE YOU SEEN THEM?! They get into everything… like rats… It’s obvious you’ve never tasted fame before, child”
+
+- Like you can even catch me. You’re like a billion years old, I’d snap your ankles. #1
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
-- Offer a friendly compliment
+	join  center
+	V: “HAH, I like your spunk! This is the sort of attitude the world of music needs in its future”
+	join  center
+
+- Killing me would ruin your image. #4
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-- Stay quiet
+	V: “HAH! I am a VAMPIRE! What kind of nonsense are you spewing?”
+
+- Why don’t you just kill the journalists instead? #2
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
+	V: “WHO ELSE WOULD SPREAD MY WONDERFUL MUSIC?! Well, I mean, of course I have fans… you may have a point…”
 
-# ROUND 3
-chocolate: {reaction_2}
-chocolate: Last chance to impress or persuade me.
-[signal arg="battle_ui"]
-- Try a bargain
-	set {choice_id} = "A"
-	[signal arg="choice_made"]
-- Make a pun
-	set {choice_id} = "B"
-	[signal arg="choice_made"]
-- Offer a friendly compliment
-	set {choice_id} = "C"
-	[signal arg="choice_made"]
-- Stay quiet
-	set {choice_id} = "D"
-	[signal arg="choice_made"]
-chocolate: {reaction_3}
-chocolate: {reaction_end}
+# #Fail
+[i]He scoffs and looks at you disapprovingly[/i]
 
-[signal arg="return_menu"]
+VAMPIRE: “Foolish on my end to entrust an unqualified child with giving me inspiration. No, if I were to suck your blood, I’d SURELY contract your awful opinions on music. BEGONE!”
+
+[i]He wraps his cloak around his body as if preparing to disappear into the night, but he just stands awkwardly, pretending as if he’s invisible. You make the first move and step out of his abode, unsure of what just went down[/i]
+
+# Success
+VAMPIRE: “Could you really be a reincarnated composer?! HAHA! NOT! No one could DARE ever dream of holding their titles, but you surprise me in many ways, child. Be grateful that the THOUGHT of you becoming my protege even crossed my mind! BUT I WILL GIVE YOU MY NEXT BEST THING!”
+
+[i]He snaps his fingers and a tabby cat appears from behind him, it greets you lovingly[/i]
+
+VAMPIRE: “This creature of the night has listened through the creative process of many songs. I graciously bestow this upon you, TAKE IT! And you shall overcome anything!”
+
+[i]You look down at the feline, it just purrs incessantly[/i]
+
+VAMPIRE: “AND A FAREWELL GIFT!”
+
+[i]A bag of candy hits your face[/i]
+
+VAMPIRE: “DO NOT THANK ME FOR MY GENEROSITY! Thank me for when my future album graces your ears…”
+
+[signal arg="return_map"]

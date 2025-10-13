@@ -1,0 +1,40 @@
+[style name="VisualNovelDialogueStyle"]
+[background arg="res://assets/backgrounds/intro/intro-1.png" fade="2.0"]
+
+[i]Yippie! It’s the once-a-year magical night for trick or treating.[/i]
+
+[i]Children roam the streets aglow of jack-o-lanterns, festive lights, and uncanny decor.[/i]
+
+[background arg="res://assets/backgrounds/intro/intro-2.png" fade="1.0"]
+[i]Every Halloween begins with a tacit agreement—a simple understanding between children and their neighbors. [/i]
+
+[background arg="res://assets/backgrounds/intro/intro-3.png" fade="1.0"]
+[i]Allowing themselves to make-believe hour-long magic.[/i]
+
+[background arg="res://assets/backgrounds/intro/intro-4.png" fade="1.0"]
+[i]And the world feels strange just enough to believe in anything…[/i]
+
+[background arg="res://assets/backgrounds/intro/intro-5.png" fade="1.0"]
+[i]You don’t hear the sounds of your friends’ howling laughter anymore and you’ve found yourself in pitch darkness stepping into damp foliage.[/i]
+
+MC: “Yuck!”
+
+[background arg="res://assets/backgrounds/intro/intro-6.png" fade="1.0"]
+and you force your way through unfamiliar shrub.
+
+The branches hanging overhead you hack away with your pumpkin candy basket.
+
+You finally see some light stepping out of the forest.
+
+[background arg="res://assets/backgrounds/intro/intro-7.png" fade="1.5"]
+You read a worn street sign,
+
+MC: “Dark Wood Avenue..”
+
+[background arg="res://assets/backgrounds/intro/intro-8.png" fade="1.0"]
+[i]Beyond it is a row of houses, tucked away in this secluded part of town for what could be years. [/i]
+
+[i]Lights shine through the windows of the buildings, people do indeed still live here. [/i]
+
+[i]And although your mother taught you to not to wander into strange places, there could be a plethora of new faces to meet and new candy to collect.[/i]
+[signal arg="start_tutorial"]

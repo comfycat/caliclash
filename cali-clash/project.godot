@@ -19,24 +19,36 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GameManager="*res://game_manager.gd"
+Global="*res://global.gd"
 
 [dialogic]
 
 directories/dch_directory={
+"GRANNY": "res://dialogues/characters/GRANNY.dch",
+"SCARECROW": "res://dialogues/characters/SCARECROW.dch",
+"VAMPIRE": "res://dialogues/characters/VAMPIRE.dch",
+"WITCH": "res://dialogues/characters/WITCH.dch",
 "chocolate": "res://dialogues/characters/chocolate.dch",
 "graham": "res://dialogues/characters/graham.dch"
 }
 directories/dtl_directory={
 "battle_test": "res://dialogues/timelines/battle_test.dtl",
 "comedy_house": "res://dialogues/timelines/comedy_house.dtl",
+"end_bad": "res://dialogues/timelines/endings/end_bad.dtl",
+"end_good": "res://dialogues/timelines/endings/end_good.dtl",
+"end_ok": "res://dialogues/timelines/endings/end_ok.dtl",
+"final_house": "res://dialogues/timelines/final_house.dtl",
+"friendliness_house": "res://dialogues/timelines/friendliness_house.dtl",
+"intimidation_house": "res://dialogues/timelines/intimidation_house.dtl",
+"introduction": "res://dialogues/timelines/introduction.dtl",
+"knowledge_house": "res://dialogues/timelines/knowledge_house.dtl",
 "tutorial": "res://dialogues/timelines/tutorial.dtl",
 "tutorial_house": "res://dialogues/timelines/tutorial_house.dtl"
 }
 layout/style_directory={
-"VisualNovelDialogueStyle": "res://visual_novel_dialogue_style.tres",
-"battle_style": "res://dialogues/styles/battle_style.tres"
+"VisualNovelDialogueStyle": "res://visual_novel_dialogue_style.tres"
 }
-layout/style_list=["res://visual_novel_dialogue_style.tres", "res://dialogues/styles/battle_style.tres"]
+layout/style_list=["res://visual_novel_dialogue_style.tres"]
 layout/default_style="res://VisualNovelDialogueStyle.tres"
 glossary/default_case_sensitive=true
 variables={
@@ -101,5 +113,10 @@ dialogic_default_action={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+Mouse_Button={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }

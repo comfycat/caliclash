@@ -28,15 +28,6 @@ var round_num: int = 1
 var force_all_sparkles: bool = false	
 var _simulated_friend_added: bool = false   
 
-# ---------- Rank table (round -> choice_id -> rank 1..4) ----------
-var dialogue_rankings := { # Low-priority:Needs to be modified so every house has a distinct choice ranking
-	1: {"A": 4, "B": 2, "C": 3, "D": 1},
-	2: {"A": 1, "B": 4, "C": 3, "D": 2},
-	3: {"A": 2, "B": 3, "C": 4, "D": 1},
-	4: {"A": 2, "B": 1, "C": 4, "D": 3},   # for final house
-	5: {"A": 3, "B": 4, "C": 1, "D": 2}
-}
-
 # ---------- Sparkles mapping (child name -> stat) ----------
 const SPARKLE_MAP := {
 	"green-sparkles":  "Knowledge",
@@ -59,7 +50,7 @@ func _ready() -> void:
 		_set_all_sparkles(false)
 
 	_load_config()
-	_apply_house_overrides()  # tutorial/comedy special rules
+	_apply_house_overrides() 
 	_init_ui()
 
 	# Hook Dialogic events
@@ -87,11 +78,12 @@ func _apply_house_overrides() -> void:
 	if house_id == "tutorial_house":
 		force_all_sparkles = true
 
-	# 2)Comedy house: simulate mummy in party just for this battle
-	if house_id == "comedy_house":
-		if "mummy" not in GameManager.recruited_friends:
-			GameManager.recruited_friends.append("mummy")
-			_simulated_friend_added = true
+	## 2)Comedy house: simulate mummy in party just for this battle
+	#if house_id == "comedy_house":
+		#if "sphinx_cat" not in GameManager.recruited_friends:
+			#GameManager.recruit_friend("sphinx_cat")
+			#_simulated_friend_added = true
+
 
 func _init_ui() -> void:
 	persuasion = 0
@@ -104,6 +96,7 @@ func _init_ui() -> void:
 # ============================== DIALOGIC EVENTS ==============================
 func _on_dialogic_signal(name: String) -> void:
 	match name:
+
 		"battle_ui":
 			# Show choice-time indicators
 			if force_all_sparkles:
@@ -116,6 +109,7 @@ func _on_dialogic_signal(name: String) -> void:
 			var choice_id: String = String(Dialogic.VAR.get("choice_id"))
 			if choice_id == "": choice_id = "A"
 			_apply_choice(choice_id)
+
 		"return_menu":
 			Dialogic.end_timeline(true)
 			if dialog_instance:
@@ -123,8 +117,26 @@ func _on_dialogic_signal(name: String) -> void:
 				dialog_instance = null
 			await get_tree().process_frame
 			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
 		"battle_done":
 			_set_all_sparkles(false)
+			_finalize_battle_and_exit()
+
+		"return_map":
+			Dialogic.end_timeline(true)
+			if dialog_instance:
+				dialog_instance.queue_free()
+				dialog_instance = null
+			await get_tree().process_frame
+			get_tree().change_scene_to_file("res://scenes/neighborhood.tscn")
+
+		"ending":
+			Dialogic.end_timeline(true)
+			if dialog_instance:
+				dialog_instance.queue_free()
+				dialog_instance = null
+
+			await get_tree().process_frame
 			_finalize_battle_and_exit()
 
 # ============================== ROUND/SCORING ==============================
@@ -142,7 +154,7 @@ func _apply_choice(choice_id: String) -> void:
 	if round_num >= rounds:
 		var end_text := ""
 		if persuasion >= threshold and friend_reward != "":
-			end_text = "You convinced "+ friend_reward+ " to join your party."
+			end_text = "You convinced a friend to join your party."
 		else:
 			end_text = "You didn’t convince them this time."
 		Dialogic.VAR.set("reaction_end", end_text)
@@ -156,17 +168,11 @@ func _finalize_battle_and_exit() -> void:
 	var result := GameManager.finalize_battle(persuasion)
 	candy_label.text = str(GameManager.candy)
 	print("Candy +%d (Total: %d)" % [int(result.candy_gain), GameManager.candy])
-
-	# Clean up simulated mummy after injection
-	if _simulated_friend_added:
-		var idx := GameManager.recruited_friends.find("mummy")
-		if idx != -1:
-			GameManager.recruited_friends.remove_at(idx)
-		_simulated_friend_added = false
-
+	
 	var hid := String(GameManager.current_battle_data.get("house_id",""))
 	if hid == "final_house":
-		_go_to_ending()
+		get_tree().change_scene_to_file("res://scenes/ending.tscn")
+		return
 
 func _calculate_gain(choice_id: String, round_i: int) -> int:
 	var house_id := String(GameManager.current_battle_data.get("house_id", "default"))
@@ -201,15 +207,9 @@ func _choice_to_tag(choice_id: String) -> String:
 		"B": return "Comedy"
 		"C": return "Friendliness"
 		"D": return "Intimidation"
-		_:   return "Knowledge"
+		_:   return ""
 
 # ============================== ENDINGS ==============================
-func _go_to_ending() -> void:
-	var ending := GameManager.get_ending()
-	match ending:
-		"good": get_tree().change_scene_to_file("res://scenes/end_good.tscn")
-		"okay": get_tree().change_scene_to_file("res://scenes/end_ok.tscn")
-		_:	  get_tree().change_scene_to_file("res://scenes/end_bad.tscn")
 
 # ============================== SPARKLES (BOOST INDICATORS) ==============================
 func _cache_sparkle_nodes() -> void:
