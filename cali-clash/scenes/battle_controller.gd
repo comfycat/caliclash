@@ -1,104 +1,266 @@
-#res://scenes/battle_controller.gd
+
+# res://scenes/battle_controller.gd
 extends Node
 
+# ---------- UI refs (Unique Names) ----------
+@onready var bar: ProgressBar	  = %PersuasionBar
+@onready var round_label: Label	= %RoundLabel
+@onready var candy_label: Label	= %CandyLabel
+@onready var sparkles: Node		= %Sparkles  # Node2D container with: green/yellow/pink/blue children
 
-@onready var persuasion_bar: ProgressBar = $"../UI/PersuasionBar"
-@onready var round_label: Label = $"../UI/RoundLabel"
-@onready var candy_label: Label = $"../UI/CandyLabel"
+# ---------- Dialogic ----------
+var dialog_instance: Node = null
 
-var persuasion_score := 0
-var candy_count := 0
-var round_counter := 1
-var friend_boosts = {  # Dictionary is updated as Friends & their attributes are defined
-	"Knowledge": 0.10,
-	"Comedy": 0.05,
-	"Friendliness": 0.15,
-	"Intimidation": 0.0
+# ---------- Config loaded per battle ----------
+var house_id: String = ""
+var rounds: int = 3
+var threshold: int = 75
+var candy_per_100: int = 10
+var no_boosts: bool = false
+var friend_reward: String = ""
+var timeline: String = "House_Default"
+
+# ---------- Runtime state ----------
+var persuasion: int = 0
+var round_num: int = 1
+
+# Special behavior
+var force_all_sparkles: bool = false	
+var _simulated_friend_added: bool = false   
+
+# ---------- Sparkles mapping (child name -> stat) ----------
+const SPARKLE_MAP := {
+	"green-sparkles":  "Knowledge",
+	"yellow-sparkles": "Comedy",
+	"pink-sparkles":   "Friendliness",
+	"blue-sparkles":   "Intimidation",
 }
-# Each round, options A–D mapped to rank 1–4 (1=worst,4=best)
-var dialogue_rankings = {
-	1: {"A": 4, "B": 2, "C": 3, "D": 1},  #Round 1
-	2: {"A": 1, "B": 4, "C": 3, "D": 2},  #Round 2
-	3: {"A": 2, "B": 3, "C": 4, "D": 1}   #Round 3
-}
+var sparkle_nodes: Dictionary = {}   # stat -> Node
 
-func _ready():
-	print("PersuasionBar node:", persuasion_bar)
-	print("CandyLabel node:", candy_label)
+# ============================== READY ==============================
+func _ready() -> void:
+	# Validate required nodes early
+	if bar == null or round_label == null or candy_label == null:
+		push_error("BattleController: missing UI nodes (check Unique Names).")
+		return
 
-	persuasion_bar.max_value = 100 #Restarts every Battle Scene
-	persuasion_bar.value = 0
+	# Cache sparkles and start hidden
+	if sparkles:
+		_cache_sparkle_nodes()
+		_set_all_sparkles(false)
 
-	if Dialogic.has_signal("signal_event"):
-		Dialogic.signal_event.connect(_on_dialogic_signal)
-	else:
-		push_error("Dialogic signal_event not found.")
+	_load_config()
+	_apply_house_overrides() 
+	_init_ui()
 
-	Dialogic.start("battle_test")
+	# Hook Dialogic events
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 
-func _on_dialogic_signal(event_name: String):
-	if event_name == "choice_made":
-		var choice_id = Dialogic.VAR.get_variable("choice_id")
-		_on_choice_selected(choice_id)
+	# Start timeline and add to scene
+	if dialog_instance:
+		dialog_instance.queue_free()
+	dialog_instance = Dialogic.start(timeline)
+	add_child(dialog_instance)
 
-func rank_to_value(rank: int) -> int:
-	match rank:
-		4: return 40  #best
-		3: return 30
-		2: return 20
-		1: return 10  #worst
-		_: return 0
+# ============================== CONFIG/INIT ==============================
+func _load_config() -> void:
+	var cfg := GameManager.current_battle_data
+	house_id	  = String(cfg.get("house_id", ""))
+	rounds		= int(cfg.get("rounds", 3))
+	threshold	 = int(cfg.get("threshold", 75))
+	candy_per_100 = int(cfg.get("candy_per_100", 10))
+	no_boosts	 = bool(cfg.get("no_boosts", false))
+	friend_reward = String(cfg.get("friend_reward", ""))
+	timeline	  = String(cfg.get("timeline", "House_Default"))
 
-func _on_choice_selected(choice_id: String) -> void:
-	var delta := calculate_persuasion(choice_id, round_counter)
-	persuasion_score += delta
-	persuasion_bar.value = clamp(persuasion_score, 0, 100)
+func _apply_house_overrides() -> void:
+	# 1) Tutorial: force all sparkles ON during choice time (ignores boosts)
+	if house_id == "tutorial_house":
+		force_all_sparkles = true
 
-	var message := "Persuasion bar increased by %d points!" % delta
-	_dialogic_set_var("reaction_%d" % round_counter, message)
+	## 2)Comedy house: simulate mummy in party just for this battle
+	#if house_id == "comedy_house":
+		#if "sphinx_cat" not in GameManager.recruited_friends:
+			#GameManager.recruit_friend("sphinx_cat")
+			#_simulated_friend_added = true
 
-	if round_counter == 3:
+
+func _init_ui() -> void:
+	persuasion = 0
+	round_num = 1
+	bar.max_value = 100
+	bar.value = 0
+	round_label.text = "%d/%d" % [round_num, rounds]
+	candy_label.text = str(GameManager.candy)
+
+# ============================== DIALOGIC EVENTS ==============================
+func _on_dialogic_signal(name: String) -> void:
+	match name:
+
+		"battle_ui":
+			# Show choice-time indicators
+			if force_all_sparkles:
+				_set_all_sparkles(true)		 # Tutorial → all shine
+			else:
+				_refresh_sparkles_for_boosts()  # Normal → only boosted stats
+		"choice_made":
+			# Hide indicators while resolving the choice
+			_set_all_sparkles(false)
+			var choice_id: String = String(Dialogic.VAR.get("choice_id"))
+			if choice_id == "": choice_id = "A"
+			_apply_choice(choice_id)
+
+		"return_menu":
+			Dialogic.end_timeline(true)
+			if dialog_instance:
+				dialog_instance.queue_free()
+				dialog_instance = null
+			await get_tree().process_frame
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+		"battle_done":
+			_set_all_sparkles(false)
+			_finalize_battle_and_exit()
+
+		"return_map":
+			Dialogic.end_timeline(true)
+			if dialog_instance:
+				dialog_instance.queue_free()
+				dialog_instance = null
+			await get_tree().process_frame
+			get_tree().change_scene_to_file("res://scenes/neighborhood.tscn")
+
+		"ending":
+			Dialogic.end_timeline(true)
+			if dialog_instance:
+				dialog_instance.queue_free()
+				dialog_instance = null
+
+			await get_tree().process_frame
+			_finalize_battle_and_exit()
+
+# ============================== ROUND/SCORING ==============================
+func _apply_choice(choice_id: String) -> void:
+	var delta := _calculate_gain(choice_id, round_num)
+	persuasion = clamp(persuasion + delta, 0, 100)
+
+	# Bar aniamte
+	var tw := create_tween()
+	tw.tween_property(bar, "value", persuasion, 0.25)
+
+	# Dialogic feedback string for this round
+	Dialogic.VAR.set("reaction_%d" % round_num, "Persuasion +%d!" % delta)
+
+	if round_num >= rounds:
 		var end_text := ""
-		if persuasion_score >= 75:
-			end_text = "You’ve won chocolate’s favor! They join your party."
+		if persuasion >= threshold and friend_reward != "":
+			end_text = "You convinced a friend to join your party."
 		else:
 			end_text = "You didn’t convince them this time."
-		_dialogic_set_var("reaction_end", end_text)
-		var candy_gain = int(persuasion_bar.value / 10)
-		candy_count += candy_gain
-		candy_label.text = "Candies: %d" % candy_count
-		print("Converted persuasion into ", candy_count, " candies.")
+		Dialogic.VAR.set("reaction_end", end_text)
+		_finalize_battle_and_exit()
 	else:
-		round_counter += 1
-		round_label.text = "%d/3" % round_counter
+		round_num += 1
+		round_label.text = "%d/%d" % [round_num, rounds]
+		Dialogic.VAR.set("round_num", round_num)
 
-
-	if Dialogic.has_method("end_timeline_event"):
-		Dialogic.end_timeline_event()
-	elif Dialogic.has_method("emit_signal"):
-		Dialogic.emit_signal("event_end")
-	else:
-		print("Dialogic not continuing, check signal setup")
-
+func _finalize_battle_and_exit() -> void:
+	var result := GameManager.finalize_battle(persuasion)
+	candy_label.text = str(GameManager.candy)
+	print("Candy +%d (Total: %d)" % [int(result.candy_gain), GameManager.candy])
 	
-func get_boost_type(choice_id: String) -> String:
+	var hid := String(GameManager.current_battle_data.get("house_id",""))
+	if hid == "final_house":
+		get_tree().change_scene_to_file("res://scenes/ending.tscn")
+		return
+
+func _calculate_gain(choice_id: String, round_i: int) -> int:
+	var house_id := String(GameManager.current_battle_data.get("house_id", "default"))
+	var rankings = GameManager.get_dialogue_ranking(house_id, round_i)
+	var rank := int(rankings.get(choice_id, 1))
+
+	var base := _rank_to_value(rank)
+	var tag := _choice_to_tag(choice_id)
+	var boost := 0.0
+
+	if house_id == "tutorial_house":
+		return 100
+
+	var no_boosts := bool(GameManager.current_battle_data.get("no_boosts", false))
+	if not no_boosts:
+		boost = GameManager.get_total_boost(tag)
+
+	return int(round(base * (1.0 + boost)))
+
+
+func _rank_to_value(rank: int) -> int:
+	match rank:
+		4: return 40
+		3: return 30
+		2: return 20
+		1: return 10
+		_: return 0
+
+func _choice_to_tag(choice_id: String) -> String:
 	match choice_id:
 		"A": return "Knowledge"
 		"B": return "Comedy"
 		"C": return "Friendliness"
 		"D": return "Intimidation"
-		_: return ""
-func calculate_persuasion(choice_id: String, round_num: int) -> int:
-	var round_data = dialogue_rankings.get(round_num, {})
-	var rank = round_data.get(choice_id, 1)
-	var base = rank_to_value(rank)
-	var boost_type = get_boost_type(choice_id)
-	
-	# sum boosts for all recruited friends whose boost matches this stat
-	var total_boost = GameManager.get_total_boost(boost_type)
+		_:   return ""
 
-	return int(base * (1.0 + total_boost))
+# ============================== ENDINGS ==============================
 
-func _dialogic_set_var(name: String, value: Variant) -> void:
-	if Dialogic.VAR.has_method("set_variable"):
-		Dialogic.VAR.set_variable(name, value)
+# ============================== SPARKLES (BOOST INDICATORS) ==============================
+func _cache_sparkle_nodes() -> void:
+	sparkle_nodes.clear()
+	if sparkles == null:
+		return
+	for child_name in SPARKLE_MAP.keys():
+		if sparkles.has_node(child_name):
+			var node: Node = sparkles.get_node(child_name)
+			var stat: String = SPARKLE_MAP[child_name]
+			sparkle_nodes[stat] = node
+		else:
+			push_warning("Sparkles child missing: %s" % child_name)
+
+# Turn on indicators only for stats with >0 boost; hide the rest.
+func _refresh_sparkles_for_boosts() -> void:
+	if sparkles == null:
+		return
+	if no_boosts:
+		_set_all_sparkles(false)
+		return
+
+	var any_on := false
+	for stat in ["Knowledge","Comedy","Friendliness","Intimidation"]:
+		var node: Node = sparkle_nodes.get(stat, null)
+		if node == null: continue
+		var has_boost := GameManager.get_total_boost(stat) > 0.0001
+		_toggle_sparkle_node(node, has_boost)
+		if has_boost: any_on = true
+
+	if sparkles is CanvasItem:
+		(sparkles as CanvasItem).visible = any_on
+
+# Hide/show every sparkle child
+func _set_all_sparkles(on: bool) -> void:
+	if sparkles == null:
+		return
+	if sparkles is CanvasItem:
+		(sparkles as CanvasItem).visible = on
+	for node in sparkle_nodes.values():
+		_toggle_sparkle_node(node, on)
+
+# Handle AnimatedSprite2D 
+func _toggle_sparkle_node(node: Node, on: bool) -> void:
+	if node is CanvasItem:
+		(node as CanvasItem).visible = on
+
+	if node is AnimatedSprite2D:
+		var spr := node as AnimatedSprite2D
+		if on:
+			spr.play()
+		else:
+			spr.stop()
+		return

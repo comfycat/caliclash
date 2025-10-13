@@ -1,11 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://btt2fekwnu034"]
+[gd_scene load_steps=26 format=3 uid="uid://btt2fekwnu034"]
 
 [ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://bjijlyq3gaewr" path="res://assets/backgrounds/candy-corn.jpg" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bcq6vd7dbf7jj" path="res://assets/backgrounds/menu_background.png" id="2_flqon"]
+[ext_resource type="Texture2D" uid="uid://buqx1hwi4lrcv" path="res://assets/backgrounds/ui(pumpkins).png" id="3_flqon"]
+[ext_resource type="Texture2D" uid="uid://dji4ex8e2uta6" path="res://assets/backgrounds/glowy_effect.png" id="3_rcqid"]
+[ext_resource type="Texture2D" uid="uid://bmbwlsl0tajvl" path="res://assets/ui/main_menu/play_button (2).png" id="4_rcqid"]
+[ext_resource type="Texture2D" uid="uid://dlsip7b8iookv" path="res://assets/ui/main_menu/options_button (2).png" id="5_1ajci"]
+[ext_resource type="Texture2D" uid="uid://buawf4gpsadgn" path="res://assets/ui/main_menu/credits button.png" id="6_7b55j"]
+[ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="7_1ajci"]
+[ext_resource type="Script" path="res://scenes/audio_control.gd" id="7_tbmy8"]
+[ext_resource type="Script" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
+[ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
+[ext_resource type="Texture2D" uid="uid://dahukw83q8uad" path="res://assets/ui/main_menu/pause_tombstone_ui.webp" id="9_rcqid"]
+[ext_resource type="Texture2D" uid="uid://b1e3mwhyw184a" path="res://assets/ui/main_menu/moldy_tombstone_ui (2).webp" id="11_flqon"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
-texture = ExtResource("1_l6cm7")
-modulate_color = Color(0.583047, 0.583047, 0.5830469, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
+texture = ExtResource("2_flqon")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pajh"]
+texture = ExtResource("3_rcqid")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgwnu"]
+texture = ExtResource("3_flqon")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dd4i"]
+texture = ExtResource("3_flqon")
+modulate_color = Color(0.27672422, 0.23329225, 0.28442872, 1)
+
+[sub_resource type="GDScript" id="GDScript_bqqt6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 bg_color = Color(1, 1, 1, 1)
@@ -14,29 +36,24 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[sub_resource type="GDScript" id="GDScript_bqqt6"]
-script/source = "extends Button
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7ex8"]
+texture = ExtResource("9_rcqid")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7b55j"]
+texture = ExtResource("11_flqon")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_oa1go"]
+color = Color(1, 1, 1, 1)
+thickness = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(1, 0.5254902, 0, 1)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8gd2"]
+texture = ExtResource("9_rcqid")
 
-func on_start_button_pressed() -> void:
-	print(\"Start game pressed\")
-	get_tree().change_scene_to_file(\"res://scenes/tutorial_scene.tscn\")
-
-func on_options_button_pressed() -> void:
-	print(\"Options pressed\")
-
-func on_credits_button_pressed() -> void:
-	print(\"Credits pressed\")
-"
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcqid"]
+texture = ExtResource("11_flqon")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -47,71 +64,439 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+theme_override_styles/panel = SubResource("StyleBoxTexture_1ajci")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="GlowyEffect" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -166.0
-offset_right = 399.0
-grow_vertical = 0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5pajh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="MainButtons" type="CanvasLayer" parent="GlowyEffect"]
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
-text = "Start Game"
+[node name="PumpkinPanel" type="Panel" parent="GlowyEffect/MainButtons"]
+unique_name_in_owner = true
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lgwnu")
+
+[node name="PumpkinPanel2" type="Panel" parent="GlowyEffect/MainButtons"]
+unique_name_in_owner = true
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5dd4i")
+
+[node name="StartButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
+unique_name_in_owner = true
+z_index = 10
+offset_left = 324.0
+offset_top = 478.0
+offset_right = 927.0
+offset_bottom = 802.0
+scale = Vector2(0.75, 0.75)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("4_rcqid")
 script = SubResource("GDScript_bqqt6")
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
-text = "Options"
+[node name="OptionsButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
+unique_name_in_owner = true
+z_index = 10
+offset_left = 235.0
+offset_top = 771.0
+offset_right = 1031.2499
+offset_bottom = 1060.0
+scale = Vector2(0.75, 0.75)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("5_1ajci")
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="CreditsButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
+unique_name_in_owner = true
+z_index = 10
+offset_left = 859.0
+offset_top = 725.0
+offset_right = 1191.0
+offset_bottom = 1082.0
+scale = Vector2(0.75, 0.75)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("6_7b55j")
+
+[node name="Shadow" type="Label" parent="."]
+layout_mode = 1
+offset_left = 103.0
+offset_top = 154.0
+offset_right = 1103.0
+offset_bottom = 429.0
+theme_override_colors/font_color = Color(0.4392157, 0.30980393, 0.043137256, 1)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 100
+text = "Caliclash Game"
+horizontal_alignment = 1
+
+[node name="Shadow2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 157.0
+offset_right = 1102.0
+offset_bottom = 432.0
+theme_override_colors/font_color = Color(0.627451, 0.44705883, 0.078431375, 1)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 100
+text = "Caliclash Game"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 160.0
+offset_right = 1098.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0.87717575, 0.6366402, 0.07846785, 1)
+theme_override_constants/line_spacing = -32
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 100
+text = "Caliclash Game"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1528.0
+offset_top = 691.0
+offset_right = 1895.0
+offset_bottom = 825.0
+mouse_filter = 2
+
+[node name="TutorialButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -2.0
+offset_top = 90.0
+offset_right = 365.0
+offset_bottom = 132.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
-text = "Credits
+text = "Start Tutorial"
+
+[node name="ComedyButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -3.0
+offset_top = 136.0
+offset_right = 364.0
+offset_bottom = 178.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Start Comedy"
+
+[node name="KnowledgeButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 184.0
+offset_right = 367.0
+offset_bottom = 226.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Start Knowledge
 "
 
-[node name="Label" type="Label" parent="."]
+[node name="FriendlinessButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 230.0
+offset_right = 367.0
+offset_bottom = 272.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Start Friendliness
+"
+
+[node name="IntimidationButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 276.0
+offset_right = 367.0
+offset_bottom = 318.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Start Intimidation
+"
+
+[node name="FinalButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 322.0
+offset_right = 367.0
+offset_bottom = 364.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Start Final"
+
+[node name="Options" type="Panel" parent="."]
+visible = false
+z_index = 999
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -700.0
+offset_top = -700.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_j7ex8")
+
+[node name="Panel" type="Panel" parent="Options"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -263.0
-offset_top = 42.0
-offset_right = 257.0
-offset_bottom = 319.0
+offset_left = -98.0
+offset_top = 39.0
+offset_right = 93.0
+offset_bottom = 206.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 100
-text = "CaliClash 
-Game Jam "
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 36
+text = "Options
+"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="MarginContainer/VBoxContainer/StartButton" method="on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="MarginContainer/VBoxContainer/StartButton" method="on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="MarginContainer/VBoxContainer/StartButton" method="on_credits_button_pressed"]
+[node name="BackButton" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -100.0
+offset_right = 270.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_7b55j")
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -186.0
+offset_right = 270.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="FullScreenControl" type="CheckButton" parent="Options/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 35
+text = "Fullscreen"
+script = ExtResource("8_jk1qb")
+
+[node name="Master" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 36
+text = "Master"
+
+[node name="AudioControlMaster" type="HSlider" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_oa1go")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_tbmy8")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("7_tbmy8")
+audio_bus_name = "Master"
+
+[node name="Music" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 36
+text = "Music"
+
+[node name="AudioControlMusic" type="HSlider" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_oa1go")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_tbmy8")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("7_tbmy8")
+audio_bus_name = "Music"
+
+[node name="SFX" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 36
+text = "SFX"
+
+[node name="AudioControlSFX" type="HSlider" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_oa1go")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_tbmy8")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("7_tbmy8")
+audio_bus_name = "SFX"
+
+[node name="Credits" type="Panel" parent="."]
+z_index = 999
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -700.0
+offset_top = -700.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_a8gd2")
+
+[node name="Panel" type="Panel" parent="Credits"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.0
+offset_top = 33.0
+offset_right = 93.0
+offset_bottom = 174.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 36
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="names" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -412.0
+offset_top = -237.5
+offset_right = 412.0
+offset_bottom = 256.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("8_rcqid")
+theme_override_font_sizes/font_size = 32
+text = "Made with <3 by
+Violet, Maji, Ketch, Shark, Gev, and Aurora 
+for California Clash 2025.
+
+Violet — Music/SFX & Writing
+Maji — Art & Writing
+Ketch — Writing
+Shark — Art & UI
+Gev — Art & Programming
+Aurora — Programming
+"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="Credits"]
+z_index = 999
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -100.0
+offset_right = 270.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_rcqid")
+text = "Back"
+
+[connection signal="pressed" from="GlowyEffect/MainButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="GlowyEffect/MainButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="GlowyEffect/MainButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Control/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Control/ComedyButton" to="." method="_on_comedy_button_pressed"]
+[connection signal="pressed" from="Control/KnowledgeButton" to="." method="_on_knowledge_button_pressed"]
+[connection signal="pressed" from="Control/FriendlinessButton" to="." method="_on_friendliness_button_pressed"]
+[connection signal="pressed" from="Control/IntimidationButton" to="." method="_on_intimidation_button_pressed"]
+[connection signal="pressed" from="Control/FinalButton" to="." method="_on_final_button_pressed"]
+[connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="Options/VBoxContainer/FullScreenControl" to="Options/VBoxContainer/FullScreenControl" method="_on_toggled"]
+[connection signal="value_changed" from="Options/VBoxContainer/AudioControlMaster" to="Options/VBoxContainer/AudioControlMaster" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/VBoxContainer/AudioControlMusic" to="Options/VBoxContainer/AudioControlMusic" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/VBoxContainer/AudioControlSFX" to="Options/VBoxContainer/AudioControlSFX" method="_on_value_changed"]
+[connection signal="pressed" from="Credits/BackButton" to="." method="_on_back_button_pressed"]

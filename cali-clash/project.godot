@@ -24,17 +24,27 @@ Global="*res://global.gd"
 [dialogic]
 
 directories/dch_directory={
-"chocolate": "res://dialogues/characters/chocolate.dch"
+"chocolate": "res://dialogues/characters/chocolate.dch",
+"graham": "res://dialogues/characters/graham.dch"
 }
 directories/dtl_directory={
 "battle_test": "res://dialogues/timelines/battle_test.dtl",
-"tutorial": "res://dialogues/timelines/tutorial.dtl"
+"comedy_house": "res://dialogues/timelines/comedy_house.dtl",
+"end_bad": "res://dialogues/timelines/endings/end_bad.dtl",
+"end_good": "res://dialogues/timelines/endings/end_good.dtl",
+"end_ok": "res://dialogues/timelines/endings/end_ok.dtl",
+"final_house": "res://dialogues/timelines/final_house.dtl",
+"friendliness_house": "res://dialogues/timelines/friendliness_house.dtl",
+"intimidation_house": "res://dialogues/timelines/intimidation_house.dtl",
+"introduction": "res://dialogues/timelines/introduction.dtl",
+"knowledge_house": "res://dialogues/timelines/knowledge_house.dtl",
+"tutorial": "res://dialogues/timelines/tutorial.dtl",
+"tutorial_house": "res://dialogues/timelines/tutorial_house.dtl"
 }
 layout/style_directory={
-"VisualNovelDialogueStyle": "res://visual_novel_dialogue_style.tres",
-"battle_style": "res://dialogues/styles/battle_style.tres"
+"VisualNovelDialogueStyle": "res://visual_novel_dialogue_style.tres"
 }
-layout/style_list=["res://visual_novel_dialogue_style.tres", "res://dialogues/styles/battle_style.tres"]
+layout/style_list=["res://visual_novel_dialogue_style.tres"]
 layout/default_style="res://VisualNovelDialogueStyle.tres"
 glossary/default_case_sensitive=true
 variables={
@@ -43,7 +53,8 @@ variables={
 "reaction_2": "",
 "reaction_3": "",
 "reaction_4": "",
-"reaction_end": ""
+"reaction_end": "",
+"round_num": 0
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -83,8 +94,7 @@ audio/channel_defaults={
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="viewport"
-window/stretch/aspect="keep_width"
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

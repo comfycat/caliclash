@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://301152lb7w4b"
-path="res://.godot/imported/chocolate.png-e365c56af1cb778ccfc79c8e1d1805ab.ctex"
+uid="uid://bby5q5c7cy8kc"
+path="res://.godot/imported/cat-layer.webp-623d54f5f27e4e466f65bbbfa546af6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialogues/chocolate.png"
-dest_files=["res://.godot/imported/chocolate.png-e365c56af1cb778ccfc79c8e1d1805ab.ctex"]
+source_file="res://assets/ui/play/livecam/cat-layer.webp"
+dest_files=["res://.godot/imported/cat-layer.webp-623d54f5f27e4e466f65bbbfa546af6c.ctex"]
 
 [params]
 

@@ -1,8 +1,10 @@
-[style name="VisualNovelDialogueStyle"]
-join chocolate center
+join chocolate left
+join graham right
+audio "res://assets/sfx/blipSelect.wav"
 
-chocolate: Oh? Such a cute little kiddo.
-chocolate: What are you here for, boy?
+chocolate: Knock knock
+graham: who is there?
+[signal arg="battle_ui"]
 
 # ROUND 1
 - Try a bargain
@@ -21,6 +23,7 @@ chocolate: {reaction_1}
 # ROUND 2
 chocolate: Test your chances...
 
+[signal arg="battle_ui"]
 - Try a bargain
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
@@ -37,6 +40,7 @@ chocolate: Test your chances...
 # ROUND 3
 chocolate: {reaction_2}
 chocolate: Last chance to impress or persuade me.
+[signal arg="battle_ui"]
 - Try a bargain
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
@@ -51,3 +55,5 @@ chocolate: Last chance to impress or persuade me.
 	[signal arg="choice_made"]
 chocolate: {reaction_3}
 chocolate: {reaction_end}
+
+[signal arg="return_menu"]
