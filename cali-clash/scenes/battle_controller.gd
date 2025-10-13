@@ -106,6 +106,7 @@ func _on_dialogic_signal(name: String) -> void:
 		"choice_made":
 			# Hide indicators while resolving the choice
 			_set_all_sparkles(false)
+
 			var choice_id: String = String(Dialogic.VAR.get("choice_id"))
 			if choice_id == "": choice_id = "A"
 			_apply_choice(choice_id)

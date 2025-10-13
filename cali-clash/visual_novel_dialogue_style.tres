@@ -62,7 +62,7 @@ overrides = {
 "boxes_min_size": "Vector2(480, 100)",
 "boxes_v_separation": "0.0",
 "font_custom": "\"res://assets/fonts/Cardo-Regular.ttf\"",
-"font_size_custom": "40.0",
+"font_size_custom": "32.0",
 "font_size_use_global": "false",
 "font_use_global": "false",
 "text_color_hovered": "Color(1, 0.5254902, 0, 1)",
@@ -92,4 +92,4 @@ layer_info = {
 "16": SubResource("Resource_y2rot"),
 "17": SubResource("Resource_ooj3b")
 }
-metadata/_latest_layer = "13"
+metadata/_latest_layer = "15"

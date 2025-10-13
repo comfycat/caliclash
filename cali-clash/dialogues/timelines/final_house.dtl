@@ -42,6 +42,7 @@ chocolate: Test your chances...
 chocolate: {reaction_2}
 chocolate: Last chance to impress or persuade me.
 [signal arg="battle_ui"]
+
 - Try a bargain
 	set {choice_id} = "A"
 	[signal arg="choice_made"]

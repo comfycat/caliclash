@@ -39,21 +39,53 @@ func _on_dialogic_signal(name: String) -> void:
 				dialog_instance.queue_free()
 				dialog_instance = null
 			get_tree().change_scene_to_file("res://scenes/battle.tscn")
-
-		"ending_return_menu":
+		"next_house":
 			Dialogic.end_timeline(true)
 			if dialog_instance:
 				dialog_instance.queue_free()
 				dialog_instance = null
-			reset_for_new_run() 
-			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
-		"ending_return_map":
-			Dialogic.end_timeline(true)
-			if dialog_instance:
-				dialog_instance.queue_free()
-				dialog_instance = null
-			get_tree().change_scene_to_file("res://scenes/neighborhood.tscn")
+			var next = get_next_house()
+			if next != "":
+				start_battle(next)
+				get_tree().change_scene_to_file("res://scenes/battle.tscn")
+			else:
+				get_tree().change_scene_to_file("res://scenes/ending.tscn")
+
+var HOUSE_ORDER := [
+	"tutorial_house",
+	"knowledge_house",
+	"intimidation_house",
+	"friendliness_house",
+	"comedy_house",
+	"final_house"
+]
+
+func get_next_house() -> String:
+	if current_battle_data.is_empty():
+		return "tutorial_house"
+	var current := String(current_battle_data.get("house_id", ""))
+	var i := HOUSE_ORDER.find(current)
+	if i == -1:
+		return ""
+	if i + 1 < HOUSE_ORDER.size():
+		return HOUSE_ORDER[i + 1]
+	return ""
+
+		#"ending_return_menu":
+			#Dialogic.end_timeline(true)
+			#if dialog_instance:
+				#dialog_instance.queue_free()
+				#dialog_instance = null
+			#reset_for_new_run() 
+			#get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+#
+		#"ending_return_map":
+			#Dialogic.end_timeline(true)
+			#if dialog_instance:
+				#dialog_instance.queue_free()
+				#dialog_instance = null
+			#get_tree().change_scene_to_file("res://scenes/neighborhood.tscn")
 
 # ---------- Config loaded per battle ----------
 var house_id: String = ""
@@ -239,8 +271,7 @@ func finalize_battle(persuasion_total: int) -> Dictionary:
 func register_house_cleared(house_id: String) -> void:
 	if house_id != "" and house_id not in houses_cleared:
 		houses_cleared.append(house_id)
-		if houses_cleared.size() >= 5:
-			unlocked_final_house = true
+		unlocked_final_house = true
 
 func recruit_friend(friend_id: String) -> void:
 	if friend_id == "" or friend_id not in FRIEND_LIBRARY:

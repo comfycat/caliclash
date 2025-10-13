@@ -1,8 +1,15 @@
 [style name="VisualNovelDialogueStyle"]
 [background arg="res://assets/backgrounds/scarecrow BG.2.png" fade="2.0"]
+<<<<<<< Updated upstream
 audio music "res://assets/music/VN music.wav"
 [i]You walk up to the homely camper. As you approach, the smell of sickly, rotten sweetness hits your nose as you notice a decayed pumpkin sitting on the sidewalk[/i]
 audio "res://assets/sfx/Scarecrow Doorbell.wav"
+=======
+
+[i]You walk up to the homely camper. As you approach, the smell of sickly, rotten sweetness hits your nose as you notice a decayed pumpkin sitting on the sidewalk[/i]
+join SCARECROW center
+
+>>>>>>> Stashed changes
 [i]Holding your breath a bit, you ring the doorbell. A few moments pass. And then another few[/i]
 [i]You see light streaming from the window. There must be someone inside, and you’re not leaving without candy. A whole minute passes until someone opens the door[/i]
 
@@ -133,4 +140,4 @@ SCARECROW: “Thing won’t stop pesterin’ me for attention, but maybe you cou
 
 MC: (Is he really shoving things onto me?)
 
-[signal arg="return_map"]
+[signal arg="next_house"]

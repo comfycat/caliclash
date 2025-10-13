@@ -1,6 +1,10 @@
 [style name="VisualNovelDialogueStyle"]
+<<<<<<< Updated upstream
 [background arg="res://assets/backgrounds/WITCH BG.png" fade="2.0"]
 audio music "res://assets/music/VN music.wav"
+=======
+[background arg="res://assets/backgrounds/mummy BG.png" fade="2.0"]
+>>>>>>> Stashed changes
 
 [i]In front of you stands a majestic and aweing house, impressively held with pillars and grandeur[/i]
 [i]It seems welcoming but you are still off put by your previous encounters[/i]
@@ -161,4 +165,4 @@ MUMMY: “Hurry along now child before it gets too late, you must still have som
 
 [i]You walk away, now with two bags filled with candy, ready for more[/i]
 
-[signal arg="return_map"]
+[signal arg="next_house"]

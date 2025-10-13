@@ -99,4 +99,4 @@ GRANNY: “It seems like my little kitty has given you some help I did not expec
 GRANNY: “You can take him with you while you’re trick or treating, he might come in handy”
 GRANNY: “Hurry off now before it gets too late”
 
-[signal arg="return_map"]
+[signal arg="next_house"]
