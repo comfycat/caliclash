@@ -109,6 +109,7 @@ func _on_dialogic_signal(name: String) -> void:
 			var choice_id: String = String(Dialogic.VAR.get("choice_id"))
 			if choice_id == "": choice_id = "A"
 			_apply_choice(choice_id)
+
 		"return_menu":
 			Dialogic.end_timeline(true)
 			if dialog_instance:
@@ -116,9 +117,11 @@ func _on_dialogic_signal(name: String) -> void:
 				dialog_instance = null
 			await get_tree().process_frame
 			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
 		"battle_done":
 			_set_all_sparkles(false)
 			_finalize_battle_and_exit()
+
 		"return_map":
 			Dialogic.end_timeline(true)
 			if dialog_instance:
@@ -126,6 +129,15 @@ func _on_dialogic_signal(name: String) -> void:
 				dialog_instance = null
 			await get_tree().process_frame
 			get_tree().change_scene_to_file("res://scenes/neighborhood.tscn")
+
+		"ending":
+			Dialogic.end_timeline(true)
+			if dialog_instance:
+				dialog_instance.queue_free()
+				dialog_instance = null
+
+			await get_tree().process_frame
+			_finalize_battle_and_exit()
 
 # ============================== ROUND/SCORING ==============================
 func _apply_choice(choice_id: String) -> void:

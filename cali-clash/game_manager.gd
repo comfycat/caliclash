@@ -12,7 +12,7 @@ var unlocked_final_house := false
 var current_battle_data: Dictionary = {}   # filled by start_battle()
 
 const GOOD_THRESHOLD := 100
-const OKAY_THRESHOLD := 40
+const OKAY_THRESHOLD := 70
 
 # ---------- Dialogic ----------
 
@@ -128,7 +128,7 @@ var HOUSES := {
 		"timeline": "knowledge_house",
 		"rounds": 3,
 		"threshold": 75,
-		"candy_per_100": 15,
+		"candy_per_100": 25,
 		"friend_reward": "sphinx_cat",
 		"no_boosts": false
 	},
@@ -137,7 +137,7 @@ var HOUSES := {
 		"timeline": "intimidation_house",
 		"rounds": 3,
 		"threshold": 80,
-		"candy_per_100": 17,
+		"candy_per_100": 45,
 		"friend_reward": "black_cat",
 		"no_boosts": false
 	},
@@ -146,7 +146,7 @@ var HOUSES := {
 		"timeline": "friendliness_house",
 		"rounds": 3,
 		"threshold": 65,
-		"candy_per_100": 12,
+		"candy_per_100": 25,
 		"friend_reward": "black_crow",
 		"no_boosts": false
 	},
@@ -155,15 +155,15 @@ var HOUSES := {
 		"timeline": "comedy_house",
 		"rounds": 3,
 		"threshold": 80,
-		"candy_per_100": 17,
+		"candy_per_100": 45,
 		"friend_reward": "tabby_cat",
 		"no_boosts": false
 	},
 	"final_house": {
 		"timeline": "final_house",
-		"rounds": 4,
+		"rounds": 5,
 		"threshold": 0,
-		"candy_per_100": 25,
+		"candy_per_100": 50,
 		"friend_reward": "",
 		"no_boosts": true
 	}
@@ -239,7 +239,7 @@ func finalize_battle(persuasion_total: int) -> Dictionary:
 func register_house_cleared(house_id: String) -> void:
 	if house_id != "" and house_id not in houses_cleared:
 		houses_cleared.append(house_id)
-		if houses_cleared.size() >= 4:
+		if houses_cleared.size() >= 5:
 			unlocked_final_house = true
 
 func recruit_friend(friend_id: String) -> void:

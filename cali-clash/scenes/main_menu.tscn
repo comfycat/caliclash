@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://btt2fekwnu034"]
+[gd_scene load_steps=26 format=3 uid="uid://btt2fekwnu034"]
 
 [ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bcq6vd7dbf7jj" path="res://assets/backgrounds/menu_background.png" id="2_flqon"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/audio_control.gd" id="7_tbmy8"]
 [ext_resource type="Script" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
 [ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
+[ext_resource type="Texture2D" uid="uid://dahukw83q8uad" path="res://assets/ui/main_menu/pause_tombstone_ui.webp" id="9_rcqid"]
 [ext_resource type="Texture2D" uid="uid://b1e3mwhyw184a" path="res://assets/ui/main_menu/moldy_tombstone_ui (2).webp" id="11_flqon"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
@@ -35,6 +36,9 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7ex8"]
+texture = ExtResource("9_rcqid")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7b55j"]
 texture = ExtResource("11_flqon")
 
@@ -44,6 +48,9 @@ thickness = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
 bg_color = Color(1, 0.5254902, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8gd2"]
+texture = ExtResource("9_rcqid")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcqid"]
 texture = ExtResource("11_flqon")
@@ -270,12 +277,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -810.0
-offset_top = -675.0
+offset_left = -700.0
+offset_top = -700.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_j7ex8")
 
 [node name="Panel" type="Panel" parent="Options"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -288,9 +297,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -95.5
-offset_right = 95.5
-offset_bottom = 167.0
+offset_left = -98.0
+offset_top = 39.0
+offset_right = 93.0
+offset_bottom = 206.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 36
@@ -391,7 +401,6 @@ script = ExtResource("7_tbmy8")
 audio_bus_name = "SFX"
 
 [node name="Credits" type="Panel" parent="."]
-visible = false
 z_index = 999
 layout_mode = 1
 anchors_preset = 3
@@ -399,12 +408,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -810.0
-offset_top = -675.0
+offset_left = -700.0
+offset_top = -700.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_a8gd2")
 
 [node name="Panel" type="Panel" parent="Credits"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -417,9 +428,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -95.5
-offset_right = 95.5
-offset_bottom = 141.0
+offset_left = -98.0
+offset_top = 33.0
+offset_right = 93.0
+offset_bottom = 174.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 36

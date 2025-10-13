@@ -1,8 +1,5 @@
 MONSTER_HOUSE: This is final house
 
-
-SCARECROW: This is friendliness house
-
 join chocolate left
 audio "res://assets/sfx/blipSelect.wav"
 
