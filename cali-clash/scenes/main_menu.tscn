@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://btt2fekwnu034"]
+[gd_scene load_steps=28 format=3 uid="uid://btt2fekwnu034"]
 
 [ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bcq6vd7dbf7jj" path="res://assets/backgrounds/menu_background.png" id="2_flqon"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dji4ex8e2uta6" path="res://assets/backgrounds/glowy_effect.png" id="3_rcqid"]
 [ext_resource type="Texture2D" uid="uid://bmbwlsl0tajvl" path="res://assets/ui/main_menu/play_button (2).png" id="4_rcqid"]
 [ext_resource type="Texture2D" uid="uid://dlsip7b8iookv" path="res://assets/ui/main_menu/options_button (2).png" id="5_1ajci"]
+[ext_resource type="AudioStream" uid="uid://chpdccrx0x1w2" path="res://assets/sfx/Select 1.wav" id="6_5pajh"]
 [ext_resource type="Texture2D" uid="uid://buawf4gpsadgn" path="res://assets/ui/main_menu/credits button.png" id="6_7b55j"]
 [ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="7_1ajci"]
 [ext_resource type="Script" uid="uid://c57qllls871j" path="res://scenes/audio_control.gd" id="7_tbmy8"]
@@ -13,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
 [ext_resource type="Texture2D" uid="uid://dahukw83q8uad" path="res://assets/ui/main_menu/pause_tombstone_ui.webp" id="9_rcqid"]
 [ext_resource type="Texture2D" uid="uid://b1e3mwhyw184a" path="res://assets/ui/main_menu/moldy_tombstone_ui (2).webp" id="11_flqon"]
+[ext_resource type="AudioStream" uid="uid://xsucexjfcjbd" path="res://assets/music/Main Menu Theme.wav" id="14_1ajci"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
 texture = ExtResource("2_flqon")
@@ -120,6 +122,10 @@ size_flags_vertical = 0
 texture_normal = ExtResource("4_rcqid")
 script = SubResource("GDScript_bqqt6")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/StartButton"]
+stream = ExtResource("6_5pajh")
+bus = &"SFX"
+
 [node name="OptionsButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
 unique_name_in_owner = true
 z_index = 10
@@ -132,6 +138,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource("5_1ajci")
 
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/OptionsButton"]
+stream = ExtResource("6_5pajh")
+bus = &"SFX"
+
 [node name="CreditsButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
 unique_name_in_owner = true
 z_index = 10
@@ -143,6 +153,10 @@ scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource("6_7b55j")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/CreditsButton"]
+stream = ExtResource("6_5pajh")
+bus = &"SFX"
 
 [node name="Shadow" type="Label" parent="."]
 layout_mode = 1
@@ -484,6 +498,10 @@ theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxTexture_rcqid")
 text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_1ajci")
+autoplay = true
 
 [connection signal="pressed" from="GlowyEffect/MainButtons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="GlowyEffect/MainButtons/OptionsButton" to="." method="_on_options_button_pressed"]

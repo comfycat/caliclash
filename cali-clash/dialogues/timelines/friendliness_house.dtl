@@ -1,6 +1,8 @@
 [style name="VisualNovelDialogueStyle"]
 [background arg="res://assets/backgrounds/scarecrow BG.2.png" fade="2.0"]
+audio music "res://assets/music/VN music.wav"
 [i]You walk up to the homely camper. As you approach, the smell of sickly, rotten sweetness hits your nose as you notice a decayed pumpkin sitting on the sidewalk[/i]
+audio "res://assets/sfx/Scarecrow Doorbell.wav"
 [i]Holding your breath a bit, you ring the doorbell. A few moments pass. And then another few[/i]
 [i]You see light streaming from the window. There must be someone inside, and you’re not leaving without candy. A whole minute passes until someone opens the door[/i]
 
@@ -26,6 +28,7 @@ MC: (No! I can tell he has the good stuff! I have to convince him)
 
 # #Battle Start
 # #Round 1
+audio music "res://assets/music/Scarecrow Perfect Loop.wav"
 SCARECROW: “Can ya leave me alone?”
 - If your ex-wife knew you gave me candy she’d like you more #3
 	set {choice_id} = "A"

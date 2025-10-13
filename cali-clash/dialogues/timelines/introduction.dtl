@@ -1,5 +1,6 @@
 [style name="VisualNovelDialogueStyle"]
 [background arg="res://assets/backgrounds/intro/intro-1.png" fade="2.0"]
+audio music "res://assets/music/VN music.wav"
 
 [i]Yippie! It’s the once-a-year magical night for trick or treating.[/i]
 

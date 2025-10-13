@@ -1,8 +1,10 @@
 [background fade="0.0"]
+audio music "res://assets/music/VN music.wav"
 [i]You walk up to the gothic looking house, the faint sound of heavy metal gets louder as you approach the door[/i]
 [i]You notice the same musical riff being played, stopped, grunts of frustration, and the riff being repeated once again but changed slightly[/i]
 [i]There is bat shaped doorbell hanging on the wall[/i]
 [i]You press it[/i]
+audio "res://assets/sfx/Vampire Doorbell.wav"
 [i]With the sound of Bach's Toccata in D Minor, the music stops abruptly. The door opens and bats fly out, almost hitting your face[/i]
 
 MC: “...Trick or trea-”
@@ -33,6 +35,7 @@ VAMPIRE: “And you haven’t even seen my final form”
 
 # #Battle Start
 # #Round 1
+audio music "res://assets/music/Vampire Organ Perfect Loop.wav"
 VAMPIRE: “So what say you, Temporary Child of the night? Purple felted skinner of Opossums and devourer of candy?”
 
 - Uh… well I know Beethoven didn’t use electric guitars. #4
@@ -60,6 +63,7 @@ VAMPIRE: “HAH, the youth nowadays are very demanding it seems. I would be mad 
 
 # #Round 2
 VAMPIRE: “Consider yourself lucky, for I shall grant you a privilege no other has ever received… THE PRIVILEGE OF GIVING ADVICE FOR MY SONG!”
+audio music "res://assets/music/Vampire Metal Perfect Loop.wav"
 
 - Sampling an amen break could do well for your track. #3
 set {choice_id} = "A"

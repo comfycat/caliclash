@@ -1,4 +1,5 @@
 [style name="VisualNovelDialogueStyle"]
+audio music "res://assets/music/VN music.wav"
 [i]Your basket is overflowing with candy, luckily you’re an expert at balancing and you have no fear of a single piece falling[/i]
 [i]The House’s charm rests warmly in your hand, its inhabitants swirling in a rhythmic pattern. You’re grateful for all of the help you’ve received and the bonds you forged upon your journey[/i]
 

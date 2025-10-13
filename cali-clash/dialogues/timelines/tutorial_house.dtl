@@ -1,6 +1,8 @@
 [style name="VisualNovelDialogueStyle"]
 [background arg="res://assets/backgrounds/GRANNY BG.png" fade="2.0"]
+audio music "res://assets/music/VN music.wav"
 [i]You walk up to the quaint but run down house and slowly make your way to the door[/i]
+audio "res://assets/sfx/Tutorial Doorbell.wav"
 *Ding Dong*
 [i]The door slowly opens and you see a small grey snout peeking out[/i]
 
@@ -55,7 +57,7 @@ MC: (That is pretty nice)
 
 GRANNY: “Now you’re probably wondering how to fill up that bar now huh”
 GRANNY: “Don’t get ahead of yourself little one”
-GRANNY: “To convince us on (Figure out street name) you’ll have to choose what you think will please us most!”
+GRANNY: “To convince us on Dark Wood Avenue you’ll have to choose what you think will please us most!”
 GRANNY: “Every one of us is swayed by something different, so be sure to do your research before you jump in”
 GRANNY: “There are 4 different means of persuasion; Intimidation, Friendliness, Knowledge, and Comedy”
 
@@ -74,6 +76,7 @@ GRANNY: “I want you to try and convince me to give you some candy”
 GRANNY: “Don’t worry about choosing the wrong answer, you’ve already convinced me you deserve some”
 
 [signal arg="battle_ui"]
+audio music "res://assets/music/Tutorial Perfect Loop.wav"
 
 
 - What a large head you have!

@@ -1,4 +1,5 @@
 [style name="VisualNovelDialogueStyle"]
+audio music "res://assets/music/VN music.wav"
 [i]You’ve collected a fair amount of candy, but there’s still a sense of longing for the treats you could not obtain. However, leaving with your life is the least you could ask for, and you’re grateful to still have breath in your lungs[/i]
 
 MC: (How late is it…? I need to go home.)

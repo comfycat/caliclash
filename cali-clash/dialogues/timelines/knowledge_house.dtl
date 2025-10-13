@@ -1,10 +1,12 @@
 [style name="VisualNovelDialogueStyle"]
 [background arg="res://assets/backgrounds/WITCH BG.png" fade="2.0"]
+audio music "res://assets/music/VN music.wav"
 
 [i]In front of you stands a majestic and aweing house, impressively held with pillars and grandeur[/i]
 [i]It seems welcoming but you are still off put by your previous encounters[/i]
 [i]You slowly make your way up the steps and ring the bright shiny doorbell on the wall[/i]
-*Ring a Ling Ding*
+audio "res://assets/sfx/Mummy Doorbell.wav"
+*Ring Ding*
 [i]The door opens and a gust of warm air hits your face[/i]
 
 MC: “Mommy?... Sorry mummy?”
@@ -60,6 +62,7 @@ MUMMY: “So please show me why you deserve all this candy”
 
 # #START BATTLE
 # #ROUND 1
+audio music "res://assets/music/Mummy Perfect Loop.wav"
 MUMMY: “I would ask you for a riddle but I am sure you already know which one I am asking for. Please give me the answer”
 - A Human #1
 	set {choice_id} = "A"
