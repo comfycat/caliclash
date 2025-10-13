@@ -13,6 +13,8 @@ extends Control
 @onready var pumpkin_panel2:Panel			= %PumpkinPanel2
 @onready var options: Panel = $Options
 @onready var credits: Panel = $Credits
+var dialog_instance: Node = null
+
 
 func _ready() -> void:
 	# Quick visibility & input sanity checks
@@ -88,7 +90,12 @@ func _on_final_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/battle.tscn")
 	
 func _on_start_button_pressed() -> void:
-	Dialogic.start("introduction")
+	if dialog_instance:
+		dialog_instance.queue_free()
+		dialog_instance = null
+	dialog_instance = Dialogic.start("introduction")
+	add_child(dialog_instance)
+
 func _on_options_button_pressed() -> void:
 	pumpkin_panel2.visible = true
 	pumpkin_panel.visible=false

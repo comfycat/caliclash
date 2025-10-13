@@ -30,6 +30,9 @@ directories/dch_directory={
 directories/dtl_directory={
 "battle_test": "res://dialogues/timelines/battle_test.dtl",
 "comedy_house": "res://dialogues/timelines/comedy_house.dtl",
+"end_bad": "res://dialogues/timelines/endings/end_bad.dtl",
+"end_good": "res://dialogues/timelines/endings/end_good.dtl",
+"end_ok": "res://dialogues/timelines/endings/end_ok.dtl",
 "final_house": "res://dialogues/timelines/final_house.dtl",
 "friendliness_house": "res://dialogues/timelines/friendliness_house.dtl",
 "intimidation_house": "res://dialogues/timelines/intimidation_house.dtl",

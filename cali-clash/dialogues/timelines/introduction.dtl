@@ -5,13 +5,13 @@
 
 [i]Children roam the streets aglow of jack-o-lanterns, festive lights, and uncanny decor.[/i]
 
-[background arg="res://assets/backgrounds/intro/intro-2.png" fade="1."]
+[background arg="res://assets/backgrounds/intro/intro-2.png" fade="1.0"]
 [i]Every Halloween begins with a tacit agreement—a simple understanding between children and their neighbors. [/i]
 
-[background arg="res://assets/backgrounds/intro/intro-3.png" fade="1."]
+[background arg="res://assets/backgrounds/intro/intro-3.png" fade="1.0"]
 [i]Allowing themselves to make-believe such magic but only for the hour.[/i]
 
-[background arg="res://assets/backgrounds/intro/intro-4.png" fade="1."]
+[background arg="res://assets/backgrounds/intro/intro-4.png" fade="1.0"]
 [i]And the world feels strange just enough to believe in anything…[/i]
 
 [background arg="res://assets/backgrounds/intro/intro-5.png" fade="1.0"]
@@ -37,3 +37,4 @@ MC: “Dark Wood Avenue..”
 [i]Lights shine through the windows of the buildings, people do indeed still live here. [/i]
 
 [i]And although your mother taught you to not to wander into strange places, there could be a plethora of new faces to meet and new candy to collect.[/i]
+[signal arg="start_tutorial"]

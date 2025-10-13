@@ -14,6 +14,75 @@ var current_battle_data: Dictionary = {}   # filled by start_battle()
 const GOOD_THRESHOLD := 100
 const OKAY_THRESHOLD := 40
 
+# ---------- Dialogic ----------
+
+var dialog_instance: Node = null
+
+func _ready() -> void:
+	if not Dialogic.signal_event.is_connected(_on_dialogic_signal):
+		Dialogic.signal_event.connect(_on_dialogic_signal)
+
+func get_ending_timeline() -> String:
+	var e := get_ending()  # "good" | "okay" | "bad"
+	match e:
+		"good": return "end_good"
+		"okay": return "end_ok"
+		_:	  return "end_bad"
+
+func _on_dialogic_signal(name: String) -> void:
+	match name:
+		#from intro -> tutorial battle
+		"start_tutorial":
+			start_battle("tutorial_house")
+			Dialogic.end_timeline(true)
+			if dialog_instance:
+				dialog_instance.queue_free()
+				dialog_instance = null
+			get_tree().change_scene_to_file("res://scenes/battle.tscn")
+
+		"ending_return_menu":
+			Dialogic.end_timeline(true)
+			if dialog_instance:
+				dialog_instance.queue_free()
+				dialog_instance = null
+			reset_for_new_run() 
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+		"ending_return_map":
+			Dialogic.end_timeline(true)
+			if dialog_instance:
+				dialog_instance.queue_free()
+				dialog_instance = null
+			get_tree().change_scene_to_file("res://scenes/neighborhood.tscn")
+
+# ---------- Config loaded per battle ----------
+var house_id: String = ""
+var rounds: int = 3
+var threshold: int = 75
+var candy_per_100: int = 10
+var no_boosts: bool = false
+var friend_reward: String = ""
+var timeline: String = "House_Default"
+
+# ---------- Runtime state ----------
+var persuasion: int = 0
+var round_num: int = 1
+
+# Special behavior
+var force_all_sparkles: bool = false	
+var _simulated_friend_added: bool = false   
+
+# ---------- Sparkles mapping (child name -> stat) ----------
+const SPARKLE_MAP := {
+	"green-sparkles":  "Knowledge",
+	"yellow-sparkles": "Comedy",
+	"pink-sparkles":   "Friendliness",
+	"blue-sparkles":   "Intimidation",
+}
+var sparkle_nodes: Dictionary = {}   # stat -> Node
+
+# ============================== READY ==============================
+
 # Friend library: boosts by tag
 var FRIEND_LIBRARY := {
 	# tutorial

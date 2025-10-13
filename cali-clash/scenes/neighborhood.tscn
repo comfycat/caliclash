@@ -35,14 +35,15 @@ offset_bottom = 40.0
 [node name="Neighborhood" type="Sprite2D" parent="."]
 texture = ExtResource("1_ejhqo")
 
-[node name="PlayerHouse" type="Area2D" parent="Neighborhood"]
+[node name="TutorialHouse" type="Area2D" parent="Neighborhood"]
+unique_name_in_owner = true
 position = Vector2(-685.99994, -334.99997)
 scale = Vector2(20, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood/PlayerHouse"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Neighborhood/TutorialHouse"]
 shape = SubResource("RectangleShape2D_ejhqo")
 
-[node name="TextureRect" type="TextureRect" parent="Neighborhood/PlayerHouse"]
+[node name="TextureRect" type="TextureRect" parent="Neighborhood/TutorialHouse"]
 visible = false
 modulate = Color(1, 1, 1, 0.12941177)
 offset_left = -10.000004
@@ -54,6 +55,7 @@ texture = SubResource("CurveXYZTexture_fyy05")
 expand_mode = 1
 
 [node name="WitchHouse" type="Area2D" parent="Neighborhood"]
+unique_name_in_owner = true
 position = Vector2(-4.000061, -331.00003)
 scale = Vector2(20, 20)
 
@@ -72,6 +74,7 @@ texture = SubResource("CurveXYZTexture_fyy05")
 expand_mode = 1
 
 [node name="MummyHouse" type="Area2D" parent="Neighborhood"]
+unique_name_in_owner = true
 position = Vector2(622.00006, -340)
 scale = Vector2(20, 20)
 
@@ -90,6 +93,7 @@ texture = SubResource("CurveXYZTexture_fyy05")
 expand_mode = 1
 
 [node name="ScarecrowHouse" type="Area2D" parent="Neighborhood"]
+unique_name_in_owner = true
 position = Vector2(-712.00006, 334.00003)
 scale = Vector2(20, 20)
 
@@ -108,6 +112,7 @@ texture = SubResource("CurveXYZTexture_fyy05")
 expand_mode = 1
 
 [node name="VampireHouse" type="Area2D" parent="Neighborhood"]
+unique_name_in_owner = true
 position = Vector2(-13.000008, 337.9999)
 scale = Vector2(20, 20)
 
@@ -126,6 +131,7 @@ texture = SubResource("CurveXYZTexture_fyy05")
 expand_mode = 1
 
 [node name="MonsterHouse" type="Area2D" parent="Neighborhood"]
+unique_name_in_owner = true
 position = Vector2(630, 334.00003)
 scale = Vector2(20, 20)
 
@@ -144,9 +150,9 @@ texture = SubResource("CurveXYZTexture_fyy05")
 expand_mode = 1
 
 [connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
-[connection signal="input_event" from="Neighborhood/PlayerHouse" to="." method="_on_player_house_input_event"]
-[connection signal="mouse_entered" from="Neighborhood/PlayerHouse" to="." method="_on_player_house_mouse_entered"]
-[connection signal="mouse_exited" from="Neighborhood/PlayerHouse" to="." method="_on_player_house_mouse_exited"]
+[connection signal="input_event" from="Neighborhood/TutorialHouse" to="." method="_on_player_house_input_event"]
+[connection signal="mouse_entered" from="Neighborhood/TutorialHouse" to="." method="_on_player_house_mouse_entered"]
+[connection signal="mouse_exited" from="Neighborhood/TutorialHouse" to="." method="_on_player_house_mouse_exited"]
 [connection signal="input_event" from="Neighborhood/WitchHouse" to="." method="_on_witch_house_input_event"]
 [connection signal="mouse_entered" from="Neighborhood/WitchHouse" to="." method="_on_witch_house_mouse_entered"]
 [connection signal="mouse_exited" from="Neighborhood/WitchHouse" to="." method="_on_witch_house_mouse_exited"]

@@ -1,0 +1,3 @@
+[style name="VisualNovelDialogueStyle"]
+you made it to the ok ending
+[signal arg="ending_return_menu"]

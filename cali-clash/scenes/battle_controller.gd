@@ -50,7 +50,7 @@ func _ready() -> void:
 		_set_all_sparkles(false)
 
 	_load_config()
-	_apply_house_overrides()  # tutorial/comedy special rules
+	_apply_house_overrides() 
 	_init_ui()
 
 	# Hook Dialogic events
@@ -96,6 +96,7 @@ func _init_ui() -> void:
 # ============================== DIALOGIC EVENTS ==============================
 func _on_dialogic_signal(name: String) -> void:
 	match name:
+
 		"battle_ui":
 			# Show choice-time indicators
 			if force_all_sparkles:
@@ -155,20 +156,11 @@ func _finalize_battle_and_exit() -> void:
 	var result := GameManager.finalize_battle(persuasion)
 	candy_label.text = str(GameManager.candy)
 	print("Candy +%d (Total: %d)" % [int(result.candy_gain), GameManager.candy])
-
-	## Clean up simulated mummy after injection
-	#if _simulated_friend_added:
-		#var idx := GameManager.recruited_friends.find("sphinx_cat")
-		#if idx != -1:
-			#GameManager.recruited_friends.remove_at(idx)
-			#if GameManager.has_signal("party_changed"):
-				#GameManager.emit_signal("party_changed")
-		#_simulated_friend_added = false
-
-#
-	#var hid := String(GameManager.current_battle_data.get("house_id",""))
-	#if hid == "final_house":
-		#_go_to_ending()
+	
+	var hid := String(GameManager.current_battle_data.get("house_id",""))
+	if hid == "final_house":
+		get_tree().change_scene_to_file("res://scenes/ending.tscn")
+		return
 
 func _calculate_gain(choice_id: String, round_i: int) -> int:
 	var house_id := String(GameManager.current_battle_data.get("house_id", "default"))
@@ -206,12 +198,6 @@ func _choice_to_tag(choice_id: String) -> String:
 		_:   return ""
 
 # ============================== ENDINGS ==============================
-func _go_to_ending() -> void:
-	var ending := GameManager.get_ending()
-	match ending:
-		"good": get_tree().change_scene_to_file("res://scenes/end_good.tscn")
-		"okay": get_tree().change_scene_to_file("res://scenes/end_ok.tscn")
-		_:	  get_tree().change_scene_to_file("res://scenes/end_bad.tscn")
 
 # ============================== SPARKLES (BOOST INDICATORS) ==============================
 func _cache_sparkle_nodes() -> void:
