@@ -1,29 +1,9 @@
 [style name="VisualNovelDialogueStyle"]
 [background arg="res://assets/backgrounds/scarecrow BG.2.png" fade="2.0"]
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
 audio music "res://assets/music/VN music.wav"
 [i]You walk up to the homely camper. As you approach, the smell of sickly, rotten sweetness hits your nose as you notice a decayed pumpkin sitting on the sidewalk[/i]
 audio "res://assets/sfx/Scarecrow Doorbell.wav"
-=======
-
-[i]You walk up to the homely camper. As you approach, the smell of sickly, rotten sweetness hits your nose as you notice a decayed pumpkin sitting on the sidewalk[/i]
-join SCARECROW center
-
->>>>>>> Stashed changes
-=======
-
-[i]You walk up to the homely camper. As you approach, the smell of sickly, rotten sweetness hits your nose as you notice a decayed pumpkin sitting on the sidewalk[/i]
-join SCARECROW center
-
->>>>>>> Stashed changes
-=======
-
-[i]You walk up to the homely camper. As you approach, the smell of sickly, rotten sweetness hits your nose as you notice a decayed pumpkin sitting on the sidewalk[/i]
-join SCARECROW center
-
->>>>>>> Stashed changes
 [i]Holding your breath a bit, you ring the doorbell. A few moments pass. And then another few[/i]
 [i]You see light streaming from the window. There must be someone inside, and you’re not leaving without candy. A whole minute passes until someone opens the door[/i]
 
@@ -47,9 +27,8 @@ MC: (No! I can tell he has the good stuff! I have to convince him)
 
 [signal arg="battle_ui"]
 
-# #Battle Start
-# #Round 1
-audio music "res://assets/music/Scarecrow Perfect Loop.wav"
+#Battle Start
+#Round 1
 SCARECROW: “Can ya leave me alone?”
 - If your ex-wife knew you gave me candy she’d like you more #3
 	set {choice_id} = "A"
@@ -59,9 +38,9 @@ SCARECROW: “Can ya leave me alone?”
 - I didn’t think you could get any bummier #1
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
-	join  center
+	join SCARECROW (happy) center
 	SCARECROW: “Okay, you got me there”
-	join  center
+	join SCARECROW (default) center
 
 - I could be your new kid #2
 	set {choice_id} = "C"
@@ -71,59 +50,56 @@ SCARECROW: “Can ya leave me alone?”
 - Look, if I don’t get this candy I’m bashing your pumpkin skull in #4
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
-SCARECROW: “I wouldn’t mind all that much”
-{reaction_1}
+	SCARECROW: “I wouldn’t mind all that much”
 
-# #Round 2
+#Round 2
 SCARECROW: “Why’re ya even visiting my place?”
 - Someone like you has probably hoarded a ton of candy #4
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
 	Scarecrow: “And you’d take away a guy’s only source of happiness?”
 
-- 
+-You live in a white van, it’s screaming ‘free candy’ #2
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	Scarecrow: “Hey, don’t frame me as some sorta serial killer”
 
-- 
+-A dad would be inclined to help a kid in need #1
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-	join  center
+	join SCARECROW (happy) center
 	Scarecrow: “And your need is candy? (Actually ya sound like me)”
-	join  center
+	join SCARECROW (default) center
 
-- 
+-So I could watch a pathetic old man wallow in his misery #3
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
 	Scarecrow: “You got awful taste”
-{reaction_2}
 
-# #Round 3
+#Round 3
 Scarecrow: “I’m probably the worst guy to be talkin’ to right now”
-- 
+-You might be the least threatening guy on this block, actually #4
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
 	Scarecrow: “Death’s honestly more interestin’ than me”
 
-- 
+-Traumadumping on a kid is crazy #2
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	Scarecrow: “Yeah, and who’s the kid still hangin’ ‘round listening to me?”
 
-- 
+-Therapy could help you #1
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-	join  center
+	join SCARECROW (happy) center
 	Scarecrow: “Appreciate the thought but even a therapist’ll lose their mind hearin’ me every week”
-	join  center
+	join SCARECROW (default) center
 
-- 
+-I agree, the only thing you’re good for is giving candy #3
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
-	Scarecrow: “Guess that’s why she left, huh?”
-{reaction_3}
-{reaction_end}
+	Scarecrow: “Guess that’s why she left, huh?” 
+
 
 # FAIL
 SCARECROW: “Look, we both don’t wanna be here. Best if we just part ways—you’ll get better candy from a nicer neighbor and I’ll get to eat mine in peace”
@@ -153,5 +129,6 @@ SCARECROW: “And one more thing”
 SCARECROW: “Thing won’t stop pesterin’ me for attention, but maybe you could be a better owner”
 
 MC: (Is he really shoving things onto me?)
+
 
 [signal arg="next_house"]

@@ -1,18 +1,8 @@
 [style name="VisualNovelDialogueStyle"]
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[background arg="res://assets/backgrounds/WITCH BG.png" fade="2.0"]
+
 audio music "res://assets/music/VN music.wav"
-=======
+
 [background arg="res://assets/backgrounds/mummy BG.png" fade="2.0"]
->>>>>>> Stashed changes
-=======
-[background arg="res://assets/backgrounds/mummy BG.png" fade="2.0"]
->>>>>>> Stashed changes
-=======
-[background arg="res://assets/backgrounds/mummy BG.png" fade="2.0"]
->>>>>>> Stashed changes
 
 [i]In front of you stands a majestic and aweing house, impressively held with pillars and grandeur[/i]
 [i]It seems welcoming but you are still off put by your previous encounters[/i]
@@ -23,7 +13,7 @@ audio "res://assets/sfx/Mummy Doorbell.wav"
 
 MC: “Mommy?... Sorry mummy?”
 
-join  center
+join MUMMY center
 
 [i]In front of you standing tall is a Mummy, the linen around her head pulled up with… hair curlers?[/i]
 [i]Next to her a bassinet, its center so dark you feel drawn into it[/i]
@@ -42,24 +32,24 @@ MC: (I knew I picked the wrong dialogue option)
 
 MUMMY: “And I am the one who usually asks the questions”
 
-join  center
+join MUMMY center
 
 MUMMY: “I would usually make you pass my trials but you are just so adorable in that little outfit”
 MUMMY: “My son is very fond of costumes like these”
 MUMMY: “An Eternal Pharaoh but he will always be my little baby”
 
-join  center
+join MUMMY center
 
 [i]You stare back at the bassinet, its gloomy aura softening, becoming more regal and inviting[/i]
 
 MC: “Does he like trick or treating?”
 
-join  center
+join MUMMY center
 
 MUMMY: “Oh he loves it! I love dressing him up like his father Tutankhamen”
 MUMMY: “We have finished for the night but he is not old enough for candy and I do not eat it either”
 
-join  center
+join MUMMY center
 
 MUMMY: “Would you be happening to want some?”
 

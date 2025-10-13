@@ -19,7 +19,7 @@
 &"portraits": {
 "default": {
 "export_overrides": {
-"image": ""
+"image": "\"res://assets/sprites/vamp 1ST PHASE.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
@@ -28,7 +28,7 @@
 },
 "happy": {
 "export_overrides": {
-"image": ""
+"image": "\"res://assets/sprites/vamp 2ND PHASE.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

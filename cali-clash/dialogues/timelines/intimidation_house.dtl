@@ -1,15 +1,7 @@
 [style name="VisualNovelDialogueStyle"]
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+[background arg="res://assets/backgrounds/WITCH BG.png" fade="2.0"]
+
 audio music "res://assets/music/VN music.wav"
-WITCH: this is intimidation house
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 [i]You approach the clean looking house. Smoke rises from its chimney as a waft of herbs and strangely isopropyl alcohol hits your nose[/i]
 
