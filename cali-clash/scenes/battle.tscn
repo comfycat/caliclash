@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bu4otwe2qa8db" path="res://assets/ui/battle_scene/sparkles-pink.webp" id="3_4k1nj"]
 [ext_resource type="Texture2D" uid="uid://b7v7yuua3pvhl" path="res://assets/ui/battle_scene/sparkles-purple.webp" id="4_f4pi3"]
 [ext_resource type="Script" uid="uid://yurx2kflr8uh" path="res://scenes/live_cam.gd" id="5_66ngm"]
-[ext_resource type="Texture2D" uid="uid://bptv72m1s24g8" path="res://assets/ui/play/livecam/livecam-faceholder.webp" id="6_03edq"]
+[ext_resource type="Texture2D" uid="uid://br7osr1jwt3ei" path="res://assets/ui/play/livecam/IMG_1343.PNG" id="6_22uqi"]
 [ext_resource type="Texture2D" uid="uid://bby5q5c7cy8kc" path="res://assets/ui/play/livecam/cat-layer.webp" id="7_22uqi"]
 [ext_resource type="Texture2D" uid="uid://di7al7fpq6srj" path="res://assets/ui/play/livecam/crow-layer-2.webp" id="8_6ni85"]
 [ext_resource type="Texture2D" uid="uid://2jyyjkl543ys" path="res://assets/ui/play/livecam/cat-layer-3.webp" id="9_vceff"]
@@ -276,55 +276,56 @@ script = ExtResource("5_66ngm")
 
 [node name="Sonic" type="TextureRect" parent="UI/LiveCam"]
 layout_mode = 1
-offset_left = 87.0
+offset_left = 80.0
 offset_top = 79.0
-offset_right = 1235.0
-offset_bottom = 1227.0
+offset_right = 1371.4285
+offset_bottom = 1304.7146
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("6_03edq")
+texture = ExtResource("6_22uqi")
+expand_mode = 1
 
 [node name="TabbyCat" type="TextureRect" parent="UI/LiveCam"]
 layout_mode = 1
-offset_left = 86.0
-offset_top = 80.0
-offset_right = 1234.0
-offset_bottom = 1228.0
+offset_left = 84.00001
+offset_top = 87.0
+offset_right = 1232.0
+offset_bottom = 1235.0
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("7_22uqi")
 
 [node name="BlackCrow" type="TextureRect" parent="UI/LiveCam"]
 layout_mode = 1
-offset_left = 86.0
-offset_top = 80.0
-offset_right = 1234.0
-offset_bottom = 1228.0
+offset_left = 79.00004
+offset_top = 95.99997
+offset_right = 1227.0
+offset_bottom = 1244.0
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("8_6ni85")
 
 [node name="BlackCat" type="TextureRect" parent="UI/LiveCam"]
 layout_mode = 1
-offset_left = 86.0
-offset_top = 80.0
-offset_right = 1234.0
-offset_bottom = 1228.0
+offset_left = 73.0
+offset_top = 94.0
+offset_right = 1221.0
+offset_bottom = 1242.0
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("9_vceff")
 
 [node name="SphinxCat" type="TextureRect" parent="UI/LiveCam"]
 layout_mode = 1
-offset_left = 86.0
-offset_top = 80.0
-offset_right = 1234.0
-offset_bottom = 1228.0
+offset_left = 63.000008
+offset_top = 112.0
+offset_right = 1211.0
+offset_bottom = 1260.0
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("10_ekamt")
 
 [node name="InfoPanel" type="Panel" parent="UI/LiveCam"]
 layout_mode = 0
-offset_left = 85.00001
+offset_left = 134.0
 offset_top = 484.0
-offset_right = 1244.9999
-offset_bottom = 961.1428
+offset_right = 1062.5713
+offset_bottom = 924.0
 scale = Vector2(0.35, 0.35)
 
 [node name="Label" type="Label" parent="UI/LiveCam/InfoPanel"]

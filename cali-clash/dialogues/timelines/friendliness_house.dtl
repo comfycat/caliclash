@@ -1,61 +1,133 @@
 [style name="VisualNovelDialogueStyle"]
-SCARECROW: This is friendliness house
+[background arg="res://assets/backgrounds/scarecrow BG.2.png" fade="2.0"]
+[i]You walk up to the homely camper. As you approach, the smell of sickly, rotten sweetness hits your nose as you notice a decayed pumpkin sitting on the sidewalk[/i]
+[i]Holding your breath a bit, you ring the doorbell. A few moments pass. And then another few[/i]
+[i]You see light streaming from the window. There must be someone inside, and you’re not leaving without candy. A whole minute passes until someone opens the door[/i]
 
-join chocolate left
-audio "res://assets/sfx/blipSelect.wav"
+[i]He coughs awkwardly[/i]
 
-chocolate: Knock knock
-graham: who is there?
-[signal arg="battle_ui"]
+SCARECROW: “Sorry ‘bout that kid, didn’t want to get up durin’ the best part of Brewin’ Bad”
+SCARECROW: “So, what’re ya here for?”
 
-# ROUND 1
-- Try a bargain
-	set {choice_id} = "A"
-	[signal arg="choice_made"]
-- Make a pun
-	set {choice_id} = "B"
-	[signal arg="choice_made"]
-- Offer a friendly compliment
-	set {choice_id} = "C"
-	[signal arg="choice_made"]
-- Stay quiet
-	set {choice_id} = "D"
-	[signal arg="choice_made"]
-chocolate: {reaction_1}
-# ROUND 2
-chocolate: Test your chances...
+MC: (I was so distracted comparing him to the rotten pumpkin I almost forgot…)
+MC: “Trick or treat!”
+
+[i]The scarecrow stares at you. You stare back. He sniffs. You continue staring. As you’re about to break the silence he finally speaks[/i]
+
+SCARECROW: “Kid, I’ll be honest with you, a guy like me has nothin’ to do on a day like this. I’d usually be out with my youngsters on Halloween, but, y’know, can’t really do that when the ex-wife’s got them for the week”
+
+[i]He laughs for a moment and abruptly returns to a deadpan look[/i]
+
+SCARECROW: “What I’m sayin’ is, I’m eatin’ all the candy in this place. Good luck with the next neighbor though”
+
+MC: (No! I can tell he has the good stuff! I have to convince him)
 
 [signal arg="battle_ui"]
-- Try a bargain
-	set {choice_id} = "A"
-	[signal arg="choice_made"]
-- Make a pun
-	set {choice_id} = "B"
-	[signal arg="choice_made"]
-- Offer a friendly compliment
-	set {choice_id} = "C"
-	[signal arg="choice_made"]
-- Stay quiet
-	set {choice_id} = "D"
-	[signal arg="choice_made"]
 
-# ROUND 3
-chocolate: {reaction_2}
-chocolate: Last chance to impress or persuade me.
-[signal arg="battle_ui"]
-- Try a bargain
+# #Battle Start
+# #Round 1
+SCARECROW: “Can ya leave me alone?”
+- If your ex-wife knew you gave me candy she’d like you more #3
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
-- Make a pun
+	SCARECROW: “That’s wishful thinkin’, let’s be honest”
+
+- I didn’t think you could get any bummier #1
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
-- Offer a friendly compliment
+	join  center
+	SCARECROW: “Okay, you got me there”
+	join  center
+
+- I could be your new kid #2
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-- Stay quiet
+	SCARECROW: “CPS would probably have a word with me”
+
+- Look, if I don’t get this candy I’m bashing your pumpkin skull in #4
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
-chocolate: {reaction_3}
-chocolate: {reaction_end}
+SCARECROW: “I wouldn’t mind all that much”
+{reaction_1}
+
+# #Round 2
+SCARECROW: “Why’re ya even visiting my place?”
+- Someone like you has probably hoarded a ton of candy #4
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+	Scarecrow: “And you’d take away a guy’s only source of happiness?”
+
+- 
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+	Scarecrow: “Hey, don’t frame me as some sorta serial killer”
+
+- 
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+	join  center
+	Scarecrow: “And your need is candy? (Actually ya sound like me)”
+	join  center
+
+- 
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+	Scarecrow: “You got awful taste”
+{reaction_2}
+
+# #Round 3
+Scarecrow: “I’m probably the worst guy to be talkin’ to right now”
+- 
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+	Scarecrow: “Death’s honestly more interestin’ than me”
+
+- 
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+	Scarecrow: “Yeah, and who’s the kid still hangin’ ‘round listening to me?”
+
+- 
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+	join  center
+	Scarecrow: “Appreciate the thought but even a therapist’ll lose their mind hearin’ me every week”
+	join  center
+
+- 
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+	Scarecrow: “Guess that’s why she left, huh?”
+{reaction_3}
+{reaction_end}
+
+# FAIL
+SCARECROW: “Look, we both don’t wanna be here. Best if we just part ways—you’ll get better candy from a nicer neighbor and I’ll get to eat mine in peace”
+
+[i]You raise your hand to object but the door slams shut in your face. He gave up on himself faster than you did[/i]
+
+# SUCCESS
+SCARECROW: “I appreciate ya makin’ my day even the slightest bit brighter. I haven’t socialized in a bit, ‘n I wasn’t lookin’ forward to, but maybe a bit of change is what I need in life”
+
+[i]He scratches the stubble on his chin and looks into the air[/i]
+
+
+SCARECROW: “...Y’think she’ll come back to me if I start improvin’ on myself?”
+
+[i]You shift around awkwardly[/i]
+
+MC: “Can I… have my candy now?”
+
+SCARECROW: “Oh yeah yeah, I got you kid”
+
+[i]He tosses his entire bag of candy into your basket[/i]
+
+SCARECROW: “And one more thing”
+
+[i]He raises his now free arm into the air as a crow descends from the sky, perching on him[/i]
+
+SCARECROW: “Thing won’t stop pesterin’ me for attention, but maybe you could be a better owner”
+
+MC: (Is he really shoving things onto me?)
 
 [signal arg="return_map"]

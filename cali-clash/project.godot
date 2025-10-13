@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="cali-clash"
-run/main_scene="uid://bdyueu4fw3ffu"
+run/main_scene="uid://btt2fekwnu034"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,6 +24,10 @@ Global="*res://global.gd"
 [dialogic]
 
 directories/dch_directory={
+"GRANNY": "res://dialogues/characters/GRANNY.dch",
+"SCARECROW": "res://dialogues/characters/SCARECROW.dch",
+"VAMPIRE": "res://dialogues/characters/VAMPIRE.dch",
+"WITCH": "res://dialogues/characters/WITCH.dch",
 "chocolate": "res://dialogues/characters/chocolate.dch",
 "graham": "res://dialogues/characters/graham.dch"
 }

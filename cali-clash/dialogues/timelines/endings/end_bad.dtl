@@ -1,3 +1,15 @@
 [style name="VisualNovelDialogueStyle"]
-You made it to a bad ending.
+
+[i]Your attempts at salvaging this night was a complete failure. Not only have you procured little to no candy, you’ve made enemies with the inhabitants of Dark Wood Avenue[/i]
+
+MC: (I can’t stay here any longer… I’m not welcome.)
+
+[i]You find yourself back where it all began, the woods connecting this street to the rest of the town. Looking back at the block, you wonder what you’ll tell your friends after this whole escapade[/i]
+[i]You think about lying, it’d be an embarrassment if you found creatures from another world only to mess up your only chance at befriending them[/i]
+[i]You take a deep breath and step into the brush, wetness clings to your costume. The journey back is longer than last time—strange branches claw and grip onto your fabric, almost like they’re tugging you backwards[/i]
+You find your last reserve of strength to push forward and make it to the warmth of light that is the main path[/i]
+[i]A familiar child talks to their parent—One of your friends! You rush over, happy to see a human face, only for them to yelp and scurry backwards from you. You ask what’s wrong, but only a gurgle escapes from your mouth[/i]
+[i]Your blood runs cold and you quickly look down at your hands. A pair of gloves rest upon two tentacles, fingers limply swaying in the wind. You reach up to touch your face to find a slimy texture, wet and alien[/i]
+[i]You’re not welcome in this town[/i]
+
 [signal arg="return_menu"]

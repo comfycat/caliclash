@@ -1,3 +1,14 @@
 [style name="VisualNovelDialogueStyle"]
-you made it to the ok ending
+[i]You’ve collected a fair amount of candy, but there’s still a sense of longing for the treats you could not obtain. However, leaving with your life is the least you could ask for, and you’re grateful to still have breath in your lungs[/i]
+
+MC: (How late is it…? I need to go home.)
+
+[i]You find yourself back where it all began, the woods connecting this street to the rest of the town. Looking back at the block, you wonder what you’ll tell your friends after this whole escapade[/i]
+[i]You’ve made friends with some of the monsters, but some of them also don’t see you too fondly. Perhaps it’s best if you don’t bring your friends with you to see the residents of Dark Wood Avenue[/i]
+[i]You sigh softly and step into the brush. Your costume feels a bit damp, most likely from the cold air. The journey back is a bit of a fight—strange branches claw and grip onto your fabric, almost preventing your departure, but you find the perseverance to push forward[/i]
+[i]Finally, the warm light of the main path greets your eyes[/i]
+[i]A familiar child talks to their parent—One of your friends! You rush over, happy to see a human face. Your friend scolds you, annoyed by your tendency to disappear randomly without a word[/i]
+[i]You give a nervous laugh and apologize for your behavior, deciding not to reveal where you’ve been. A wave of nausea washes over your body as you wipe your forehead to feel a cold slickness on it[/i]
+[i]Your costume isn’t particularly warm and you’ve been walking outside at night for a long time. You tell your friend about your symptoms and you both depart to your homes[/i]
+[i]At least you’ll be skipping school for the next couple of days[/i]
 [signal arg="return_menu"]

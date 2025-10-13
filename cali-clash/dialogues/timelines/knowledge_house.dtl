@@ -1,61 +1,161 @@
 [style name="VisualNovelDialogueStyle"]
-MUMMY: This is knowledge house
+[background arg="res://assets/backgrounds/WITCH BG.png" fade="2.0"]
 
-join chocolate left
-audio "res://assets/sfx/blipSelect.wav"
+[i]In front of you stands a majestic and aweing house, impressively held with pillars and grandeur[/i]
+[i]It seems welcoming but you are still off put by your previous encounters[/i]
+[i]You slowly make your way up the steps and ring the bright shiny doorbell on the wall[/i]
+*Ring a Ling Ding*
+[i]The door opens and a gust of warm air hits your face[/i]
 
-chocolate: Knock knock
-graham: who is there?
+MC: “Mommy?... Sorry mummy?”
+
+join  center
+
+[i]In front of you standing tall is a Mummy, the linen around her head pulled up with… hair curlers?[/i]
+[i]Next to her a bassinet, its center so dark you feel drawn into it[/i]
+
+MUMMY: “Hello?”
+MUMMY: “Who might be knocking at my door at this hour?”
+
+MC
+- “Uh… Hi! how are you…?”
+- “Trick or treat?”
+
+[i]Your body is tense, expecting the worst[/i]
+[i]You hear a light chuckle making its way from the doorway[/i]
+
+MC: (I knew I picked the wrong dialogue option)
+
+MUMMY: “And I am the one who usually asks the questions”
+
+join  center
+
+MUMMY: “I would usually make you pass my trials but you are just so adorable in that little outfit”
+MUMMY: “My son is very fond of costumes like these”
+MUMMY: “An Eternal Pharaoh but he will always be my little baby”
+
+join  center
+
+[i]You stare back at the bassinet, its gloomy aura softening, becoming more regal and inviting[/i]
+
+MC: “Does he like trick or treating?”
+
+join  center
+
+MUMMY: “Oh he loves it! I love dressing him up like his father Tutankhamen”
+MUMMY: “We have finished for the night but he is not old enough for candy and I do not eat it either”
+
+join  center
+
+MUMMY: “Would you be happening to want some?”
+
+MC: “If you wouldn’t mind”
+
+MUMMY: “Of course silly blue hedgehog”
+MUMMY: “However, do not expect it to come on a silver plate”
+MUMMY: “I may not be a Sphinx but I think their games are just oh-so fun”
+MUMMY: “So please show me why you deserve all this candy”
+
 [signal arg="battle_ui"]
 
-# ROUND 1
-- Try a bargain
+# #START BATTLE
+# #ROUND 1
+MUMMY: “I would ask you for a riddle but I am sure you already know which one I am asking for. Please give me the answer”
+- A Human #1
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
-- Make a pun
-	set {choice_id} = "B"
-	[signal arg="choice_made"]
-- Offer a friendly compliment
-	set {choice_id} = "C"
-	[signal arg="choice_made"]
-- Stay quiet
-	set {choice_id} = "D"
-	[signal arg="choice_made"]
-chocolate: {reaction_1}
-# ROUND 2
-chocolate: Test your chances...
+	join  center
+	MUMMY: “Well done little one, very well done”
+	join  center
 
-[signal arg="battle_ui"]
-- Try a bargain
-	set {choice_id} = "A"
-	[signal arg="choice_made"]
-- Make a pun
+- The Night and the Day #3
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
-- Offer a friendly compliment
-	set {choice_id} = "C"
-	[signal arg="choice_made"]
-- Stay quiet
-	set {choice_id} = "D"
-	[signal arg="choice_made"]
+	MUMMY: “Not quite but almost there silly”
 
-# ROUND 3
-chocolate: {reaction_2}
-chocolate: Last chance to impress or persuade me.
-[signal arg="battle_ui"]
-- Try a bargain
-	set {choice_id} = "A"
-	[signal arg="choice_made"]
-- Make a pun
-	set {choice_id} = "B"
-	[signal arg="choice_made"]
-- Offer a friendly compliment
+- I don’t know what riddle you’re talking about I’m sorry #2
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-- Stay quiet
+	MUMMY: “You poor little baby it’s alright”
+
+- Just give me the candy #4
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
-chocolate: {reaction_3}
-chocolate: {reaction_end}
+	MUMMY: “You’re not going to get anywhere like that”
+{reaction_1}
+
+# #ROUND 2
+MUMMY: “You are such a sweet little child, I am amazed you ended up on this street”
+- I don’t know how it happened #2
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+	MUMMY: “It will be alright child, I will help you find your way home”
+
+- I’m just built different I guess #3
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+	MUMMY: “What do you mean by that?”
+
+- It’s been a lot but at least I get my candy #1
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+	join  center
+	MUMMY: “We will make sure you get lots of candy little one”
+	join  center
+
+- But I will make sure this street knows who runs it #4
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+	MUMMY: “Delusions are not to be played with child”
+{reaction_2}
+
+# #ROUND 3
+MUMMY: “Before I give you your reward I have one final question for you.”
+MUMMY: “What are you planning on doing with all this candy? I have been quite curious about this for a while now”
+- I was going to save it and have a little bit every day #2
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+	MUMMY: “What a smart child you are!”
+
+- Eat it all at once!!! #3
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+	MUMMY: “If that is your wish so be it”
+
+- Share it with my friends when I get back home #1
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+	join  center
+	MUMMY: “Your heart is so kind, your mother must be very proud”
+join  center
+
+
+- None of your business #4
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+	MUMMY: “Then you don’t deserve it”
+{reaction_3}
+{reaction_end}
+
+# FAILURE
+[i]The Mummy looks sadly at you and shakes her head begrudgingly[/i]
+
+MUMMY: “You are quite a misbehaved child, so rude and gaudy”
+MUMMY: “You will not be receiving any candy from me, hurry along now before the desert swallows you up”
+
+[i]She looks at her bassinet as she says that last sentence, sending shivers down your spine[/i]
+[i]You walk away slowly, looking back to see her standing[/i]
+[i]Standing guard[/i]
+[i]Protecting[/i]
+
+# SUCCESS
+MUMMY: “Well done little one, you have proven yourself admirably”
+MUMMY: “You did such a good job, it would be nice to see you come by more often”
+
+[i]She hands you a large bag of candy and smiles[/i]
+
+MUMMY: “Hurry along now child before it gets too late, you must still have some houses to get to”
+
+[i]You walk away, now with two bags filled with candy, ready for more[/i]
 
 [signal arg="return_map"]
