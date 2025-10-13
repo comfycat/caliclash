@@ -1,8 +1,12 @@
 [style name="VisualNovelDialogueStyle"]
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [background arg="res://assets/backgrounds/WITCH BG.png" fade="2.0"]
 audio music "res://assets/music/VN music.wav"
+=======
+[background arg="res://assets/backgrounds/mummy BG.png" fade="2.0"]
+>>>>>>> Stashed changes
 =======
 [background arg="res://assets/backgrounds/mummy BG.png" fade="2.0"]
 >>>>>>> Stashed changes
