@@ -13,6 +13,7 @@ extends Control
 @onready var pumpkin_panel2:Panel			= %PumpkinPanel2
 @onready var options: Panel = $Options
 @onready var credits: Panel = $Credits
+@onready var music: AudioStreamPlayer = $musicmenu
 var dialog_instance: Node = null
 
 
@@ -90,6 +91,7 @@ func _on_final_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/battle.tscn")
 	
 func _on_start_button_pressed() -> void:
+	music.stop()
 	if dialog_instance:
 		dialog_instance.queue_free()
 		dialog_instance = null

@@ -198,6 +198,7 @@ text = "Caliclash Game"
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 1528.0
 offset_top = 691.0
@@ -499,7 +500,8 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxTexture_rcqid")
 text = "Back"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="musicmenu" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("14_1ajci")
 autoplay = true
 
