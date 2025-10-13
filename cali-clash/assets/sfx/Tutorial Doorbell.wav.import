@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfx41nkreybta"
+path="res://.godot/imported/Tutorial Doorbell.wav-4d87f0f061390119e7f3b5ba19e86010.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Tutorial Doorbell.wav"
+dest_files=["res://.godot/imported/Tutorial Doorbell.wav-4d87f0f061390119e7f3b5ba19e86010.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

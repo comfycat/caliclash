@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cuasb5yjsao3h"
+path="res://.godot/imported/Tutorial Perfect Loop.wav-9763027b9b4be60ba23ed15722c17a85.sample"
+
+[deps]
+
+source_file="res://assets/music/Tutorial Perfect Loop.wav"
+dest_files=["res://.godot/imported/Tutorial Perfect Loop.wav-9763027b9b4be60ba23ed15722c17a85.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
