@@ -2,35 +2,47 @@
 [background arg="res://assets/backgrounds/HOUSINGTON FINAL.png" fade="0.0"]
 audio "res://assets/music/MHouse Perfect Loop.wav"
 
-
 [i]You walk up to the dark and foreboding house. You feel an intense fear crawl up your spine[/i]
-[i]Something is wrong. Your reptilian brain screams for you to move to the next house. Yet…
-Your candy bag feels light[/i]
+[i]Something is wrong. Your reptilian brain screams for you to move to the next house. Yet…[/i]
+[i]Your candy bag feels light[/i]
 
-[i]Walking through the lawn is a challenge, as thickets threaten to nick your legs. With every stride you take the house consumes every corner of your vision, impossibly growing in size[/i]
+[i]Walking through the lawn is a challenge, as thickets threaten to nick your legs. [/i]
+
+[i]With every stride you take, the house consumes every corner of your vision, impossibly growing in size[/i]
 [i]The stairs feel malleable under your feet, each step threatening to break under your weight[/i]
 [i]You make it up onto the porch, clutching your basket with sheer terror. With a shaky hand rising, you bring your hand forward and knock on the door[/i]
+audio "res://assets/sfx/MHouse Knock 1.wav"
 
 [i]Once[/i]
 
 MC: (The wood feels warm…)
+audio "res://assets/sfx/MHouse Knock 2.wav"
 
 [i]Twice[/i]
 
 MC: (The floor under my feet feels like it’s warping… moving…)
+audio "res://assets/sfx/MHouse Knock 3.wav"
 
 [i]Thrice[/i]
-
-MC: (It’s almost as if this house is…)
 
 [b]breathing[/b]
 
 [i]You stumble backwards, tripping down the steps. For some ludicrous reason you keep the candy from falling out of your bag, valuing it over your own life. The ground rumbles as with great effort, the house rises from its foundation[/i]
+
 [i]Two avian legs claw the dirt as they appear to stretch, with more features sprouting from seemingly random points in the structure. The house creaks and settles down, having not done this for probable ages[/i]
 
-[i]A childlike giggle emanates from the building. Then a man’s. Then an elderly woman’s. A hundred cacophonous voices laugh from all around you and in your head at the same time[/i]
+[i]A childlike giggle emanates from the building. [/i]
 
-THE HOUSE\: “They say not to visit the house at the end of Dark Wood. Tell us, why would such a small morsel as yourself approach this Old One? Do you wish to join our choir?”
+[i]Then a man’s. [/i]
+
+Then an elderly woman’s.
+
+[I}A hundred cacophonous voices laugh from all around you and in your head at the same time[/i]
+
+THE_HOUSE: THE_HOUSE\: “They say not to visit the house at the end of Dark Wood. “
+
+THE_HOUSE: “Tell us, why would such a small morsel as yourself approach this Old One?”
+ THE_HOUSE: “Do you wish to join our choir?”
 
 [i]The air from the door is thick, as if it were salivating[/i]
 [i]You open your mouth to respond, fighting the words stuck in your throat[/i]
@@ -39,190 +51,210 @@ MC: “Trick or treat”
 
 [i]A bark of laughter pierces your ears as every crevice of the house shudders with amusement—and then it pauses. Somehow you can tell it’s glaring at you, with utter contempt[/i]
 
-THE HOUSE\: “To think that such an insignificant, worthless crumb like you could ever demand anything from us. You’re at least entertaining, we will give you that, and we’d find you an interesting addition to our ensemble”
+THE_HOUSE: “To think that such an insignificant, worthless crumb like you could ever demand anything from us. You’re at least entertaining, we will give you that,”  THE_HOUSE\: “… and we’d find you an interesting addition to our ensemble”
 
 [signal arg="battle_ui"]
 
 # Battle Start 
-# Round 1
+# ROUND 1
 [i]Tread carefully and listen, for words are windows into souls[/i]
 
-- Shouldn’t you save me for later? #2
+- Shouldn’t you save me for later?
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
-	THE HOUSE\: “It’s Halloween, is it not? The night for savoring treats such as yourself. Easy to eat, for there’s naught a single fang for you to bear at us”
+	THE_HOUSE: “It’s Halloween, is it not? The night for savoring treats such as yourself. Easy to eat, for there’s naught a single fang for you to bear at us”
 
-- Don’t eat me! I’m spiky! I taste bad! #1
+- Don’t eat me!
+	MC: I’m spiky! I taste bad!
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
-	THE HOUSE\: “You are entertaining, not a comedian. Have you not an ounce of fight in you?”
+	THE_HOUSE: “You are entertaining, not a comedian. Have you not an ounce of fight in you?”
 
-- There’s no need for this! Please, let me start over. #3
+- (Cower)
+	MC: There’s no need for this! Please, let me start over.
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-	THE HOUSE\: “Start over? Hm… now, if you were to start begging for your life, perhaps we would keep you alive for only a moment longer. Hahaha… such a weak and cowardly morsel, easier to bite if they do not fight”
+	THE_HOUSE: “Start over? Hm… now, if you were to start begging for your life, perhaps we would keep you alive for only a moment longer.
+	THE_HOUSE: “Hahaha… such a weak and cowardly morsel, easier to bite if they do not fight”
 
-- Eat me, I dare you! I’ll just tear you from the inside! # zero points
-THE HOUSE\: “Your attempt at threatening us is nonsensical. Truly you have no idea what happens when a meal crosses our path? Then rejoice in the luxury of experiencing it first-hand”
-[i]All seems quiet at first, but then you find yourself floating in the air, light as a feather[/i]
-[i]You look down in a panic to find your body lying on the ground, as if in a peaceful slumber. Your head whips back towards your assailant, its door open like a maw ready to savor its first meal[/i]
-[i]Waiting for death, you silently cry—but it never comes. Back down at your feet, your beloved tuxedo cat bites your ghostly ankle, pulling your soul back into your body. The House scoffs, but does not say anything[/i]
-{reaction_1}
-
-# #Round 2
-THE HOUSE\: “A lost lamb, first to the feast.”
-
-- I could bring you far tastier uh.. ‘meals’ # zero points
-	THE HOUSE\: “A generous one, aren’t you? We’ll give you until sunrise.” This is it. Your chance to escape” # PROCEED TO BAD ENDING
-
-- I-Is your fridge running…? #3
-	set {choice_id} = "B"
-	[signal arg="choice_made"]
-	THE HOUSE\: “...Do you see us currently you witless pile of flesh? Or has our ghastly sight robbed you of all intelligence?”
-
-- If you eat everyone you come across, surely you’d be lonely #2
-	set {choice_id} = "C"
-	[signal arg="choice_made"]
-	THE HOUSE\: “Lonely? You truly are brainless. We are perfect, how could we be lonely when a dozen voices sing within us?”
-
-- What kind of monster disguises itself as a house? You look stupid #1
-	set {choice_id} = "D”
-	[signal arg="choice_made"]
-	THE HOUSE\: “An owl’s feathers are brown and mottled to give its prey a false sense of security. A trapdoor spider hides within its lair and waits for its prey to unsuspectingly pass by”
-THE HOUSE\: “And we? A house on the night of halloween. It’s practically beckoning for foolish, unintelligent slabs of meat like you”
-{reaction_2}
-
-# Round 3
-[i]The House hums to itself, its voice horrid and irregular. Your tuxedo cat’s back arches, fur raising in self-defense. You pity that the animal may have to endure this horror for a bit longer[/i]
-
-- You could sustain yourself more consistently if you had a family living in you #1
-	set {choice_id} = "A"
-	[signal arg="choice_made"]
-	THE HOUSE\: “And eat their life source over the course of years? Weakening them but never killing? Don’t make us laugh. What we relish most is the sheer terror on your faces”
-
-- H-Hey uh… knock knock # zero points
-	THE HOUSE\: “And the punchline is that your hapless being was the one who knocked on our door. It’s almost endearing with how set you are on feeding us. Well, we suppose a thank you is in order, we are grateful for your offering”
-[i]All seems quiet at first, but then you find yourself floating in the air, light as a feather[/i]
-[i]You look down in a panic to find your body lying on the ground, as if in a peaceful slumber. Your head whips back towards your assailant, its door open like a maw ready to savor its first meal[/i]
-[i]Waiting for death, you silently cry—but it never comes. Back down at your feet, your beloved tuxedo cat bites your ghostly ankle, pulling your soul back into your body. The House scoffs, but does not say anything[/i]
-
-- Are you hungry? I imagine you don’t feed often #3
-	set {choice_id} = "C"
-	[signal arg="choice_made"]
-	THE HOUSE\: “Empty-headed and laughable, you should have dressed as a clown for Halloween. We would take this opportunity to eat you, but we’d find your voice quite sickening to hear. Perhaps we should just crush you into a fine paste, but alas, our form is difficult to move”
-
-- And you call yourself a choir, your voice is nails on chalkboard #2
+- (Taunt)
+	MC: Eat me, I dare you! I’ll just tear you from the inside!
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
-	THE HOUSE\: “Of course, when a mind cannot comprehend the sheer vastness of our range, it all sounds discordant. You mortals think you know everything. Hahaha, it’s all so funny”
-{reaction_3}
+	THE_HOUSE: “Your attempt at threatening us is nonsensical. Truly you have no idea what happens when a meal crosses our path?”
+	THE_HOUSE: Then rejoice in the luxury of experiencing it first-hand”
+	[i]All seems quiet at first, but then you find yourself floating in the air, light as a feather[/i]
+	[i]You look down in a panic to find your body lying on the ground, as if in a peaceful slumber. [/i]
+	[i]Your head whips back towards your assailant, its door open like a maw ready to savor its first meal[/i]
+	[i]Waiting for death, you silently cry—but it never comes. Back down at your feet, your beloved tuxedo cat bites your ghostly ankle, pulling your soul back into your body. The House scoffs, but does not say anything[/i]
+[b]{reaction_1}[/b]
 
-# Round 4
-THE HOUSE\: “Growing tired? Wouldn’t it be easier if you simply gave up?”
-
-- Not when the end result is death #2
+# #ROUND 2
+THE_HOUSE: “A lost lamb, first to the feast.”
+- (Find a scapegoat)
+	MC: I could bring you far tastier uh.. ‘meals’
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
-	THE HOUSE\: “Then why do anything? The end result is always death. We simply speed up the process, better to die knowing you’re still loved”
+	THE_HOUSE: “A generous one, aren’t you? We’ll give you until sunrise. “
+	THE_HOUSE: “This is it. Your chance to escape”
+	[i]All seems quiet at first, but then you find yourself floating in the air, light as a feather[/i]
+	[i]You look down in a panic to find your body lying on the ground, as if in a peaceful slumber. [/i]
+	[i]Your head whips back towards your assailant, its door open like a maw ready to savor its first meal[/i]
+	[i]Waiting for death, you silently cry—but it never comes. Back down at your feet, your beloved tuxedo cat bites your ghostly ankle, pulling your soul back into your body. The House scoffs, but does not say anything[/i]
 
-- Haha… why don’t you give up…? #1
+- I-Is your fridge running…?
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+	THE_HOUSE: “...Do you see us currently you witless pile of flesh? Or has our ghastly sight robbed you of all intelligence?”
+
+- Isn’t it lonely?
+	MC: If you eat everyone you come across, surely you’d be lonely
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+	THE_HOUSE: “Lonely? You truly are brainless. We are perfect, how could we be lonely when a dozen voices sing within us?”
+
+- R u serious?
+	MC: What kind of monster disguises itself as a house? You look stupid
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+	THE_HOUSE: “An owl’s feathers are brown and mottled to give its prey a false sense of security. A trapdoor spider hides within its lair and waits for its prey to unsuspectingly pass by”
+	THE_HOUSE: “And we? A house on the night of halloween. It’s practically beckoning for foolish, unintelligent slabs of meat like you”
+[b]{reaction_2}[/b]
+
+# ROUND 3
+[i]The House hums to itself, its voice horrid and irregular. [/i]
+
+[i]Your tuxedo cat’s back arches, fur raising in self-defense. You pity that the animal may have to endure this horror for a bit longer[/i]
+
+- Think smarter not harder.
+	MC: You could sustain yourself more consistently if you had a family living in you.
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+	THE_HOUSE: “And eat their life source over the course of years? Weakening them but never killing? Don’t make us laugh.”
+	THE_HOUSE: “What we relish most is the sheer terror on your faces”
+
+- H-Hey uh… knock knock
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+	THE_HOUSE: “And the punchline is that your hapless being was the one who knocked on our door. It’s almost endearing with how set you are on feeding us. Well, we suppose a thank you is in order, we are grateful for your offering”
+	[i]All seems quiet at first, but then you find yourself floating in the air, light as a feather[/i]
+	[i]You look down in a panic to find your body lying on the ground, as if in a peaceful slumber. Your head whips back towards your assailant, its door open like a maw ready to savor its first meal[/i]
+	[i]Waiting for death, you silently cry—but it never comes. Back down at your feet, your beloved tuxedo cat bites your ghostly ankle, pulling your soul back into your body. The House scoffs, but does not say anything[/i]
+
+- Are you hungry?
+	MC: I imagine you don’t feed often
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+	THE_HOUSE: “Empty-headed and laughable, you should have dressed as a clown for Halloween. We would take this opportunity to eat you, but we’d find your voice quite sickening to hear. Perhaps we should just crush you into a fine paste, but alas, our form is difficult to move”
+
+- That grating, agitating sound…
+	And you call yourself a choir, your voice is nails on chalkboard
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+	THE_HOUSE: “Of course, when a mind cannot comprehend the sheer vastness of our range, it all sounds discordant. You mortals think you know everything. Hahaha, it’s all so funny”
+[b]{reaction_3}[/b]
+
+# Round 4
+THE_HOUSE: “Growing tired? Wouldn’t it be easier if you simply gave up?”
+
+- Not meeting my end here
+	MC: Not when the end result is death
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+	THE_HOUSE: “Then why do anything? The end result is always death. We simply speed up the process, better to die knowing you’re still loved”
+
+- (Nervous laughter)
+	Haha… why don’t you give up…? #1
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	[i]The House erupts into laughter, the sound is practically deafening, and even when it stops the noise still rings in your ears[/i]
-THE HOUSE\: “Your first truly funny joke. Perhaps we should keep you as our little jester. We kid, of course. We’d know you’d plan to escape our grasp, your desperate need to go back to your loved ones is obvious”
+	THE_HOUSE: “Your first truly funny joke. Perhaps we should keep you as our little jester. We kid, of course. We’d know you’d plan to escape our grasp, your desperate need to go back to your loved ones is obvious”
 
-- Giving up would also mean giving up on my friends #3
+- (Protagonist mode)
+	MC: Giving up would also mean giving up on my friends
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-	THE HOUSE\: “Will your friends remember your disappearance after a week? A month? Ten years? Hahaha… you’ve forged strong bonds, haven’t you? Will you continue to do so?”
+	THE_HOUSE: “Will your friends remember your disappearance after a week? A month? Ten years? Hahaha… you’ve forged strong bonds, haven’t you? Will you continue to do so?”
 
-- I’d rather die by my own hands #4
+- I’d rather die by my own hands
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
-	THE HOUSE\: “Ultimately, you’re still feeding us. A morsel who could not find peace in its end has its soul forever bound to its body. Unless you imply you’d find peace in it. How selfish”
-THE HOUSE\: “Do you think not of the people waiting for you back home? Everyone you’d abandon?”
-{reaction_4}
+	THE_HOUSE: “Ultimately, you’re still feeding us. A morsel who could not find peace in its end has its soul forever bound to its body. Unless you imply you’d find peace in it. How selfish”
+	THE_HOUSE: “Do you think not of the people waiting for you back home? Everyone you’d abandon?”
+[b]{reaction_4}[/b]
 
 # Round 5
 [i]The House’s claws tap rhythmically on the ground, the reverberations rumble throughout your spine[/i]
-THE HOUSE\: “We grow impatient, make your final plea”
-
-- We can both stand here until the end of time until one of us breaks #4
+THE_HOUSE: “We grow impatient, make your final plea”
+- (Wager your soul)
+	MC: We can both stand here until the end of time until one of us breaks #4
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
-THE HOUSE\: “A gambit you would take? We would love to see your flesh waste away into nothingness. Would it only end once your bones finally turn to dust?”
+	THE_HOUSE: “A gambit you would take? We would love to see your flesh waste away into nothingness. Would it only end once your bones finally turn to dust?”
 
-- What do you call a house that doesn’t eat you…? #4
+- (Play jester)
+	MC: What do you call a house that doesn’t eat you…?
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
-	THE HOUSE\: “Not we, surely. Is that your “joke”? Have we conversed for so long that you’ve lost all ability to think? If we were a different kind of beast, we would keep you as a thrall”
+	THE_HOUSE: “Not we, surely. Is that your “joke”? Have we conversed for so long that you’ve lost all ability to think? If we were a different kind of beast, we would keep you as a thrall”
 
-- Surely you’ve noticed my familiar, some people here care for me #1
+- (Stay grounded in friendship)
+	MC: Surely you’ve noticed my familiar, some people here care for me
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-	THE HOUSE\: “So it seems. We best not make enemies with our neighbors, lest we find ourselves ostracized and needing to move into your main neighborhood… Hahaha…”
+	THE_HOUSE: “So it seems. We best not make enemies with our neighbors, lest we find ourselves ostracized and needing to move into your main neighborhood… Hahaha…”
 
-
-- You should be the one pleading #3
+- (Make empty convictions)
+	You should be the one pleading #3
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
-	THE HOUSE\: “Have we not already? Has this whole exchange not been our plea for your soul? And in return your plea for us to spare you?”
-{reaction_5}
-{reaction_end}
+	THE_HOUSE: “Have we not already? Has this whole exchange not been our plea for your soul? And in return your plea for us to spare you?”
+[b]{reaction_5}[/b]
 
-# Success
+if {outcome}== "success":
+	THE_HOUSE: “Are you really so eager to die? You’ve many opportunities to run and yet you continue to grovel”
+	THE_HOUSE: “Hahaha, you do realize you could’ve ran away this whole time, right? Or perhaps, the option never presented itself to you”
+	[i]You shake your head[/i]
+	MC: “I wasn’t going to leave without my candy.”
+	[i]The House chuckles[/i]
+	THE_HOUSE: “Some residents have decided to aid your journey, not many of us decide to help random humans. You are different, and it’d be a shame if a soul like yours was claimed.”
+	[i]It opens its mouth and you wince involuntarily. A small bottle rolls down from its steps and onto the floor, glass clinking against your shoe[/i]
+	THE_HOUSE: “We implore you to take this.”
+	
+	[i]You pick it up. It appears to be a normal glass bottle, smaller than the size of your palm[/i]
+	[i]Suddenly, you feel a shifting by your feet and notice your familiars fragmenting and turning into light. They rise into the air as spheres of colored orbs and wisp their way into the bottle, swirling around like fish in the sea[/i]
+	
+	MC: “W-what…? What have you done?! I thought you changed your mind!”
+	
+	[i]Feeling hot with betrayal, you prepare to hurl more words of spite but the house raises its foot and slams it onto the ground. Your skull vibrates in your skin uncomfortably as the floor rumbles[/i]
+	
+	THE_HOUSE: “Do not misinterpret our gift, and certainly do not squander it! Your companions are not dead, merely in a different form, their energy concentrated”
+	THE_HOUSE: “Besides, they cannot survive outside of this street—in this way, you can carry them forevermore. You foolishly assume they are ordinary creatures.”
+	
+	[i]Now hot with embarrassment, you clear your throat and compose yourself a little[/i]
+	
+	MC: “My candy though?”
+	
+	[i]Air billows out from the house’s windows, emulating a sigh[/i]
+	
+	THE_HOUSE: “Relentless.”
+	
+	[i]Its door opens again, a bag of candy flies out with considerable force, but you skillfully catch it[/i]
+	
+	THE_HOUSE: “Next time, bring a friend won’t you? Our hunger is still palpable”
+	
+	[i]You give no response[/i]
+	
+	THE_HOUSE: “We jest! You’re usually so eager to bite back”
+	
+	MC: “Goodbye.”
 
-THE HOUSE\: “Are you really so eager to die? You’ve many opportunities to run and yet you continue to grovel”
-THE HOUSE\: “Hahaha, you do realize you could’ve ran away this whole time, right? Or perhaps, the option never presented itself to you”
+elif {outcome}== “fail:
+	THE_HOUSE: “You are pathetic. Even a crumb provides a meal for mice. You are the rotten grist which even the hungriest of animals would refuse to dine upon. You are unworthy of any gift bestowed upon you”
+	THE_HOUSE: “The fact that you even still stand is fate placing its bet on the wrong mortal. You’d best not return, for we shall recognize your scent and hunt you down. Do we make ourselves clear?”
+	[i]It takes a second for your frozen limbs to respond, for your brain to register this beration, but you turn and run[/i]
+else:
+	you did not fail nor succeed
 
-[i]You shake your head[/i]
-
-MC: “I wasn’t going to leave without my candy.”
-
-[i]The House chuckles[/i]
-
-THE HOUSE\: “Some residents have decided to aid your journey, not many of us decide to help random humans. You are different, and it’d be a shame if a soul like yours was claimed.”
-
-[i]It opens its mouth and you wince involuntarily. A small bottle rolls down from its steps and onto the floor, glass clinking against your shoe[/i]
-
-THE HOUSE\: “We implore you to take this.”
-
-[i]You pick it up. It appears to be a normal glass bottle, smaller than the size of your palm[/i]
-[i]Suddenly, you feel a shifting by your feet and notice your familiars fragmenting and turning into light. They rise into the air as spheres of colored orbs and wisp their way into the bottle, swirling around like fish in the sea[/i]
-
-MC: “W-what…? What have you done?! I thought you changed your mind!”
-
-[i]Feeling hot with betrayal, you prepare to hurl more words of spite but the house raises its foot and slams it onto the ground. Your skull vibrates in your skin uncomfortably as the floor rumbles[/i]
-
-THE HOUSE\: “Do not misinterpret our gift, and certainly do not squander it! Your companions are not dead, merely in a different form, their energy concentrated”
-THE HOUSE\: “Besides, they cannot survive outside of this street—in this way, you can carry them forevermore. You foolishly assume they are ordinary creatures.”
-
-[i]Now hot with embarrassment, you clear your throat and compose yourself a little[/i]
-
-MC: “My candy though?”
-
-[i]Air billows out from the house’s windows, emulating a sigh[/i]
-
-THE HOUSE\: “Relentless.”
-
-[i]Its door opens again, a bag of candy flies out with considerable force, but you skillfully catch it[/i]
-
-THE HOUSE\: “Next time, bring a friend won’t you? Our hunger is still palpable”
-
-[i]You give no response[/i]
-
-THE HOUSE\: “We jest! You’re usually so eager to bite back”
-
-MC: “Goodbye.”
-
-# Friend get?
-
-
-# LOSS
-
-THE HOUSE\: “You are pathetic. Even a crumb provides a meal for mice. You are the rotten grist which even the hungriest of animals would refuse to dine upon. You are unworthy of any gift bestowed upon you”
-THE HOUSE\: “The fact that you even still stand is fate placing its bet on the wrong mortal. You’d best not return, for we shall recognize your scent and hunt you down. Do we make ourselves clear?”
-
-[i]It takes a second for your frozen limbs to respond, for your brain to register this beration, but you turn and run[/i]
 
 [signal arg="ending"]

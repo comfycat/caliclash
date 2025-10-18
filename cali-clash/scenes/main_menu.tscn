@@ -198,7 +198,6 @@ text = "Caliclash Game"
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = 1528.0
 offset_top = 691.0

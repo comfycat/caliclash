@@ -1,128 +1,161 @@
 [style name="VisualNovelDialogueStyle"]
 [background arg="res://assets/backgrounds/WITCH BG.png" fade="2.0"]
 
-audio music "res://assets/music/VN music.wav"
+# #audio music "res://assets/music/VN music.wav"
 
-[i]You approach the clean looking house. Smoke rises from its chimney as a waft of herbs and strangely isopropyl alcohol hits your nose[/i]
+[i]You approach the clean-looking house. Smoke rises from its chimney as a waft of herbs and strangely isopropyl alcohol hits your nose[/i]
 
 [i]You ring the doorbell[/i]
+audio "res://assets/sfx/Witch Doorbell.wav"
 
-[i]The door swings open to a black robed figure wearing a bird mask. She beckons you inside as she returns to toiling her cauldron, bubbling with strange liquids and smells[/i]
+join WITCH center
 
-WITCH: “Hello. You are a new patient, am I correct? Luck is on your side then, for I am available for one last checkup. Tell me what you need—and keep it brief. You may be my patient, but I have other matters to attend to”
+
+[i]The door swings open to a black robed figure wearing a bird mask.[/i]
+
+[i]She beckons you inside as she returns to toiling her cauldron, bubbling with strange liquids and smells[/i]
+
+WITCH: “Hello. You are a new patient, am I correct? Luck is on your side then, for I am available for one last checkup.”
+
+WITCH: “Tell me what you need—and keep it brief. “  WITCH\: “You may be my patient, but I have other matters to attend to”
 
 MC: “Uhm… Trick or treat?”
 
 WITCH: “Interesting. But a patient does not receive a treat until after the appointment, no?”
 
-[i]She fishes for the bonesaw strapped to her belt, and starts to idly polish its blade. Both her goggles and the sharp metal gleam under the dim lighting—her intentions are clear[/i]
+[i]She fishes for the bonesaw strapped to her belt, and starts to idly polish its blade. [/i]
+
+[i]Both her goggles and the sharp metal gleam under the dim lighting—her intentions are clear[/i]
+
+MC: (Gulp)
+audio music "res://assets/music/Witch Perfect Loop.wav"
 
 [signal arg="battle_ui"]
 
-#START BATTLE
-#ROUND 1
+# #START BATTLE
+# #ROUND 1
 WITCH: “Let’s make this quick”
-- Shouldn’t I tell you my symptoms first?! #2
+- Is this legit?
+	MC: Shouldn’t I tell you my symptoms first?!
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
 	WITCH: “I’ll know your symptoms better if I see it for myself”
 
-- BOO AN APPLE!!! #3
+- Doctors fear one thing…
+	MC: BOO AN APPLE!!!
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	WITCH: “An apple would do well for a potion, but something tells me the only apples you’d have are uselessly candied”
 
-- A family doctor should be more personal… #4
+- This feels all too sudden,
+	MC: A family doctor should be more personal…
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
 	WITCH: “Family doctor? I just met you”
 
-- Two can play this game, give me a scalpel #1
+- Let’s parry blade to blade
+	MC: Two can play this game, give me a scalpel
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
 	join WITCH (happy) center
 	WITCH: “Hm? Interested in the medical field I see?”
 	join WITCH (default) center
+[b]{reaction_1}[/b]
 
-#ROUND 2
+# #ROUND 2
 WITCH: “Do not frustrate me. Come closer”
-- Attend to your pot first! It might boil over #1
+- Attend to your pot first!
+	MC: It might boil over
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
 	join WITCH (happy) center
 	WITCH: “And this is why I wished for you to be quick”
 	join WITCH (default) center
 
-- Look in the mirror! There’s a bird on your face! #4
+- (Play a fool)
+	MC: Look in the mirror! There’s a bird on your face!
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
-	WITCH: “If I allowed a bird in here, everything would be contaminated. (My cat is an exception of course, hahaha.)”
+	WITCH: “If I allowed a bird in here, everything would be contaminated.“
+	WITCH: “(My cat is an exception of course, hahaha.)”
 
-- Medical malpractice could leave you with a bad reputation! #3
+- Who approved these methods?
+	MC: Medical malpractice could leave you with a bad reputation!
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-	WITCH: “…I live on the outskirts of town. Do you think it matters?”
+	WITCH: “…I live on the outskirts of town.”
+	WITCH: “Did you think it matters?”
 
-- Let’s see who’ll need medical attention more once I splash a potion in your face #2
+- Don’t mess with me, lady!
+	MC: Let’s see who’ll need medical attention more once I splash a potion in your face
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
 	WITCH: “The potion you’re holding cannot be absorbed through the skin”
+[b]{reaction_2}[/b]
 
-#ROUND 3
+# #ROUND 3
 [i]You’re backed against the door. You attempt to twist the doorknob but your trembling hands fail to grip it[/i]
-- Wouldn’t an adult cadaver be more interesting? #2
+
+What is your last resort?
+- Forget me, what about…
+	MC: Wouldn’t an adult cadaver be more interesting?
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
 	WITCH: “Cadaver? A doctor saves people, how would I save a cadaver?”
 
-- I’m just a little fella… you wouldn’t kill a lil fella…? #3
+- I’m just a little fella…
+	MC: … you wouldn’t kill a lil fella…?
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	WITCH: “No, I wouldn’t kill any ‘fella’. Your jokes are quite insulting”
 
-- It would weigh on your conscience if you killed me… #4
+- This isn’t right.
+	MC: It would weigh on your conscience if you killed me…
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
 	WITCH: “Kill you? I’m wounded, why would a doctor kill someone?”
 
-- I’ll tear apart your medical degree! #1
+- Take something hostage
+	MC: I’ll tear apart your medical degree!
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
 	join WITCH (happy) center
 	WITCH: “Haha! How sweet of you to think I have one”
 	join WITCH (default) center
+[b]{reaction_3}[/b]
 
-FAIL
+if {outcome} == fail:
+	WITCH: “This appointment has been nothing but a waste of time.”
+	[i]She takes out a skull and rattles it, the sound of crunching plastic and hard candy thunk around enticingly[/i]
+	WITCH: “You won’t be receiving a treat. Not now, not after.”
+	WITCH: “Was your visit here just to pester me? Have you no respect for my position?”
+	WITCH: “Leave this house”
+	
+	[i]You leave empty handed. Unharmed, but with a sense of emptiness[/i]
 
-WITCH: “This appointment has been nothing but a waste of time.”
-[i]She takes out a skull and rattles it, the sound of crunching plastic and hard candy thunk around enticingly[/i]
-WITCH: “You won’t be receiving a treat. Not now, not after. Was your visit here just to pester me? Have you no respect for my position? Leave this house”
-
-[i]You leave empty handed. Unharmed, but with a sense of emptiness[/i]
-
-SUCCESS 
-
-[i]She approaches you with the bonesaw[/i]
-
-MC: “P-please! I’m too young to die!”
-
-WITCH: “For goodness sake, why would you die? I am trying to reward you.”
-
-join WITCH (happy) center
-
-[i]She takes out a skull and slices its crown off with the bonesaw[/i] 
-WITCH: “I think you’re deserving of having your candy early. Now, what seems to be the matter? You came to a doctor for a real reason, correct?”
-
-MC: “No… I just wanted to trick or treat..”
-
-[i]She hums with amusement[/i]
-
-WITCH: “I find you peculiar. Please, take this”
-
-join WITCH (default)
-
-[i]From the cauldron comes a writhing mass of ooze, which solidifies and transforms into a black cat[/i]
-WITCH: “My familiar. I’d like to watch your actions within this neighborhood. May she serve you well”
-
+elif {outcome}== "success":
+	[i]She approaches you with the bonesaw[/i]
+	
+	MC: “P-please! I’m too young to die!”
+	
+	WITCH: “For goodness sake, why would you die? I am trying to reward you.”
+	
+	join WITCH (happy) center
+	
+	[i]She takes out a skull and slices its crown off with the bonesaw[/i] 
+	WITCH: “I think you’re deserving of having your candy early. Now, what seems to be the matter? You came to a doctor for a real reason, correct?”
+	
+	MC: “No… I just wanted to trick or treat..”
+	
+	[i]She hums with amusement[/i]
+	
+	WITCH: “I find you peculiar. Please, take this”
+	
+	join WITCH (default) center
+	
+	[i]From the cauldron comes a writhing mass of ooze, which solidifies and transforms into a black cat[/i]
+	WITCH: “My familiar. I’d like to watch your actions within this neighborhood. May she serve you well”
+else:
+	did not fail nor succeed
 
 [signal arg="next_house"]

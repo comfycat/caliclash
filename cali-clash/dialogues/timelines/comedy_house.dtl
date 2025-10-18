@@ -1,6 +1,7 @@
 [style name="VisualNovelDialogueStyle"]
 [background arg="res://assets/backgrounds/vamp BG.png" fade="0.0"]
-audio music "res://assets/music/VN music.wav"
+# #audio music "res://assets/music/VN music.wav"
+
 [i]You walk up to the gothic looking house, the faint sound of heavy metal gets louder as you approach the door[/i]
 [i]You notice the same musical riff being played, stopped, grunts of frustration, and the riff being repeated once again but changed slightly[/i]
 [i]There is bat shaped doorbell hanging on the wall[/i]
@@ -10,7 +11,6 @@ audio "res://assets/sfx/Vampire Doorbell.wav"
 
 MC: “...Trick or trea-”
 join VAMPIRE (default) center
-
 
 VAMPIRE: “Who DARES interrupt me in the middle of rehearsal”
 VAMPIRE: “I already told you journalists, you cannot rush an album’s PERFECTION”
@@ -36,108 +36,117 @@ VAMPIRE: “And you haven’t even seen my final form”
 
 [signal arg="battle_ui"]
 
-# #Battle Start
-# #Round 1
-audio music "res://assets/music/Vampire Organ Perfect Loop.wav"
+# #ROUND 1
 VAMPIRE: “So what say you, Temporary Child of the night? Purple felted skinner of Opossums and devourer of candy?”
-
-- Uh… well I know Beethoven didn’t use electric guitars. #4
+- (Play wise guy)
+	MC: Uh… well I know Beethoven didn’t use electric guitars.
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
 	VAMPIRE: “And only a FOOL would think he wouldn’t hesitate to use one if given the chance.”
-
-- Idk, It’s pretty bad if even a NORMIE can hear a problem… #1
-	set {choice_id} = "B"
-	[signal arg="choice_made"]
-	join  center
-	VAMPIRE: “HAH, the NERVE you have, child. You certainly know how to use it”
-	join  center
-
-- Well, I like your music. #3
-	set {choice_id} = "C"
-	[signal arg="choice_made"]
-	VAMPIRE: “Yes, everyone does. It’s good to see that the youth still have taste but you don't have the ear to critique, child”
-
-- I think it’s time to retire, old man. Your ears are probably beyond expired. Just give me the candy and call it a night. #2
-	set {choice_id} = "D"
-	[signal arg="choice_made"]
-	VAMPIRE: “HAH, the youth nowadays are very demanding it seems. I would be mad if it weren’t so amusing”
-
-# #Round 2
-VAMPIRE: "Consider yourself lucky, for I shall grant you a privilege no other has ever received… THE PRIVILEGE OF GIVING ADVICE FOR MY SONG!"
-audio music "res://assets/music/Vampire Metal Perfect Loop.wav"
-
-- Sampling an amen break could do well for your track. #3
-	set {choice_id} = "A"
-	[signal arg="choice_made"]
-	VAMPIRE: "Do you REALIZE how many songs use an amen break? Do you see me as that COMMON? No… this album will be revolutionary…"
-
-- Start sampling poop from a butt, old man. #2
-	set {choice_id} = "B"
-	[signal arg="choice_made"]
-	VAMPIRE: "You’ve also noticed the rise of strange sounding music too?! Perhaps I could be the one to truly pave the way…"
-
-- You don’t have more musically inclined friends to ask? #4
-	set {choice_id} = "C"
-	[signal arg="choice_made"]
-	VAMPIRE: "AND LISTEN TO THEIR SAME OLD DRIVEL? I find you close-minded, child.""
-
-- I’m sure you could sample your screaming after I kick your shins in. #1
-set {choice_id} = "D"
-[signal arg="choice_made"]
-join VAMPIRE (happy) center
-VAMPIRE: "HAH! Experimental I see! Perhaps I’ve underestimated your musical talent, child"
-join VAMPIRE (default) center
-
-# #Round 3
-VAMPIRE: "AH! NO! I’ve revealed too much about what I’ve been doing… You’d reveal my secrets to the press… no… this cannot happen… I CANNOT LET YOU LEAVE THIS HOUSE ALIVE!"
-
-[i]Bats fly overhead as he says this, it feels incredibly scripted[/i]
-
-- What is the press even going to glean from this conversation? #3
-	set {choice_id} = "A"
-	[signal arg="choice_made"]
-	V: "HAVE YOU SEEN THEM?! They get into everything… like rats… It’s obvious you’ve never tasted fame before, child"
-
-- Like you can even catch me. You’re like a billion years old, I’d snap your ankles. #1
+- Ngl, if even I can tell…
+	MC: Idk, It’s pretty bad if even a NORMIE can hear a problem…
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	join VAMPIRE (happy) center
-	V: "HAH, I like your spunk! This is the sort of attitude the world of music needs in its future"
+	VAMPIRE: “HAH, the NERVE you have, child. You certainly know how to use it”
 	join VAMPIRE (default) center
-
-
-- Killing me would ruin your image. #4
+- Well, I like your music.
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-	V: "HAH! I am a VAMPIRE! What kind of nonsense are you spewing?"
+	VAMPIRE: “Yes, everyone does. It’s good to see that the youth still have taste but you don't have the ear to critique, child”
+- I think it’s time to retire, old man.
+	MC: Your ears are probably beyond expired. Just give me the candy and call it a night.
+	set {choice_id} = "D”
+	[signal arg="choice_made"]
+	join VAMPIRE (happy) center
+VAMPIRE: “HAH, the youth nowadays are very demanding it seems. I would be mad if it weren’t so amusing”
 
-- Why don’t you just kill the journalists instead? #2
+[b]{reaction_1}[/b]
+
+# #ROUND 2
+VAMPIRE: “Consider yourself lucky, for I shall grant you a privilege no other has ever received… THE PRIVILEGE OF GIVING ADVICE FOR MY SONG!”
+- Suggest something trendy
+	MC: Sampling an amen break could do well for your track.
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+	VAMPIRE: “Do you REALIZE how many songs use an amen break? Do you see me as that COMMON? No… this album will be revolutionary…”
+- Pfft, (raigbait)
+	Start sampling poop from a butt, old man.
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+	VAMPIRE: “You’ve also noticed the rise of strange sounding music too?! Perhaps I could be the one to truly pave the way…”
+- I'm not your guy
+	You don’t have more musically inclined friends to ask?
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+	VAMPIRE: “AND LISTEN TO THEIR SAME OLD DRIVEL? I find you close-minded, child.”
+- Hmph, this geezer...
+	I’m sure you could sample your screaming after I kick your shins in.
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
-	V: "WHO ELSE WOULD SPREAD MY WONDERFUL MUSIC?! Well, I mean, of course I have fans… you may have a point…"
+	join VAMPIRE (happy) center
+	VAMPIRE: “HAH! Experimental I see! Perhaps I’ve underestimated your musical talent, child”
+	join VAMPIRE (default) center
+
+[b]{reaction_2}[/b]
+
+# #Round 3
+VAMPIRE: “AH! NO! I’ve revealed too much about what I’ve been doing… You’d reveal my secrets to the press… no… this cannot happen… I CANNOT LET YOU LEAVE THIS HOUSE ALIVE!”
+[i]Bats fly overhead as he says this, it feels incredibly scripted[/i]
+- Wha-?
+	What is the press even going to glean from this conversation?
+	set {choice_id} = "A"
+	[signal arg="choice_made"]
+	V: “HAVE YOU SEEN THEM?! They get into everything… like rats… It’s obvious you’ve never tasted fame before, child?”
+- Like you can even catch me.
+	MC: You’re like a billion years old, I’d snap your ankles.
+	set {choice_id} = "B"
+	[signal arg="choice_made"]
+	join VAMPIRE (happy) center
+	V: “HAH, I like your spunk! This is the sort of attitude the world of music needs in its future”
+	join VAMPIRE (default) center
+- Killing me would ruin your image
+	set {choice_id} = "C"
+	[signal arg="choice_made"]
+	V: “HAH! I am a VAMPIRE! What kind of nonsense are you spewing?”
+- How about them journalists…
+	MC: Why don’t you just kill the journalists instead?
+	set {choice_id} = "D"
+	[signal arg="choice_made"]
+	join VAMPIRE (happy) center
+	V: “WHO ELSE WOULD SPREAD MY WONDERFUL MUSIC?! Well, I mean, of course I have fans… you may have a point…”
+	join VAMPIRE (default) center
+[b]{reaction_3}[/b]
 
 # #Fail
-[i]He scoffs and looks at you disapprovingly[/i]
+if {outcome} == "fail":
+	[i]He scoffs and looks at you disapprovingly[/i]
+	
+	VAMPIRE: “Foolish on my end to entrust an unqualified child with giving me inspiration. No, if I were to suck your blood, I’d SURELY contract your awful opinions on music. BEGONE!”
+	
+	[i]He wraps his cloak around his body as if preparing to disappear into the night, but he just stands awkwardly, pretending as if he’s invisible. [/i]
+	
+	[i]You make the first move and step out of his abode, unsure of what just went down[/i]
 
-VAMPIRE: “Foolish on my end to entrust an unqualified child with giving me inspiration. No, if I were to suck your blood, I’d SURELY contract your awful opinions on music. BEGONE!”
-
-[i]He wraps his cloak around his body as if preparing to disappear into the night, but he just stands awkwardly, pretending as if he’s invisible. You make the first move and step out of his abode, unsure of what just went down[/i]
-
-# Success
-VAMPIRE: “Could you really be a reincarnated composer?! HAHA! NOT! No one could DARE ever dream of holding their titles, but you surprise me in many ways, child. Be grateful that the THOUGHT of you becoming my protege even crossed my mind! BUT I WILL GIVE YOU MY NEXT BEST THING!”
-
-[i]He snaps his fingers and a tabby cat appears from behind him, it greets you lovingly[/i]
-
-VAMPIRE: “This creature of the night has listened through the creative process of many songs. I graciously bestow this upon you, TAKE IT! And you shall overcome anything!”
-
-[i]You look down at the feline, it just purrs incessantly[/i]
-
-VAMPIRE: “AND A FAREWELL GIFT!”
-
-[i]A bag of candy hits your face[/i]
-
-VAMPIRE: “DO NOT THANK ME FOR MY GENEROSITY! Thank me for when my future album graces your ears…”
+elif {outcome} == "success":
+	# Success
+	VAMPIRE: “Could you really be a reincarnated composer?! HAHA! NOT! No one could DARE ever dream of holding their titles, but you surprise me in many ways, child.
+	join VAMPIRE (happy) center
+	VAMPIRE: Be grateful that the THOUGHT of you becoming my protege even crossed my mind! BUT I WILL GIVE YOU MY NEXT BEST THING!”
+	
+	[i]He snaps his fingers and a tabby cat appears from behind him, it greets you lovingly[/i]
+	
+	VAMPIRE: “This creature of the night has listened through the creative process of many songs. I graciously bestow this upon you, TAKE IT! And you shall overcome anything!”
+	
+	[i]You look down at the feline, it just purrs incessantly[/i]
+	
+	VAMPIRE: “AND A FAREWELL GIFT!”
+	
+	[i]A bag of candy hits your face[/i]
+	
+	VAMPIRE: “DO NOT THANK ME FOR MY GENEROSITY! Thank me for when my future album graces your ears…”
+else:
+	[b]Did not fail/nor succeed[/b]
 
 
 

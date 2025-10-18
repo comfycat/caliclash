@@ -1,6 +1,6 @@
 [style name="VisualNovelDialogueStyle"]
 
-audio music "res://assets/music/VN music.wav"
+# #audio music "res://assets/music/VN music.wav"
 
 [background arg="res://assets/backgrounds/mummy BG.png" fade="2.0"]
 
@@ -8,12 +8,13 @@ audio music "res://assets/music/VN music.wav"
 [i]It seems welcoming but you are still off put by your previous encounters[/i]
 [i]You slowly make your way up the steps and ring the bright shiny doorbell on the wall[/i]
 audio "res://assets/sfx/Mummy Doorbell.wav"
-*Ring Ding*
+
+*Ring a Ling Ding*
 [i]The door opens and a gust of warm air hits your face[/i]
 
 MC: “Mommy?... Sorry mummy?”
 
-join MUMMY center
+join MUMMY (default) center
 
 [i]In front of you standing tall is a Mummy, the linen around her head pulled up with… hair curlers?[/i]
 [i]Next to her a bassinet, its center so dark you feel drawn into it[/i]
@@ -32,24 +33,24 @@ MC: (I knew I picked the wrong dialogue option)
 
 MUMMY: “And I am the one who usually asks the questions”
 
-join MUMMY center
+join MUMMY (happy) center
 
 MUMMY: “I would usually make you pass my trials but you are just so adorable in that little outfit”
 MUMMY: “My son is very fond of costumes like these”
 MUMMY: “An Eternal Pharaoh but he will always be my little baby”
 
-join MUMMY center
+join MUMMY (default) center
 
 [i]You stare back at the bassinet, its gloomy aura softening, becoming more regal and inviting[/i]
 
 MC: “Does he like trick or treating?”
 
-join MUMMY center
+join MUMMY (happy) center
 
 MUMMY: “Oh he loves it! I love dressing him up like his father Tutankhamen”
 MUMMY: “We have finished for the night but he is not old enough for candy and I do not eat it either”
 
-join MUMMY center
+join MUMMY (default) center
 
 MUMMY: “Would you be happening to want some?”
 
@@ -59,108 +60,105 @@ MUMMY: “Of course silly blue hedgehog”
 MUMMY: “However, do not expect it to come on a silver plate”
 MUMMY: “I may not be a Sphinx but I think their games are just oh-so fun”
 MUMMY: “So please show me why you deserve all this candy”
+audio music "res://assets/music/Mummy Perfect Loop.wav"
 
 [signal arg="battle_ui"]
 
 # #START BATTLE
 # #ROUND 1
-audio music "res://assets/music/Mummy Perfect Loop.wav"
 MUMMY: “I would ask you for a riddle but I am sure you already know which one I am asking for. Please give me the answer”
-- A Human #1
+- A Human
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
-	join  center
+	join MUMMY (happy) center
 	MUMMY: “Well done little one, very well done”
-	join  center
-
-- The Night and the Day #3
+	join MUMMY (default) center
+- The Night and the Day
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	MUMMY: “Not quite but almost there silly”
-
-- I don’t know what riddle you’re talking about I’m sorry #2
+- To be honest,... :(
+	MC: I don’t know what riddle you’re talking about I’m sorry
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
 	MUMMY: “You poor little baby it’s alright”
-
-- Just give me the candy #4
+- Just give me the candy
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
 	MUMMY: “You’re not going to get anywhere like that”
-{reaction_1}
+[b]{reaction_1}[/b]
 
 # #ROUND 2
 MUMMY: “You are such a sweet little child, I am amazed you ended up on this street”
-- I don’t know how it happened #2
+- Secure help
+	MC: I don’t know how it happened
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
 	MUMMY: “It will be alright child, I will help you find your way home”
-
-- I’m just built different I guess #3
+- Built different
+	MC: I’m just built different I guess
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	MUMMY: “What do you mean by that?”
-
-- It’s been a lot but at least I get my candy #1
+- Tear up
+	MC: It’s been a lot but at least I get my candy
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-	join  center
+	join MUMMY (happy) center
 	MUMMY: “We will make sure you get lots of candy little one”
-	join  center
-
-- But I will make sure this street knows who runs it #4
+	join MUMMY (default) center
+- Thug it out
+	MC: But I will make sure this street knows who runs it
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
 	MUMMY: “Delusions are not to be played with child”
-{reaction_2}
+[b]{reaction_2}[/b]
 
 # #ROUND 3
 MUMMY: “Before I give you your reward I have one final question for you.”
 MUMMY: “What are you planning on doing with all this candy? I have been quite curious about this for a while now”
-- I was going to save it and have a little bit every day #2
+- Save it
+	MC: I was going to save it and have a little bit every day
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
 	MUMMY: “What a smart child you are!”
-
-- Eat it all at once!!! #3
+- Eat it all at once!!!
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	MUMMY: “If that is your wish so be it”
-
-- Share it with my friends when I get back home #1
+- Share it
+	MC: I will share it with my friends when I get back home
 	set {choice_id} = "C"
 	[signal arg="choice_made"]
-	join  center
+	join MUMMY (happy) center
 	MUMMY: “Your heart is so kind, your mother must be very proud”
-join  center
-
-
-- None of your business #4
+	join MUMMY (default) center
+- None of your business
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
 	MUMMY: “Then you don’t deserve it”
-{reaction_3}
-{reaction_end}
+[b]{reaction_3}[/b]
 
-# FAILURE
-[i]The Mummy looks sadly at you and shakes her head begrudgingly[/i]
+if {outcome} == "success":
+	[i]The Mummy looks sadly at you and shakes her head begrudgingly[/i]
+	
+	MUMMY: “You are quite a misbehaved child, so rude and gaudy”
+	MUMMY: “You will not be receiving any candy from me, hurry along now before the desert swallows you up”
+	[i]She looks at her bassinet as she says that last sentence, sending shivers down your spine[/i]
+	[i]You walk away slowly, looking back to see her standing[/i]
+	[i]Standing guard[/i]
+	[i]Protecting[/i]
 
-MUMMY: “You are quite a misbehaved child, so rude and gaudy”
-MUMMY: “You will not be receiving any candy from me, hurry along now before the desert swallows you up”
-
-[i]She looks at her bassinet as she says that last sentence, sending shivers down your spine[/i]
-[i]You walk away slowly, looking back to see her standing[/i]
-[i]Standing guard[/i]
-[i]Protecting[/i]
-
-# SUCCESS
-MUMMY: “Well done little one, you have proven yourself admirably”
-MUMMY: “You did such a good job, it would be nice to see you come by more often”
-
-[i]She hands you a large bag of candy and smiles[/i]
-
-MUMMY: “Hurry along now child before it gets too late, you must still have some houses to get to”
-
-[i]You walk away, now with two bags filled with candy, ready for more[/i]
+elif {outcome} == "success":
+	MUMMY: “Well done little one, you have proven yourself admirably”
+	MUMMY: “You did such a good job, it would be nice to see you come by more often”
+	
+	[i]She hands you a large bag of candy and smiles[/i]
+	
+	MUMMY: “Hurry along now child before it gets too late, you must still have some houses to get to”
+	
+	[i]You walk away, now with two bags filled with candy, ready for more[/i]
+else:
+	[b] did not fail nor succeed [/b]
 
 [signal arg="next_house"]

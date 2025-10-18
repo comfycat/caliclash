@@ -27,6 +27,7 @@ directories/dch_directory={
 "GRANNY": "res://dialogues/characters/GRANNY.dch",
 "MUMMY": "res://dialogues/characters/MUMMY.dch",
 "SCARECROW": "res://dialogues/characters/SCARECROW.dch",
+"THE_HOUSE": "res://dialogues/characters/THE_HOUSE.dch",
 "VAMPIRE": "res://dialogues/characters/VAMPIRE.dch",
 "WITCH": "res://dialogues/characters/WITCH.dch",
 "chocolate": "res://dialogues/characters/chocolate.dch",
@@ -54,6 +55,7 @@ layout/default_style="res://VisualNovelDialogueStyle.tres"
 glossary/default_case_sensitive=true
 variables={
 "choice_id": "",
+"outcome": "",
 "reaction_1": "",
 "reaction_2": "",
 "reaction_3": "",

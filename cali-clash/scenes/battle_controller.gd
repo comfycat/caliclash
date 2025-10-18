@@ -96,49 +96,35 @@ func _init_ui() -> void:
 # ============================== DIALOGIC EVENTS ==============================
 func _on_dialogic_signal(name: String) -> void:
 	match name:
-
 		"battle_ui":
-			# Show choice-time indicators
 			if force_all_sparkles:
-				_set_all_sparkles(true)		 # Tutorial → all shine
+				_set_all_sparkles(true)
 			else:
-				_refresh_sparkles_for_boosts()  # Normal → only boosted stats
-		"choice_made":
-			# Hide indicators while resolving the choice
-			_set_all_sparkles(false)
+				_refresh_sparkles_for_boosts()
 
+		"choice_made":
+			_set_all_sparkles(false)
 			var choice_id: String = String(Dialogic.VAR.get("choice_id"))
-			if choice_id == "": choice_id = "A"
 			_apply_choice(choice_id)
 
 		"return_menu":
-			Dialogic.end_timeline(true)
-			if dialog_instance:
-				dialog_instance.queue_free()
-				dialog_instance = null
-			await get_tree().process_frame
-			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
-		"battle_done":
-			_set_all_sparkles(false)
-			_finalize_battle_and_exit()
+			_end_dialog_and_change_scene("res://scenes/main_menu.tscn")
 
 		"return_map":
-			Dialogic.end_timeline(true)
-			if dialog_instance:
-				dialog_instance.queue_free()
-				dialog_instance = null
-			await get_tree().process_frame
-			get_tree().change_scene_to_file("res://scenes/neighborhood.tscn")
+			_end_dialog_and_change_scene("res://scenes/neighborhood.tscn")
 
-		"ending":
-			Dialogic.end_timeline(true)
-			if dialog_instance:
-				dialog_instance.queue_free()
-				dialog_instance = null
+		# Removed: "battle_done" (unused)
+		# Removed: "ending" (redundant)
 
-			await get_tree().process_frame
-			_finalize_battle_and_exit()
+			
+func _end_dialog_and_change_scene(path: String) -> void:
+	Dialogic.end_timeline(true)
+	if dialog_instance:
+		dialog_instance.queue_free()
+		dialog_instance = null
+	await get_tree().process_frame
+	get_tree().change_scene_to_file(path)
+
 
 # ============================== ROUND/SCORING ==============================
 func _apply_choice(choice_id: String) -> void:
@@ -166,6 +152,13 @@ func _apply_choice(choice_id: String) -> void:
 		Dialogic.VAR.set("round_num", round_num)
 
 func _finalize_battle_and_exit() -> void:
+	if round_num >= rounds:
+		if persuasion >= threshold:
+			Dialogic.VAR.set("outcome", "success")
+		else:
+			Dialogic.VAR.set("outcome", "fail")
+		Dialogic.emit_signal("signal_event", "battle_outcome")
+
 	var result := GameManager.finalize_battle(persuasion)
 	candy_label.text = str(GameManager.candy)
 	print("Candy +%d (Total: %d)" % [int(result.candy_gain), GameManager.candy])
@@ -196,10 +189,10 @@ func _calculate_gain(choice_id: String, round_i: int) -> int:
 
 func _rank_to_value(rank: int) -> int:
 	match rank:
-		4: return 40
-		3: return 30
-		2: return 20
-		1: return 10
+		4: return 30
+		3: return 20
+		2: return 10
+		1: return 0
 		_: return 0
 
 func _choice_to_tag(choice_id: String) -> String:
@@ -209,9 +202,6 @@ func _choice_to_tag(choice_id: String) -> String:
 		"C": return "Friendliness"
 		"D": return "Intimidation"
 		_:   return ""
-
-# ============================== ENDINGS ==============================
-
 # ============================== SPARKLES (BOOST INDICATORS) ==============================
 func _cache_sparkle_nodes() -> void:
 	sparkle_nodes.clear()
