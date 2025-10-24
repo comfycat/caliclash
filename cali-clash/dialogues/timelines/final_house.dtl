@@ -37,9 +37,9 @@ audio "res://assets/sfx/MHouse Knock 3.wav"
 
 Then an elderly woman’s.
 
-[I}A hundred cacophonous voices laugh from all around you and in your head at the same time[/i]
+[i]A hundred cacophonous voices laugh from all around you and in your head at the same time[/i]
 
-THE_HOUSE: THE_HOUSE\: “They say not to visit the house at the end of Dark Wood. “
+THE_HOUSE: "They say not to visit the house at the end of Dark Wood."
 
 THE_HOUSE: “Tell us, why would such a small morsel as yourself approach this Old One?”
  THE_HOUSE: “Do you wish to join our choir?”
@@ -205,7 +205,7 @@ THE_HOUSE: “We grow impatient, make your final plea”
 	THE_HOUSE: “So it seems. We best not make enemies with our neighbors, lest we find ourselves ostracized and needing to move into your main neighborhood… Hahaha…”
 
 - (Make empty convictions)
-	You should be the one pleading #3
+	You should be the one pleading
 	set {choice_id} = "D"
 	[signal arg="choice_made"]
 	THE_HOUSE: “Have we not already? Has this whole exchange not been our plea for your soul? And in return your plea for us to spare you?”
@@ -255,6 +255,5 @@ elif {outcome}== “fail:
 	[i]It takes a second for your frozen limbs to respond, for your brain to register this beration, but you turn and run[/i]
 else:
 	you did not fail nor succeed
-
-
+	
 [signal arg="ending"]

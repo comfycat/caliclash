@@ -124,7 +124,7 @@ What is your last resort?
 	join WITCH (default) center
 [b]{reaction_3}[/b]
 
-if {outcome} == fail:
+if {outcome} == "fail":
 	WITCH: “This appointment has been nothing but a waste of time.”
 	[i]She takes out a skull and rattles it, the sound of crunching plastic and hard candy thunk around enticingly[/i]
 	WITCH: “You won’t be receiving a treat. Not now, not after.”

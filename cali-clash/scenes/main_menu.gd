@@ -18,16 +18,13 @@ var dialog_instance: Node = null
 
 
 func _ready() -> void:
-	# Quick visibility & input sanity checks
 	print("MainMenu ready. hasTree=", get_tree() != null)
 	print_tree_pretty()
 
-	# Wire main buttons
 	_wire_btn(start_btn, _on_start_button_pressed, "StartButton")
 	_wire_btn(options_btn, _on_options_button_pressed, "OptionsButton")
 	_wire_btn(credits_btn, _on_credits_button_pressed, "CreditsButton")
 
-	# Wire house launchers
 	_wire_btn(start_tutorial_btn, _on_tutorial_button_pressed, "TutorialButton")
 	_wire_btn(start_comedy_btn, _on_comedy_button_pressed, "ComedyButton")
 	_wire_btn(start_knowledge_btn, _on_knowledge_button_pressed, "KnowledgeButton")
@@ -50,8 +47,6 @@ func _ready() -> void:
 	credits.visible = false
 
 
-
-	# Quick visibility & input sanity checks
 	print("MainMenu ready. hasTree=", get_tree() != null)
 	print_tree_pretty()
 

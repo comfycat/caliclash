@@ -1,7 +1,6 @@
 #res://scenes/neighborhood.gd
 extends Node2D
 
-# map house IDs to paths under Sprite2D Neighborhood
 const HOUSE_PATHS := {
 #	"tutorial_house": "Neighborhood/TutorialHouse",
 	"intimidation_house": "Neighborhood/WitchHouse",
@@ -35,11 +34,8 @@ func _on_house_hover(house_id: String, entered: bool) -> void:
 
 
 func _start_battle_for(house_id: String) -> void:
-	# prevent replaying non-final cleared houses
 	if house_id != "final_house" and house_id in GameManager.houses_cleared:
 		return
-
-	# prevent entering final_house unless unlocked
 	if house_id == "final_house" and not GameManager.unlocked_final_house:
 		print("Final house locked!")
 		return
@@ -52,9 +48,7 @@ func _apply_cleared_and_gatekeeping() -> void:
 	for house_id in houses.keys():
 		var area: Area2D = houses[house_id]
 		var is_final : bool = house_id == "final_house"
-		# lock final house unless unlocked
 		if is_final:
 			area.input_pickable = GameManager.unlocked_final_house
 			continue
-		# disable cleared houses
 		area.input_pickable = house_id not in GameManager.houses_cleared

@@ -33,6 +33,7 @@ VAMPIRE: “I watched the world burn and bandage itself back together as music w
 VAMPIRE: “And you haven’t even seen my final form”
 
 [i]He takes a deep breath, one he doesn’t need to take, but he lives for the drama[/i]
+audio music "res://assets/music/Vampire Metal Perfect Loop.wav"
 
 [signal arg="battle_ui"]
 
@@ -56,7 +57,7 @@ VAMPIRE: “So what say you, Temporary Child of the night? Purple felted skinner
 	VAMPIRE: “Yes, everyone does. It’s good to see that the youth still have taste but you don't have the ear to critique, child”
 - I think it’s time to retire, old man.
 	MC: Your ears are probably beyond expired. Just give me the candy and call it a night.
-	set {choice_id} = "D”
+	set {choice_id} = "D"
 	[signal arg="choice_made"]
 	join VAMPIRE (happy) center
 VAMPIRE: “HAH, the youth nowadays are very demanding it seems. I would be mad if it weren’t so amusing”

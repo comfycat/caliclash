@@ -5,7 +5,7 @@ var dialog_instance: Node = null
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	var tl := GameManager.get_ending_timeline()  # "end_good" | "end_ok" | "end_bad"
+	var tl := GameManager.get_ending_timeline()
 
 	if dialog_instance:
 		dialog_instance.queue_free()

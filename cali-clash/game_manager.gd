@@ -8,11 +8,10 @@ var recruited_friends: Array[String] = []
 var houses_cleared: Array[String] = []
 var unlocked_final_house := false
 
-#  current battle
-var current_battle_data: Dictionary = {}   # filled by start_battle()
+var current_battle_data: Dictionary = {}
 
-const GOOD_THRESHOLD := 100
-const OKAY_THRESHOLD := 70
+const GOOD_THRESHOLD := 400
+const OKAY_THRESHOLD := 300
 
 # ---------- Dialogic ----------
 
@@ -23,7 +22,7 @@ func _ready() -> void:
 		Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func get_ending_timeline() -> String:
-	var e := get_ending()  # "good" | "okay" | "bad"
+	var e := get_ending()
 	match e:
 		"good": return "end_good"
 		"okay": return "end_ok"
@@ -31,7 +30,6 @@ func get_ending_timeline() -> String:
 
 func _on_dialogic_signal(name: String) -> void:
 	match name:
-		#from intro -> tutorial battle
 		"start_tutorial":
 			start_battle("tutorial_house")
 			Dialogic.end_timeline(true)
@@ -71,22 +69,6 @@ func get_next_house() -> String:
 	if i + 1 < HOUSE_ORDER.size():
 		return HOUSE_ORDER[i + 1]
 	return ""
-
-		#"ending_return_menu":
-			#Dialogic.end_timeline(true)
-			#if dialog_instance:
-				#dialog_instance.queue_free()
-				#dialog_instance = null
-			#reset_for_new_run() 
-			#get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-#
-		#"ending_return_map":
-			#Dialogic.end_timeline(true)
-			#if dialog_instance:
-				#dialog_instance.queue_free()
-				#dialog_instance = null
-			#get_tree().change_scene_to_file("res://scenes/neighborhood.tscn")
-
 # ---------- Config loaded per battle ----------
 var house_id: String = ""
 var rounds: int = 3
@@ -100,7 +82,6 @@ var timeline: String = "House_Default"
 var persuasion: int = 0
 var round_num: int = 1
 
-# Special behavior
 var force_all_sparkles: bool = false	
 var _simulated_friend_added: bool = false   
 
@@ -111,11 +92,9 @@ const SPARKLE_MAP := {
 	"pink-sparkles":   "Friendliness",
 	"blue-sparkles":   "Intimidation",
 }
-var sparkle_nodes: Dictionary = {}   # stat -> Node
+var sparkle_nodes: Dictionary = {}
 
 # ============================== READY ==============================
-
-# Friend library: boosts by tag
 var FRIEND_LIBRARY := {
 	# tutorial
 	"tuxedo_cat": {
@@ -155,7 +134,6 @@ var HOUSES := {
 		"friend_reward": "tuxedo_cat",
 		"no_boosts": false
 	},
-	# mummy/knowledge, sphinx_cat
 	"knowledge_house": {
 		"timeline": "knowledge_house",
 		"rounds": 3,
@@ -164,29 +142,26 @@ var HOUSES := {
 		"friend_reward": "sphinx_cat",
 		"no_boosts": false
 	},
-	# witches/intimidation, black_cat
 	"intimidation_house": {
 		"timeline": "intimidation_house",
 		"rounds": 3,
-		"threshold": 80,
+		"threshold": 75,
 		"candy_per_100": 45,
 		"friend_reward": "black_cat",
 		"no_boosts": false
 	},
-	# scarecrow/friendliness , black_crow
 	"friendliness_house": {
 		"timeline": "friendliness_house",
 		"rounds": 3,
-		"threshold": 65,
+		"threshold": 75,
 		"candy_per_100": 25,
 		"friend_reward": "black_crow",
 		"no_boosts": false
 	},
-	# vampire/comedy , tabby_cat
 	"comedy_house": {
 		"timeline": "comedy_house",
 		"rounds": 3,
-		"threshold": 80,
+		"threshold": 75,
 		"candy_per_100": 45,
 		"friend_reward": "tabby_cat",
 		"no_boosts": false
@@ -194,7 +169,7 @@ var HOUSES := {
 	"final_house": {
 		"timeline": "final_house",
 		"rounds": 5,
-		"threshold": 50,
+		"threshold": 50,     
 		"candy_per_100": 50,
 		"friend_reward": "",
 		"no_boosts": true
@@ -218,7 +193,7 @@ var dialogue_rankings_by_house := {
 	},
 	"friendliness_house": {
 		1: {"A": 2, "B": 4, "C": 3, "D": 1},
-		2: {"A": 1, "B": 3, "C": 4, "D": 1},
+		2: {"A": 2, "B": 3, "C": 4, "D": 1},
 		3: {"A": 1, "B": 3, "C": 4, "D": 2},
 	},
 	"intimidation_house": {
@@ -250,7 +225,6 @@ func start_battle(house_id: String) -> void:
 	if cfg == null:
 		push_error("Unknown house_id: %s" % house_id)
 		return
-#pass into battle scene
 	current_battle_data = {
 		"house_id": house_id,
 		"timeline": String(cfg.timeline),
@@ -261,18 +235,41 @@ func start_battle(house_id: String) -> void:
 		"no_boosts": bool(cfg.no_boosts),
 	}
 
+func get_house_index(house_id: String) -> int:
+	var i := HOUSE_ORDER.find(house_id)
+	return max(i, 0)
+
+func compute_candy_gain(house_id: String, persuasion_total: int) -> int:
+	var cfg = HOUSES.get(house_id, {})
+	if cfg.is_empty():
+		return 0
+
+	var rounds := int(cfg.get("rounds", 1))
+	var threshold := int(cfg.get("threshold", 100))
+	var candy_per_100 := float(cfg.get("candy_per_100", 10))
+
+	var house_index := get_house_index(house_id)
+	var effective_reward := candy_per_100 * (1.0 + 0.05 * house_index)
+
+	var candy_gain := rounds * threshold * (effective_reward / 100.0)
+
+	candy_gain *= clamp(persuasion_total / float(threshold), 0.5, 1.25)
+
+	return int(round(candy_gain))
+
+
 func finalize_battle(persuasion_total: int) -> Dictionary:
-	#Converts persuasion to candy, Recruits friend if threshold met,
-	#Marks house cleared, Unlocks final house, -> returns a summary.
 	var cfg := current_battle_data
-	var house_id := String(cfg.get("house_id",""))
-	var candy_gain := int(round(persuasion_total * int(cfg.candy_per_100) / 100.0))
+	var house_id := String(cfg.get("house_id", ""))
+
+	var candy_gain := compute_candy_gain(house_id, persuasion_total)
 	candy += candy_gain
 
-	var success := persuasion_total >= int(cfg.threshold)
+	var success := persuasion_total >= int(cfg.get("threshold", 75))
 	var recruited := ""
+
 	if success:
-		var reward := String(cfg.get("friend_reward",""))
+		var reward := String(cfg.get("friend_reward", ""))
 		if reward != "":
 			recruit_friend(reward)
 			recruited = reward
@@ -286,6 +283,7 @@ func finalize_battle(persuasion_total: int) -> Dictionary:
 		"recruited_friend": recruited,
 		"total_candy": candy
 	}
+
 
 func register_house_cleared(house_id: String) -> void:
 	if house_id != "" and house_id not in houses_cleared:

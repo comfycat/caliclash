@@ -139,7 +139,7 @@ MUMMY: “What are you planning on doing with all this candy? I have been quite 
 	MUMMY: “Then you don’t deserve it”
 [b]{reaction_3}[/b]
 
-if {outcome} == "success":
+if {outcome} == "fail":
 	[i]The Mummy looks sadly at you and shakes her head begrudgingly[/i]
 	
 	MUMMY: “You are quite a misbehaved child, so rude and gaudy”

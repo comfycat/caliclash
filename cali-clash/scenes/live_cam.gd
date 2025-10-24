@@ -1,3 +1,4 @@
+#res://scenes/live_cam.gd
 extends Control
 
 const FRIEND_DISPLAY := {
