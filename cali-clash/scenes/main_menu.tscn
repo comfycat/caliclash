@@ -1,15 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://btt2fekwnu034"]
+[gd_scene load_steps=32 format=3 uid="uid://btt2fekwnu034"]
 
 [ext_resource type="Script" uid="uid://dfgm8d1446ybw" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bcq6vd7dbf7jj" path="res://assets/backgrounds/menu_background.png" id="2_flqon"]
 [ext_resource type="Texture2D" uid="uid://buqx1hwi4lrcv" path="res://assets/backgrounds/ui(pumpkins).png" id="3_flqon"]
 [ext_resource type="Texture2D" uid="uid://dji4ex8e2uta6" path="res://assets/backgrounds/glowy_effect.png" id="3_rcqid"]
-[ext_resource type="Texture2D" uid="uid://bmbwlsl0tajvl" path="res://assets/ui/main_menu/play_button (2).png" id="4_rcqid"]
-[ext_resource type="Texture2D" uid="uid://dlsip7b8iookv" path="res://assets/ui/main_menu/options_button (2).png" id="5_1ajci"]
+[ext_resource type="Texture2D" uid="uid://bjnipjkjou6mk" path="res://assets/ui/main_menu/play_button.png" id="5_7b55j"]
 [ext_resource type="AudioStream" uid="uid://chpdccrx0x1w2" path="res://assets/sfx/Select 1.wav" id="6_5pajh"]
-[ext_resource type="Texture2D" uid="uid://buawf4gpsadgn" path="res://assets/ui/main_menu/credits button.png" id="6_7b55j"]
 [ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="7_1ajci"]
+[ext_resource type="Texture2D" uid="uid://ugnrlkhmu5tr" path="res://assets/ui/main_menu/options_button.png" id="7_5pajh"]
 [ext_resource type="Script" uid="uid://c57qllls871j" path="res://scenes/audio_control.gd" id="7_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://bvsxpr5g6nkdt" path="res://assets/ui/main_menu/credits_button.png" id="8_j7ex8"]
 [ext_resource type="Script" uid="uid://8xk5n0kml2t0" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
 [ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
 [ext_resource type="Texture2D" uid="uid://dahukw83q8uad" path="res://assets/ui/main_menu/pause_tombstone_ui.webp" id="9_rcqid"]
@@ -41,8 +41,28 @@ corner_radius_bottom_left = 16
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7ex8"]
 texture = ExtResource("9_rcqid")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7b55j"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcqid"]
 texture = ExtResource("11_flqon")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gw5y6"]
+texture = ExtResource("11_flqon")
+modulate_color = Color(0.8980392, 0.87058824, 0.9019608, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svtp6"]
+texture = ExtResource("11_flqon")
+modulate_color = Color(0.8980392, 0.87058824, 0.9019608, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hstxw"]
+texture = ExtResource("11_flqon")
+modulate_color = Color(0.8980392, 0.87058824, 0.9019608, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8egab"]
+texture = ExtResource("11_flqon")
+modulate_color = Color(0.8980392, 0.87058824, 0.9019608, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1dfpl"]
+texture = ExtResource("11_flqon")
+modulate_color = Color(0.8992186, 0.8718691, 0.90361005, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_oa1go"]
 color = Color(1, 1, 1, 1)
@@ -53,9 +73,6 @@ bg_color = Color(1, 0.5254902, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8gd2"]
 texture = ExtResource("9_rcqid")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcqid"]
-texture = ExtResource("11_flqon")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -112,14 +129,14 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_5dd4i")
 [node name="StartButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
 unique_name_in_owner = true
 z_index = 10
-offset_left = 324.0
-offset_top = 478.0
-offset_right = 927.0
-offset_bottom = 802.0
+offset_left = 342.0
+offset_top = 516.0
+offset_right = 945.0
+offset_bottom = 840.0
 scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_normal = ExtResource("4_rcqid")
+texture_normal = ExtResource("5_7b55j")
 script = SubResource("GDScript_bqqt6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/StartButton"]
@@ -130,13 +147,13 @@ bus = &"SFX"
 unique_name_in_owner = true
 z_index = 10
 offset_left = 235.0
-offset_top = 771.0
+offset_top = 800.0
 offset_right = 1031.2499
-offset_bottom = 1060.0
+offset_bottom = 1089.0
 scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_normal = ExtResource("5_1ajci")
+texture_normal = ExtResource("7_5pajh")
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/OptionsButton"]
 stream = ExtResource("6_5pajh")
@@ -146,58 +163,54 @@ bus = &"SFX"
 unique_name_in_owner = true
 z_index = 10
 offset_left = 859.0
-offset_top = 725.0
+offset_top = 771.0
 offset_right = 1191.0
-offset_bottom = 1082.0
+offset_bottom = 1128.0
 scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_normal = ExtResource("6_7b55j")
+texture_normal = ExtResource("8_j7ex8")
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/CreditsButton"]
 stream = ExtResource("6_5pajh")
 bus = &"SFX"
 
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+offset_left = 75.0
+offset_top = 68.0
+offset_right = 1318.0
+offset_bottom = 293.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.4392157, 0.30980393, 0.043137256, 1)
+theme_override_colors/font_outline_color = Color(0.8627451, 0.6313726, 0.105882354, 1)
+theme_override_constants/line_spacing = -32
+theme_override_constants/shadow_offset_x = 16
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 32
+theme_override_fonts/font = ExtResource("7_1ajci")
+theme_override_font_sizes/font_size = 100
+text = "TRICK or TREAT"
+horizontal_alignment = 1
+
 [node name="Shadow" type="Label" parent="."]
 layout_mode = 1
-offset_left = 103.0
-offset_top = 154.0
-offset_right = 1103.0
-offset_bottom = 429.0
-theme_override_colors/font_color = Color(0.4392157, 0.30980393, 0.043137256, 1)
+offset_left = 306.0
+offset_top = 270.0
+offset_right = 945.0
+offset_bottom = 414.0
+theme_override_colors/font_color = Color(0.8784314, 0.63529414, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.4392157, 0.30980393, 0.043137256, 1)
 theme_override_constants/line_spacing = -32
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("7_1ajci")
-theme_override_font_sizes/font_size = 100
-text = "Caliclash Game"
-horizontal_alignment = 1
-
-[node name="Shadow2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 102.0
-offset_top = 157.0
-offset_right = 1102.0
-offset_bottom = 432.0
-theme_override_colors/font_color = Color(0.627451, 0.44705883, 0.078431375, 1)
-theme_override_constants/line_spacing = -32
-theme_override_fonts/font = ExtResource("7_1ajci")
-theme_override_font_sizes/font_size = 100
-text = "Caliclash Game"
-horizontal_alignment = 1
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 98.0
-offset_top = 160.0
-offset_right = 1098.0
-offset_bottom = 435.0
-theme_override_colors/font_color = Color(0.87717575, 0.6366402, 0.07846785, 1)
-theme_override_constants/line_spacing = -32
-theme_override_fonts/font = ExtResource("7_1ajci")
-theme_override_font_sizes/font_size = 100
-text = "Caliclash Game"
+theme_override_font_sizes/font_size = 48
+text = "DARKWOOD AVE"
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 1528.0
 offset_top = 691.0
@@ -316,6 +329,9 @@ offset_top = 39.0
 offset_right = 93.0
 offset_bottom = 206.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.44313726, 0.43529412, 0.40784314, 1)
+theme_override_colors/font_outline_color = Color(0.34509805, 0.34509805, 0.30588236, 1)
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 36
 text = "Options
@@ -323,6 +339,7 @@ text = "Options
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="Options"]
+z_index = 999
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -334,9 +351,19 @@ offset_top = -100.0
 offset_right = 270.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.41960785, 0.41568628, 0.4117647, 1)
+theme_override_colors/font_outline_color = Color(0.29803923, 0.30588236, 0.29411766, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxTexture_7b55j")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rcqid")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gw5y6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_svtp6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hstxw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8egab")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_1dfpl")
 text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
@@ -358,6 +385,8 @@ alignment = 1
 [node name="FullScreenControl" type="CheckButton" parent="Options/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.34509805, 0.34509805, 0.30588236, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("8_rcqid")
 theme_override_font_sizes/font_size = 35
 text = "Fullscreen"
@@ -365,6 +394,8 @@ script = ExtResource("8_jk1qb")
 
 [node name="Master" type="Label" parent="Options/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.34509805, 0.34509805, 0.30588236, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("8_rcqid")
 theme_override_font_sizes/font_size = 36
 text = "Master"
@@ -382,6 +413,8 @@ audio_bus_name = "Master"
 
 [node name="Music" type="Label" parent="Options/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.34509805, 0.34509805, 0.30588236, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("8_rcqid")
 theme_override_font_sizes/font_size = 36
 text = "Music"
@@ -399,6 +432,8 @@ audio_bus_name = "Music"
 
 [node name="SFX" type="Label" parent="Options/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.34509805, 0.34509805, 0.30588236, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("8_rcqid")
 theme_override_font_sizes/font_size = 36
 text = "SFX"
@@ -447,6 +482,9 @@ offset_top = 33.0
 offset_right = 93.0
 offset_bottom = 174.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.41960785, 0.41568628, 0.4117647, 1)
+theme_override_colors/font_outline_color = Color(0.29803923, 0.30588236, 0.29411766, 1)
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 36
 text = "Credits"
@@ -459,13 +497,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -412.0
-offset_top = -237.5
-offset_right = 412.0
-offset_bottom = 256.5
+offset_left = -336.0
+offset_top = -232.0
+offset_right = 348.0
+offset_bottom = 262.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.29803923, 0.30588236, 0.29411766, 1)
 theme_override_constants/line_spacing = 1
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("8_rcqid")
 theme_override_font_sizes/font_size = 32
 text = "Made with <3 by
@@ -494,9 +534,19 @@ offset_top = -100.0
 offset_right = 270.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.41960785, 0.41568628, 0.4117647, 1)
+theme_override_colors/font_outline_color = Color(0.29803923, 0.30588236, 0.29411766, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("7_1ajci")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxTexture_rcqid")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gw5y6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_svtp6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hstxw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8egab")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_1dfpl")
 text = "Back"
 
 [node name="musicmenu" type="AudioStreamPlayer" parent="."]
