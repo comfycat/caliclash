@@ -1,8 +1,11 @@
 extends Control
 
-@onready var start_btn: TextureButton			   = %StartButton
-@onready var options_btn: TextureButton			 = %OptionsButton
-@onready var credits_btn: TextureButton			 = %CreditsButton
+@onready var start_btn: StaticBody2D			   = %StartButton
+@onready var options_btn: StaticBody2D			 = %OptionsButton
+@onready var credits_btn: StaticBody2D			 = %CreditsButton
+@onready var start_shape: CollisionShape2D			   = %StartShape
+@onready var options_shape: CollisionShape2D			 = %OptionsShape
+@onready var credits_shape: CollisionShape2D			 = %CreditsShape
 @onready var start_tutorial_btn: Button	  = %TutorialButton
 @onready var start_comedy_btn: Button		= %ComedyButton
 @onready var start_knowledge_btn: Button	 = %KnowledgeButton
@@ -21,9 +24,14 @@ func _ready() -> void:
 	print("MainMenu ready. hasTree=", get_tree() != null)
 	print_tree_pretty()
 
-	_wire_btn(start_btn, _on_start_button_pressed, "StartButton")
-	_wire_btn(options_btn, _on_options_button_pressed, "OptionsButton")
-	_wire_btn(credits_btn, _on_credits_button_pressed, "CreditsButton")
+	start_btn.input_event.connect(_on_start_button_input_event)
+	options_btn.input_event.connect(_on_options_button_input_event)
+	credits_btn.input_event.connect(_on_credits_button_input_event)
+
+	start_btn.input_event.connect(_on_start_button_input_event)
+	options_btn.input_event.connect(_on_options_button_input_event)
+	credits_btn.input_event.connect(_on_credits_button_input_event)
+
 
 	_wire_btn(start_tutorial_btn, _on_tutorial_button_pressed, "TutorialButton")
 	_wire_btn(start_comedy_btn, _on_comedy_button_pressed, "ComedyButton")
@@ -32,17 +40,16 @@ func _ready() -> void:
 	_wire_btn(start_intimidation_btn, _on_intimidation_button_pressed, "IntimidationButton")
 	_wire_btn(start_final_btn, _on_final_button_pressed, "FinalButton")
 	
+	start_btn.input_pickable = true
+	options_btn.input_pickable = true
+	credits_btn.input_pickable = true
+
+	start_shape.disabled = false
+	options_shape.disabled = false
+	credits_shape.disabled = false
+	
 	pumpkin_panel.visible =true
 	pumpkin_panel2.visible =false
-	
-	start_btn.disabled = false
-	options_btn.disabled = false
-	credits_btn.disabled = false
-	
-	start_btn.visible = true
-	options_btn.visible = true
-	credits_btn.visible = true
-	
 	options.visible = false
 	credits.visible = false
 
@@ -85,36 +92,55 @@ func _on_final_button_pressed() -> void:
 	GameManager.start_battle("final_house")
 	get_tree().change_scene_to_file("res://scenes/battle.tscn")
 	
-func _on_start_button_pressed() -> void:
-	music.stop()
-	if dialog_instance:
-		dialog_instance.queue_free()
-		dialog_instance = null
-	dialog_instance = Dialogic.start("introduction")
-	add_child(dialog_instance)
+#func _on_start_button_pressed() -> void:
 
-func _on_options_button_pressed() -> void:
-	pumpkin_panel2.visible = true
-	pumpkin_panel.visible=false
-	start_btn.visible = false
-	options_btn.visible = false
-	credits_btn.visible = false
-	
-	start_btn.disabled = true
-	options_btn.disabled = true
-	credits_btn.disabled = true
-	options.visible = true
-	print("options pressed")
-func _on_credits_button_pressed() -> void:
-	pumpkin_panel2.visible = true
-	pumpkin_panel.visible = false
-	start_btn.visible = false
-	options_btn.visible = false
-	credits_btn.visible = false
-	
-	start_btn.disabled = true
-	options_btn.disabled = true
-	credits_btn.disabled = true
-	credits.visible = true
+
+#func _on_options_button_pressed() -> void:
+
+#func _on_credits_button_pressed() -> void:
+
 func _on_back_button_pressed() -> void:
 	_ready()
+
+func _on_start_button_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		music.stop()
+		if dialog_instance:
+			dialog_instance.queue_free()
+			dialog_instance = null
+		dialog_instance = Dialogic.start("introduction")
+		add_child(dialog_instance)
+
+
+#func _on_start_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	
+
+
+func _on_options_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print("Options Clicked")	
+		pumpkin_panel2.visible = true
+		pumpkin_panel.visible=false
+		start_shape.disabled=false
+		options_shape.disabled = false
+		credits_shape.disabled = false
+	
+		start_shape.disabled = true
+		options_shape.disabled = true
+		credits_shape.disabled = true
+		options.visible = true
+
+
+func _on_credits_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print("Options Clicked")	
+		pumpkin_panel2.visible = true
+		pumpkin_panel.visible = false
+		start_shape.disabled = false
+		options_shape.disabled = false
+		credits_shape.disabled = false
+	
+		start_shape.disabled = true
+		options_shape.disabled = true
+		credits_shape.disabled = true
+		credits.visible = true

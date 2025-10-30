@@ -4,12 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bcq6vd7dbf7jj" path="res://assets/backgrounds/menu_background.png" id="2_flqon"]
 [ext_resource type="Texture2D" uid="uid://buqx1hwi4lrcv" path="res://assets/backgrounds/ui(pumpkins).png" id="3_flqon"]
 [ext_resource type="Texture2D" uid="uid://dji4ex8e2uta6" path="res://assets/backgrounds/glowy_effect.png" id="3_rcqid"]
-[ext_resource type="Texture2D" uid="uid://bjnipjkjou6mk" path="res://assets/ui/main_menu/play_button.png" id="5_7b55j"]
 [ext_resource type="AudioStream" uid="uid://chpdccrx0x1w2" path="res://assets/sfx/Select 1.wav" id="6_5pajh"]
 [ext_resource type="FontFile" uid="uid://bx6m1dq36lds0" path="res://assets/fonts/Elementary_Gothic_Bookhand.ttf" id="7_1ajci"]
-[ext_resource type="Texture2D" uid="uid://ugnrlkhmu5tr" path="res://assets/ui/main_menu/options_button.png" id="7_5pajh"]
 [ext_resource type="Script" uid="uid://c57qllls871j" path="res://scenes/audio_control.gd" id="7_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://bvsxpr5g6nkdt" path="res://assets/ui/main_menu/credits_button.png" id="8_j7ex8"]
 [ext_resource type="Script" uid="uid://8xk5n0kml2t0" path="res://scenes/full_screen_control.gd" id="8_jk1qb"]
 [ext_resource type="FontFile" uid="uid://c5ut45fm1ngxp" path="res://assets/fonts/Cardo-Regular.ttf" id="8_rcqid"]
 [ext_resource type="Texture2D" uid="uid://dahukw83q8uad" path="res://assets/ui/main_menu/pause_tombstone_ui.webp" id="9_rcqid"]
@@ -30,6 +27,15 @@ texture = ExtResource("3_flqon")
 modulate_color = Color(0.27672422, 0.23329225, 0.28442872, 1)
 
 [sub_resource type="GDScript" id="GDScript_bqqt6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flqon"]
+size = Vector2(568, 300.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcqid"]
+size = Vector2(786.00006, 269.33334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ajci"]
+size = Vector2(337.86456, 344.00018)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 bg_color = Color(1, 1, 1, 1)
@@ -81,6 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ekxnf")
 
 [node name="Background" type="Panel" parent="."]
@@ -90,6 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1ajci")
 
 [node name="GlowyEffect" type="Panel" parent="."]
@@ -126,54 +134,50 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5dd4i")
 
-[node name="StartButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
+[node name="Node2D" type="Node2D" parent="GlowyEffect/MainButtons"]
+
+[node name="StartButton" type="StaticBody2D" parent="GlowyEffect/MainButtons/Node2D"]
 unique_name_in_owner = true
 z_index = 10
-offset_left = 342.0
-offset_top = 516.0
-offset_right = 945.0
-offset_bottom = 840.0
 scale = Vector2(0.75, 0.75)
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("5_7b55j")
 script = SubResource("GDScript_bqqt6")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/StartButton"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/Node2D/StartButton"]
 stream = ExtResource("6_5pajh")
 bus = &"SFX"
 
-[node name="OptionsButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
+[node name="StartShape" type="CollisionShape2D" parent="GlowyEffect/MainButtons/Node2D/StartButton"]
+unique_name_in_owner = true
+position = Vector2(722.6667, 818.6666)
+shape = SubResource("RectangleShape2D_flqon")
+
+[node name="OptionsButton" type="StaticBody2D" parent="GlowyEffect/MainButtons/Node2D"]
 unique_name_in_owner = true
 z_index = 10
-offset_left = 235.0
-offset_top = 800.0
-offset_right = 1031.2499
-offset_bottom = 1089.0
 scale = Vector2(0.75, 0.75)
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("7_5pajh")
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/OptionsButton"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/Node2D/OptionsButton"]
 stream = ExtResource("6_5pajh")
 bus = &"SFX"
 
-[node name="CreditsButton" type="TextureButton" parent="GlowyEffect/MainButtons"]
+[node name="OptionsShape" type="CollisionShape2D" parent="GlowyEffect/MainButtons/Node2D/OptionsButton"]
+unique_name_in_owner = true
+position = Vector2(705.3333, 1185.3334)
+shape = SubResource("RectangleShape2D_rcqid")
+
+[node name="CreditsButton" type="StaticBody2D" parent="GlowyEffect/MainButtons/Node2D"]
 unique_name_in_owner = true
 z_index = 10
-offset_left = 859.0
-offset_top = 771.0
-offset_right = 1191.0
-offset_bottom = 1128.0
 scale = Vector2(0.75, 0.75)
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("8_j7ex8")
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/CreditsButton"]
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/Node2D/CreditsButton"]
 stream = ExtResource("6_5pajh")
 bus = &"SFX"
+
+[node name="CreditsShape" type="CollisionShape2D" parent="GlowyEffect/MainButtons/Node2D/CreditsButton"]
+unique_name_in_owner = true
+position = Vector2(1306.6667, 1137.3334)
+shape = SubResource("RectangleShape2D_1ajci")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -554,9 +558,9 @@ unique_name_in_owner = true
 stream = ExtResource("14_1ajci")
 autoplay = true
 
-[connection signal="pressed" from="GlowyEffect/MainButtons/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="GlowyEffect/MainButtons/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="GlowyEffect/MainButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="input_event" from="GlowyEffect/MainButtons/Node2D/StartButton" to="." method="_on_start_button_input_event"]
+[connection signal="input_event" from="GlowyEffect/MainButtons/Node2D/OptionsButton" to="." method="_on_options_button_input_event"]
+[connection signal="input_event" from="GlowyEffect/MainButtons/Node2D/CreditsButton" to="." method="_on_credits_button_input_event"]
 [connection signal="pressed" from="Control/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Control/ComedyButton" to="." method="_on_comedy_button_pressed"]
 [connection signal="pressed" from="Control/KnowledgeButton" to="." method="_on_knowledge_button_pressed"]
