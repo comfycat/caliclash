@@ -1,16 +1,36 @@
 [style name="VisualNovelDialogueStyle"]
 audio music "res://assets/music/VN music.wav"
+[background arg="res://assets/backgrounds/intro/intro-5.png" fade="2.0"]
+
 [i]Your basket is overflowing with candy, luckily you’re an expert at balancing and you have no fear of a single piece falling[/i]
-[i]The House’s charm rests warmly in your hand, its inhabitants swirling in a rhythmic pattern. You’re grateful for all of the help you’ve received and the bonds you forged upon your journey[/i]
-
+[i]The House’s charm rests warmly in your hand, its inhabitants swirling in a rhythmic pattern. [/i]
+[i]You’re grateful for all of the help you’ve received and the bonds you forged upon your journey[/i]
 MC: (It’s about time I came home.)
+[background arg="res://assets/backgrounds/endings/good-1.png" fade="2.0"]
 
-[i]You find yourself back where it all began, the woods connecting this street to the rest of the town. Looking back at the block, you wonder what you’ll tell your friends after this whole escapade[/i]
-[i]You have a hopeful thought that your old companions could get along well with your new ones, and perhaps in time, your monster buddies could reintegrate into society. That may take a long time though, but it’s a process you’re willing to facilitate[/i]
-[i]You smile and tie the charm around your wrist, stepping into the brush. You feel warm as a soft glow emanates from the bottle. The clawlike branches of the trees and shrubbery recede, almost as if they were making way for your path forward[/i]
+
+[i]You find yourself back where it all began, the woods connecting this street to the rest of the town. [/i]
+[i]Looking back at the block, you wonder what you’ll tell your friends after this whole escapade[/i]
+[i]You have a hopeful thought that your old companions could get along well with your new ones,[/i]
+[i]... and perhaps in time, your monster buddies could reintegrate into society.[/i]
+
+[i]That may take a long time though, but it’s a process you’re willing to facilitate[/i]
+[background arg="res://assets/backgrounds/endings/good-2.png" fade="2.0"]
+[i]You smile and tie the charm around your wrist, stepping into the brush. You feel warm as a soft glow emanates from the bottle. [/i]
+[i]The clawlike branches of the trees and shrubbery recede, almost as if they were making way for your path forward[/i]
 [i]After a peaceful walk, the light from the bottle blends in with the surrounding light of the main path[/i]
-[i]A familiar child talks to their parent—One of your friends! You rush over, happy to reunite with them. Your friend opens their mouth to scold you, but notices the mountain of candy in your basket[/i]
+[background arg="res://assets/backgrounds/endings/bad-4.png" fade="2.0"]
+[i]A familiar child talks to their parent—One of your friends! You rush over, happy to reunite with them. [/i]
+[background arg="res://assets/backgrounds/endings/bad-5.png" fade="2.0"]
+[i]Your friend opens their mouth to scold you, but notices the mountain of candy in your basket[/i]
+[background arg="res://assets/backgrounds/endings/ok-5.png" fade="2.0"]
 [i]They look at you incredulously before asking where you could’ve gone to get such a bounty. You give a wide smile and tell them that next time you’ll share the secret, with the rest of the friend group too[/i]
-[i]Your friend rolls their eyes and sarcastically remarks that you can just gatekeep the place if you want. Both of you agree that it’s getting quite late and that you’ll catch up properly another time, and the two of you part ways[/i]
+[background arg="res://assets/backgrounds/endings/ok-6.png" fade="2.0"]
+[i]Your friend rolls their eyes and sarcastically remarks that you can just gatekeep the place if you want.[/i]
+[background arg="res://assets/backgrounds/endings/ok-7.png" fade="2.0"]
+[i] Both of you agree that it’s getting quite late and that you’ll catch up properly another time, and the two of you part ways[/i]
+
+[background fade="2.0"]
+[background arg="res://assets/backgrounds/endings/good-3.png" fade="2.5"]
 [i]You find yourself fiddling with the charm on your wrist, and hope that next Halloween will be another one full of surprises[/i]
 [signal arg="return_menu"]

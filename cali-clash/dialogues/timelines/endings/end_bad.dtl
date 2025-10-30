@@ -5,12 +5,43 @@ audio music "res://assets/music/Bad Ending.wav"
 
 MC: (I can’t stay here any longer… I’m not welcome.)
 
-[i]You find yourself back where it all began, the woods connecting this street to the rest of the town. Looking back at the block, you wonder what you’ll tell your friends after this whole escapade[/i]
+[background arg="res://assets/backgrounds/endings/bad-1.png" fade="2.0"]
+
+
+[i]You find yourself back where it all began, the woods connecting this street to the rest of the town.[/i]
+
+[i]Looking back at the block, you wonder what you’ll tell your friends after this whole escapade[/i]
+
+[background arg="res://assets/backgrounds/endings/bad-2.png" fade="1.0"]
+
 [i]You think about lying, it’d be an embarrassment if you found creatures from another world only to mess up your only chance at befriending them[/i]
-[i]You take a deep breath and step into the brush, wetness clings to your costume. The journey back is longer than last time—strange branches claw and grip onto your fabric, almost like they’re tugging you backwards[/i]
-You find your last reserve of strength to push forward and make it to the warmth of light that is the main path[/i]
-[i]A familiar child talks to their parent—One of your friends! You rush over, happy to see a human face, only for them to yelp and scurry backwards from you. You ask what’s wrong, but only a gurgle escapes from your mouth[/i]
+[background arg="res://assets/backgrounds/endings/bad-3.png" fade="1.5"]
+
+[i]You take a deep breath and step into the brush, wetness clings to your costume. [/i]
+
+[background fade="1.0"]
+[i]The journey back is longer than last time—strange branches claw and grip onto your fabric, almost like they’re tugging you backwards[/i]
+
+[background arg="res://assets/backgrounds/endings/bad-4.png" fade="2.0"]
+[i]You find your last reserve of strength to push forward and make it to the warmth of light that is the main path[/i]
+
+[background arg="res://assets/backgrounds/endings/bad-5.png" fade="1.0"]
+[background arg="res://assets/backgrounds/endings/bad-6.png" fade="1.5"]
+
+[i]A familiar child talks to their parent—One of your friends! You rush over, happy to see a human face,[/i]
+[background arg="res://assets/backgrounds/endings/bad-7.png" fade="2.0"]
+[i]...only for them to yelp and scurry backwards from you. [/i]
+[background arg="res://assets/backgrounds/endings/bad-8.png" fade="2.0"]
+[i]You ask what’s wrong, but only a gurgle escapes from your mouth[/i]
+
+[background arg="res://assets/backgrounds/endings/bad-9.png" fade="2.0"]
 [i]Your blood runs cold and you quickly look down at your hands. A pair of gloves rest upon two tentacles, fingers limply swaying in the wind. You reach up to touch your face to find a slimy texture, wet and alien[/i]
+
+[background arg="res://assets/backgrounds/endings/bad-9.png" fade="2.5"]
+[background fade="2.0"]
+[background arg="res://assets/backgrounds/endings/bad-10.png" fade="2.5"]
+
 [i]You’re not welcome in this town[/i]
+
 
 [signal arg="return_menu"]

@@ -28,11 +28,6 @@ func _ready() -> void:
 	options_btn.input_event.connect(_on_options_button_input_event)
 	credits_btn.input_event.connect(_on_credits_button_input_event)
 
-	start_btn.input_event.connect(_on_start_button_input_event)
-	options_btn.input_event.connect(_on_options_button_input_event)
-	credits_btn.input_event.connect(_on_credits_button_input_event)
-
-
 	_wire_btn(start_tutorial_btn, _on_tutorial_button_pressed, "TutorialButton")
 	_wire_btn(start_comedy_btn, _on_comedy_button_pressed, "ComedyButton")
 	_wire_btn(start_knowledge_btn, _on_knowledge_button_pressed, "KnowledgeButton")
@@ -92,13 +87,6 @@ func _on_final_button_pressed() -> void:
 	GameManager.start_battle("final_house")
 	get_tree().change_scene_to_file("res://scenes/battle.tscn")
 	
-#func _on_start_button_pressed() -> void:
-
-
-#func _on_options_button_pressed() -> void:
-
-#func _on_credits_button_pressed() -> void:
-
 func _on_back_button_pressed() -> void:
 	_ready()
 
@@ -110,11 +98,6 @@ func _on_start_button_input_event(viewport, event, shape_idx):
 			dialog_instance = null
 		dialog_instance = Dialogic.start("introduction")
 		add_child(dialog_instance)
-
-
-#func _on_start_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	
-
 
 func _on_options_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
