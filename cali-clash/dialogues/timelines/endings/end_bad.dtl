@@ -44,5 +44,6 @@ MC: (I can’t stay here any longer… I’m not welcome.)
 [i]You’re not welcome in this town[/i]
 
 
-[background arg="res://assets/backgrounds/endings/bad_end.png"]
-#[signal arg="return_menu"]
+[background arg="res://assets/backgrounds/endings/bad_end.png" fade="0.0"]
+[wait time="4.0"]
+[signal arg="return_menu"]

@@ -39,4 +39,5 @@ MC: (How late is it…? I need to go home.)
 
 [i]At least you’ll be skipping school for the next couple of days[/i]
 [background arg="res://assets/backgrounds/endings/ok_end.png"]
-#[signal arg="return_menu"]
+[wait time="4.0"]
+[signal arg="return_menu"]
