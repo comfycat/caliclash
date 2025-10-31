@@ -164,7 +164,7 @@ THE_HOUSE: “Growing tired? Wouldn’t it be easier if you simply gave up?”
 	THE_HOUSE: “Then why do anything? The end result is always death. We simply speed up the process, better to die knowing you’re still loved”
 
 - (Nervous laughter)
-	Haha… why don’t you give up…? #1
+	Haha… why don’t you give up…?
 	set {choice_id} = "B"
 	[signal arg="choice_made"]
 	[i]The House erupts into laughter, the sound is practically deafening, and even when it stops the noise still rings in your ears[/i]
@@ -187,7 +187,7 @@ THE_HOUSE: “Growing tired? Wouldn’t it be easier if you simply gave up?”
 [i]The House’s claws tap rhythmically on the ground, the reverberations rumble throughout your spine[/i]
 THE_HOUSE: “We grow impatient, make your final plea”
 - (Wager your soul)
-	MC: We can both stand here until the end of time until one of us breaks #4
+	MC: We can both stand here until the end of time until one of us breaks 
 	set {choice_id} = "A"
 	[signal arg="choice_made"]
 	THE_HOUSE: “A gambit you would take? We would love to see your flesh waste away into nothingness. Would it only end once your bones finally turn to dust?”
@@ -255,5 +255,5 @@ elif {outcome}== "fail":
 	[i]It takes a second for your frozen limbs to respond, for your brain to register this beration, but you turn and run[/i]
 else:
 	you did not fail nor succeed
-	
+
 [signal arg="ending"]

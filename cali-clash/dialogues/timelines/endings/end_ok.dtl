@@ -38,4 +38,5 @@ MC: (How late is it…? I need to go home.)
 [background arg="res://assets/backgrounds/endings/ok-8.png" fade="2.5"]
 
 [i]At least you’ll be skipping school for the next couple of days[/i]
-[signal arg="return_menu"]
+[background arg="res://assets/backgrounds/endings/ok_end.png"]
+#[signal arg="return_menu"]

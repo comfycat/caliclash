@@ -142,7 +142,8 @@ z_index = 10
 scale = Vector2(0.75, 0.75)
 script = SubResource("GDScript_bqqt6")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/Node2D/StartButton"]
+[node name="StartSelectAudio" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/Node2D/StartButton"]
+unique_name_in_owner = true
 stream = ExtResource("6_5pajh")
 bus = &"SFX"
 
@@ -156,7 +157,8 @@ unique_name_in_owner = true
 z_index = 10
 scale = Vector2(0.75, 0.75)
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/Node2D/OptionsButton"]
+[node name="OptionsSelectAudio" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/Node2D/OptionsButton"]
+unique_name_in_owner = true
 stream = ExtResource("6_5pajh")
 bus = &"SFX"
 
@@ -170,7 +172,8 @@ unique_name_in_owner = true
 z_index = 10
 scale = Vector2(0.75, 0.75)
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/Node2D/CreditsButton"]
+[node name="CreditsSelectAudio" type="AudioStreamPlayer" parent="GlowyEffect/MainButtons/Node2D/CreditsButton"]
+unique_name_in_owner = true
 stream = ExtResource("6_5pajh")
 bus = &"SFX"
 
@@ -557,6 +560,7 @@ text = "Back"
 unique_name_in_owner = true
 stream = ExtResource("14_1ajci")
 autoplay = true
+bus = &"Music"
 
 [connection signal="input_event" from="GlowyEffect/MainButtons/Node2D/StartButton" to="." method="_on_start_button_input_event"]
 [connection signal="input_event" from="GlowyEffect/MainButtons/Node2D/OptionsButton" to="." method="_on_options_button_input_event"]

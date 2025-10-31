@@ -10,8 +10,8 @@ var unlocked_final_house := false
 
 var current_battle_data: Dictionary = {}
 
-const GOOD_THRESHOLD := 400
-const OKAY_THRESHOLD := 300
+const GOOD_THRESHOLD := 470
+const OKAY_THRESHOLD := 330
 
 # ---------- Dialogic ----------
 
@@ -240,23 +240,7 @@ func get_house_index(house_id: String) -> int:
 	return max(i, 0)
 
 func compute_candy_gain(house_id: String, persuasion_total: int) -> int:
-	var cfg = HOUSES.get(house_id, {})
-	if cfg.is_empty():
-		return 0
-
-	var rounds := int(cfg.get("rounds", 1))
-	var threshold := int(cfg.get("threshold", 100))
-	var candy_per_100 := float(cfg.get("candy_per_100", 10))
-
-	var house_index := get_house_index(house_id)
-	var effective_reward := candy_per_100 * (1.0 + 0.05 * house_index)
-
-	var candy_gain := rounds * threshold * (effective_reward / 100.0)
-
-	candy_gain *= clamp(persuasion_total / float(threshold), 0.5, 1.25)
-
-	return int(round(candy_gain))
-
+	return persuasion_total
 
 func finalize_battle(persuasion_total: int) -> Dictionary:
 	var cfg := current_battle_data
@@ -311,6 +295,7 @@ func get_total_boost(stat: String) -> float:
 	return total
 
 func get_ending() -> String:
+	
 	if candy >= GOOD_THRESHOLD: return "good"
 	if candy >= OKAY_THRESHOLD: return "okay"
 	return "bad"

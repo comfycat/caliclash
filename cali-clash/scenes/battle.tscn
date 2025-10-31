@@ -214,10 +214,10 @@ unique_name_in_owner = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -81.0
-offset_top = -1.0
-offset_right = -1.0
-offset_bottom = 168.0
+offset_left = -139.0
+offset_top = 51.0
+offset_right = -59.0
+offset_bottom = 220.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 60
 text = "0
@@ -327,10 +327,10 @@ texture = ExtResource("10_ekamt")
 
 [node name="InfoPanel" type="Panel" parent="UI/LiveCam"]
 layout_mode = 1
-offset_left = 66.99999
-offset_top = 52.999996
-offset_right = 995.5713
-offset_bottom = 493.0
+offset_left = 69.0
+offset_top = 57.0
+offset_right = 997.5713
+offset_bottom = 497.0
 scale = Vector2(0.35, 0.35)
 
 [node name="Label" type="Label" parent="UI/LiveCam/InfoPanel"]

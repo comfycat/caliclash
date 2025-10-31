@@ -17,6 +17,11 @@ extends Control
 @onready var options: Panel = $Options
 @onready var credits: Panel = $Credits
 @onready var music: AudioStreamPlayer = $musicmenu
+@onready var start_select_sfx: AudioStreamPlayer = $GlowyEffect/MainButtons/Node2D/StartButton/StartSelectAudio
+@onready var options_select_sfx: AudioStreamPlayer = $GlowyEffect/MainButtons/Node2D/OptionsButton/OptionsSelectAudio
+@onready var credits_select_sfx: AudioStreamPlayer = $GlowyEffect/MainButtons/Node2D/CreditsButton/CreditsSelectAudio
+
+
 var dialog_instance: Node = null
 
 
@@ -93,6 +98,7 @@ func _on_back_button_pressed() -> void:
 func _on_start_button_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		music.stop()
+		start_select_sfx.play()
 		if dialog_instance:
 			dialog_instance.queue_free()
 			dialog_instance = null
@@ -102,6 +108,7 @@ func _on_start_button_input_event(viewport, event, shape_idx):
 func _on_options_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("Options Clicked")	
+		options_select_sfx.play()
 		pumpkin_panel2.visible = true
 		pumpkin_panel.visible=false
 		start_shape.disabled=false
@@ -116,7 +123,9 @@ func _on_options_button_input_event(viewport: Node, event: InputEvent, shape_idx
 
 func _on_credits_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("Options Clicked")	
+		print("Credits Clicked")	
+		credits_select_sfx.play()
+
 		pumpkin_panel2.visible = true
 		pumpkin_panel.visible = false
 		start_shape.disabled = false
