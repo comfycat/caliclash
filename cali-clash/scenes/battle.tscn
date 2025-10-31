@@ -275,6 +275,7 @@ anchors_preset = 0
 script = ExtResource("5_66ngm")
 
 [node name="Sonic" type="TextureRect" parent="UI/LiveCam"]
+visible = false
 layout_mode = 1
 offset_left = 80.0
 offset_top = 79.0
@@ -285,6 +286,7 @@ texture = ExtResource("6_22uqi")
 expand_mode = 1
 
 [node name="TabbyCat" type="TextureRect" parent="UI/LiveCam"]
+visible = false
 layout_mode = 1
 offset_left = 84.00001
 offset_top = 87.0
@@ -294,6 +296,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("7_22uqi")
 
 [node name="BlackCrow" type="TextureRect" parent="UI/LiveCam"]
+visible = false
 layout_mode = 1
 offset_left = 79.00004
 offset_top = 95.99997
@@ -303,6 +306,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("8_6ni85")
 
 [node name="BlackCat" type="TextureRect" parent="UI/LiveCam"]
+visible = false
 layout_mode = 1
 offset_left = 73.0
 offset_top = 94.0
@@ -312,6 +316,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("9_vceff")
 
 [node name="SphinxCat" type="TextureRect" parent="UI/LiveCam"]
+visible = false
 layout_mode = 1
 offset_left = 63.000008
 offset_top = 112.0
@@ -321,11 +326,11 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("10_ekamt")
 
 [node name="InfoPanel" type="Panel" parent="UI/LiveCam"]
-layout_mode = 0
-offset_left = 134.0
-offset_top = 484.0
-offset_right = 1062.5713
-offset_bottom = 924.0
+layout_mode = 1
+offset_left = 66.99999
+offset_top = 52.999996
+offset_right = 995.5713
+offset_bottom = 493.0
 scale = Vector2(0.35, 0.35)
 
 [node name="Label" type="Label" parent="UI/LiveCam/InfoPanel"]

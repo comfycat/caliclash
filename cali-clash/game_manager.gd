@@ -169,10 +169,10 @@ var HOUSES := {
 	"final_house": {
 		"timeline": "final_house",
 		"rounds": 5,
-		"threshold": 50,     
-		"candy_per_100": 50,
+		"threshold": 70,     
+		"candy_per_100": 45,
 		"friend_reward": "",
-		"no_boosts": true
+		"no_boosts": false
 	}
 }
 

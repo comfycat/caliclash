@@ -16,7 +16,7 @@ var friend_nodes: Dictionary = {}
 
 func _ready() -> void:
 	_cache_friend_nodes()
-	_refresh_friends_visibility()
+	#_refresh_friends_visibility()
 	_update_bonus_text()
 	set_process(true)
 	
@@ -30,7 +30,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	_refresh_friends_visibility()
+	#_refresh_friends_visibility()
 	_update_bonus_text()
 
 
@@ -46,9 +46,9 @@ func _cache_friend_nodes() -> void:
 			push_warning("LiveCam: Missing TextureRect for '%s' (expected child named %s)" % [id_str, node_name])
 
 
-func _refresh_friends_visibility() -> void:
-	for id_str: String in friend_nodes.keys():
-		friend_nodes[id_str].visible = id_str in GameManager.recruited_friends
+#func _refresh_friends_visibility() -> void:
+	#for id_str: String in friend_nodes.keys():
+		#friend_nodes[id_str].visible = id_str in GameManager.recruited_friends
 
 
 func _update_bonus_text() -> void:

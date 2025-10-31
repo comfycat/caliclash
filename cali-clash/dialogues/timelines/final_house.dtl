@@ -249,7 +249,7 @@ if {outcome}== "success":
 	
 	MC: “Goodbye.”
 
-elif {outcome}== “fail:
+elif {outcome}== "fail":
 	THE_HOUSE: “You are pathetic. Even a crumb provides a meal for mice. You are the rotten grist which even the hungriest of animals would refuse to dine upon. You are unworthy of any gift bestowed upon you”
 	THE_HOUSE: “The fact that you even still stand is fate placing its bet on the wrong mortal. You’d best not return, for we shall recognize your scent and hunt you down. Do we make ourselves clear?”
 	[i]It takes a second for your frozen limbs to respond, for your brain to register this beration, but you turn and run[/i]

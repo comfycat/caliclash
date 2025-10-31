@@ -30,7 +30,9 @@ MC: (It’s about time I came home.)
 [background arg="res://assets/backgrounds/endings/ok-7.png" fade="2.0"]
 [i] Both of you agree that it’s getting quite late and that you’ll catch up properly another time, and the two of you part ways[/i]
 
+[i]You find yourself fiddling with the charm on your wrist, [/i]
+
 [background fade="2.0"]
-[background arg="res://assets/backgrounds/endings/good-3.png" fade="2.5"]
-[i]You find yourself fiddling with the charm on your wrist, and hope that next Halloween will be another one full of surprises[/i]
+[background arg="res://assets/backgrounds/endings/good-3.png" fade="1.0"]
+[i]and hope that next Halloween will be another one full of surprises[/i]
 [signal arg="return_menu"]
